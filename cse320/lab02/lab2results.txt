@@ -1,0 +1,36 @@
+
+1st C++ test:
+
+11.966 sec
+
+12.114 sec
+
+11.976 sec
+
+12.010 sec
+
+avg: 12.017 sec
+
+2nd c++ test (with O3 compilation):
+
+1.861 sec
+
+1.866 sec
+
+1.875 sec
+
+1.856 sec
+
+avg:  1.8645 sec
+
+C test:
+
+9.2804
+
+9.2804
+
+9.2804
+
+9.2804
+
+avg: 92804

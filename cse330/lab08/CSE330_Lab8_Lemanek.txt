@@ -1,0 +1,530 @@
+//Class: CSE 330
+// Term: Spring 2014
+// Instructor: George M. Georgiou
+// Name: Seth Lemanek
+// Lab 8
+// Title: bubble sort test
+
+#include<vector>
+#include<iostream>
+#include<algorithm>
+
+using namespace std;
+
+//selection sort
+int main()
+{
+cout << "Please print a number to test:\n";
+int n;
+cin >> n;
+vector<int> v (n);
+fill(v.begin(),v.begin()+n-1, 1);
+//bubble sort
+for (int i = n-1; i > 0; i--)
+    for (int j = 0; j < i; j++)
+        if (v[j] > v[j+1])
+            swap(v[j], v[j+1]);
+return 0;
+}
+//Class: CSE 330
+// Term: Spring 2014
+// Instructor: George M. Georgiou
+// Name: Seth Lemanek
+// Lab 8
+// Title: insertion sort test
+
+#include<vector>
+#include<iostream>
+#include<algorithm>
+
+using namespace std;
+
+int main()
+{
+cout << "Please print a number to test:\n";
+int n;
+cin >> n;
+vector<int> v (n);
+fill(v.begin(),v.begin()+n-1, 1);
+int j;
+int elem;
+//insertion sort
+for (int i = 1; i < n; i++)
+    for (elem = v[i], j = i-1; j >=0 and elem < v[j]; j--)
+        v[j+1] = v[j];
+    v[j+1] = elem;
+return 0;
+}
+
+//type script
+
+Script started on Mon 02 Jun 2014 11:05:33 AM PDT
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08##[?1034h[004470530@jb358-17 lab08]$ time./ssort
+bash: time./ssort: No such file or directory
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ cd cse##[K##[K##[K##[K##[K##[Ktiem ##[K##[K##[Km,e##[K##[Ke ./ssort
+Please print a number to test:
+1000
+
+real	0m4.647s
+user	0m0.025s
+sys	0m0.005s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssot##[Krt
+Please print a number to test:
+2000
+
+real	0m15.563s
+user	0m0.045s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort
+Please print a number to test:
+3000
+
+real	0m3.811s
+user	0m0.060s
+sys	0m0.005s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort#############[Ktime ./ssort
+Please print a number to test:
+4000
+
+real	0m3.761s
+user	0m0.079s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ timw##[Ke ./ssort
+Please print a number to test:
+5000
+
+real	0m10.069s
+user	0m0.113s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort
+Please print a number to test:
+6000
+
+real	0m3.820s
+user	0m0.143s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort#############[Ktime ./ssort
+Please print a number to test:
+7000
+
+real	0m5.838s
+user	0m0.181s
+sys	0m0.005s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ../ssort
+bash: ../ssort: No such file or directory
+
+real	0m0.003s
+user	0m0.000s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort
+Please print a number to test:
+8000
+
+real	0m5.044s
+user	0m0.230s
+sys	0m0.003s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort
+Please print a number to test:
+9000
+
+real	0m3.032s
+user	0m0.282s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort
+Please print a number to test:
+10000
+
+real	0m4.613s
+user	0m0.343s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+1000
+
+real	0m3.311s
+user	0m0.006s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+2000
+
+real	0m2.765s
+user	0m0.022s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bosrt
+bash: ./bosrt: No such file or directory
+
+real	0m0.001s
+user	0m0.000s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+3000
+
+real	0m4.599s
+user	0m0.040s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bosrt##[K##[K##[K##[Ksort
+Please print a number to test:
+4000
+
+real	0m2.685s
+user	0m0.062s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+5000
+
+real	0m6.437s
+user	0m0.085s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bosrt
+bash: ./bosrt: No such file or directory
+
+real	0m0.Script started on Mon 02 Jun 2014 11:05:33 AM PDT
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08##[?1034h[004470530@jb358-17 lab08]$ time./ssort
+bash: time./ssort: No such file or directory
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ cd cse##[K##[K##[K##[K##[K##[Ktiem ##[K##[K##[Km,e##[K##[Ke ./ssort
+Please print a number to test:
+1000
+
+real	0m4.647s
+user	0m0.025s
+sys	0m0.005s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssot##[Krt
+Please print a number to test:
+2000
+
+real	0m15.563s
+user	0m0.045s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort
+Please print a number to test:
+3000
+
+real	0m3.811s
+user	0m0.060s
+sys	0m0.005s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort#############[Ktime ./ssort
+Please print a number to test:
+4000
+
+real	0m3.761s
+user	0m0.079s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ timw##[Ke ./ssort
+Please print a number to test:
+5000
+
+real	0m10.069s
+user	0m0.113s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort
+Please print a number to test:
+6000
+
+real	0m3.820s
+user	0m0.143s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort#############[Ktime ./ssort
+Please print a number to test:
+7000
+
+real	0m5.838s
+user	0m0.181s
+sys	0m0.005s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ../ssort
+bash: ../ssort: No such file or directory
+
+real	0m0.003s
+user	0m0.000s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort
+Please print a number to test:
+8000
+
+real	0m5.044s
+user	0m0.230s
+sys	0m0.003s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort
+Please print a number to test:
+9000
+
+real	0m3.032s
+user	0m0.282s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ssort
+Please print a number to test:
+10000
+
+real	0m4.613s
+user	0m0.343s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+1000
+
+real	0m3.311s
+user	0m0.006s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+2000
+
+real	0m2.765s
+user	0m0.022s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bosrt
+bash: ./bosrt: No such file or directory
+
+real	0m0.001s
+user	0m0.000s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+3000
+
+real	0m4.599s
+user	0m0.040s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bosrt##[K##[K##[K##[Ksort
+Please print a number to test:
+4000
+
+real	0m2.685s
+user	0m0.062s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+5000
+
+real	0m6.437s
+user	0m0.085s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bosrt
+bash: ./bosrt: No such file or directory
+
+real	0m0.001s
+user	0m0.000s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+6000
+
+real	0m4.661s
+user	0m0.116s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+7000
+
+real	0m3.751s
+user	0m0.158s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+8000\# #
+
+real	0m4.521s
+user	0m0.210s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ 9000##[K##[K##[K##[Ktime ./bsort
+Please print a number to test:
+9000
+
+real	0m4.266s
+user	0m0.260s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+10000
+
+real	0m4.450s
+user	0m0.322s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ist##[Kort
+Please print a number to test:
+1000
+
+real	0m3.803s
+user	0m0.001s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./s##[Kisort
+Please print a number to test:
+2000
+
+real	0m5.546s
+user	0m0.001s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+3000
+
+real	0m3.153s
+user	0m0.000s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+4000
+
+real	0m2.553s
+user	0m0.001s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+5000
+
+real	0m3.320s
+user	0m0.001s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+6000
+
+real	0m5.847s
+user	0m0.002s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+7000
+
+real	0m1.769s
+user	0m0.001s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+8000
+
+real	0m2.881s
+user	0m0.002s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+9000
+
+real	0m2.432s
+user	0m0.001s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+10000
+
+real	0m2.601s
+user	0m0.002s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ exit
+exit
+
+Script done on Mon 02 Jun 2014 11:35:27 AM PDT001s
+user	0m0.000s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+6000
+
+real	0m4.661s
+user	0m0.116s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+7000
+
+real	0m3.751s
+user	0m0.158s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+8000\# #
+
+real	0m4.521s
+user	0m0.210s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ 9000##[K##[K##[K##[Ktime ./bsort
+Please print a number to test:
+9000
+
+real	0m4.266s
+user	0m0.260s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./bsort
+Please print a number to test:
+10000
+
+real	0m4.450s
+user	0m0.322s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./ist##[Kort
+Please print a number to test:
+1000
+
+real	0m3.803s
+user	0m0.001s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./s##[Kisort
+Please print a number to test:
+2000
+
+real	0m5.546s
+user	0m0.001s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+3000
+
+real	0m3.153s
+user	0m0.000s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+4000
+
+real	0m2.553s
+user	0m0.001s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+5000
+
+real	0m3.320s
+user	0m0.001s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+6000
+
+real	0m5.847s
+user	0m0.002s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+7000
+
+real	0m1.769s
+user	0m0.001s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+8000
+
+real	0m2.881s
+user	0m0.002s
+sys	0m0.000s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+9000
+
+real	0m2.432s
+user	0m0.001s
+sys	0m0.001s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ time ./isort
+Please print a number to test:
+10000
+
+real	0m2.601s
+user	0m0.002s
+sys	0m0.002s
+#]0;004470530@jb358-17:/students/csci/004470530/cse330/lab08#[004470530@jb358-17 lab08]$ exit
+exit
+
+Script done on Mon 02 Jun 2014 11:35:27 AM PDT
+

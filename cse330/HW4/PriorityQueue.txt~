@@ -1,0 +1,329 @@
+//Class: CSE330
+//Term: Spring 2014
+//Instructor: George M. Georgiou
+//Name: Seth Lemanek
+//Homework 4
+//Title: PriorityQueue.h & PriorityQueueMain.cpp and typescript
+
+// PriorityQueue.h
+#ifndef PRIORITYQUEUE_H
+#define PRIORITYQUEUE_H
+
+#include <vector>
+
+using namespace std;
+
+template <class T>
+void print_vector(const vector<T>&);
+
+template <class R>
+void swap1 (R& x, R& y)
+{
+	R temp = x;
+	x = y;
+	y = temp;
+}
+
+template <class T>
+class PriorityQueue
+{
+ public:
+
+  bool empty() {return heap.empty();}
+  int  size()  {return heap.size();}
+  T&   top()   {return heap[0];}
+
+  void push(T& newElement)
+  {
+    heap.push_back(newElement);
+    push_heap();
+  }
+  void pop()   {pop_heap();}
+  void print_tree_aux(int pos, int level) const;
+  void print_tree() {print_tree_aux(0,0);}
+
+ private:
+
+  void push_heap();
+  void pop_heap();
+  void adjust_heap();
+
+  vector<T> heap;
+};
+
+
+template <class T>
+void PriorityQueue<T>::push_heap()
+{ // push a value onto the priority queue
+  int position = heap.size() - 1;
+  int parent = (position - 1) / 2; // integer division
+
+  while (position > 0 && heap[position] > heap[parent])
+    { // bubble up value as far as is necessary
+      swap1(heap[position], heap[parent]);
+      position = parent;
+      parent = (position - 1) / 2;
+    }
+}
+
+template <class T>
+void PriorityQueue<T>::pop_heap()
+{ // remove root and adjust heap
+  int lastpos = heap.size() - 1;
+  swap1(heap[0],heap[lastpos]); //swap root with last position
+  heap.pop_back(); // remove last position
+  adjust_heap(); // call adjust_heap
+}
+
+template <class T>
+void PriorityQueue<T>::adjust_heap()
+{ // restructures heap as necessary
+  int position = 0; // position of root
+  int heapSize = heap.size();
+  while (position < heap.size())
+	{
+	  // position is within heap to adjust ..
+	  // get pos of left chld;
+	  int childpos = position * 2 + 1; // index of left child
+
+	  if (childpos < heapSize)
+	    {
+	      // there is a left child within heap to adjust;
+	      // is this the larger child? if there exists a right
+	      // child within the heap to adjust, and this right
+	      // child is larger, set childpos to the index of the
+	      // larger child; (otherwise, just keep index of left
+	      // child;
+	      if ((childpos + 1 < heapSize) &&
+            heap[childpos + 1] > heap[childpos])
+		  childpos++;
+
+	      // if value at position is larger than the
+	      // larger child, then the value is in its
+	      // proper place; done;
+	      if (heap[position] > heap[childpos])
+            return;
+	      else
+            swap(heap[position],heap[childpos]); // swap value with larger child;
+	    }
+	  position = childpos;
+	}
+}
+
+
+template <class T>
+void PriorityQueue<T>::print_tree_aux(int pos, int level) const
+{ // prints tree using dots to indicate level of value in the tree
+  if (heap.empty())
+    {
+      cout << "empty" << endl;
+      return;
+    }
+
+  // print level many dots followed by value at index pos;
+  for (int i = 1; i <= level; i++)
+    cout << ".";
+  cout << heap[pos] << endl;;
+
+  if (2 * pos + 1 >= heap.size())
+    return; // value at pos is a leaf;
+
+  print_tree_aux(2 * pos+ 1, level + 1); // print left subtree;
+
+  if (2 * pos + 2 < heap.size())
+    print_tree_aux(2 * pos + 2, level + 1); // print right subtree;
+}
+
+template <class T>
+void print_vector(const vector<T>& vec)
+{   // print contents of a vector
+	cout << endl;
+	for (int i = 0; i < vec.size(); i++)
+		cout << vec[i] << " ";
+	cout << endl << endl;
+}
+#endif
+
+//PriorityQueueMain.cpp
+#include <iostream>
+#include <vector>
+#include "PriorityQueue.h"
+#include <cstdlib>
+#include <time.h>
+
+using namespace std;
+
+template <class T>
+void random_vector(int size, int max, vector<T>& v)
+{
+  srand(time(0));
+  for(int i = 0; i< size; i++)
+  {
+    v.push_back(rand() % max+1); 
+   }
+}
+
+int main()
+{
+  PriorityQueue<int> myq;
+  vector<int> myinputs;
+  char response;
+  int value;
+  cout << "Enter values? (y/n)\n";
+  cin >> response;
+  if (response == 'y')
+  {// enter several values into myq;
+    cout << "Please enter the values \n";
+    cin >> value;
+    while (cin.good())
+    {
+	myinputs.push_back(value);
+	cin >> value;
+    }
+  }
+  else
+  {// enter size of vector to fill with random values
+  cout << endl;
+  cout << "How many values? ";
+  int k;
+  cin >> k;
+  random_vector(k,100,myinputs);
+  }
+  print_vector(myinputs);
+
+
+
+  for (int i = 0; i < myinputs.size(); i++)
+	  myq.push(myinputs[i]);
+
+  // print out the contents of myq;
+  // PriortyQueue has a function for this ...
+  myq.print_tree();
+
+  myq.pop();
+
+  cout << endl << endl;
+  myq.print_tree();
+
+  return 0;
+}
+
+Script started on Fri 06 Jun 2014 01:09:28 PM PDT
+]0;004470530@jb358-18:/students/csci/004470530/cse330/HW4[?1034h[004470530@jb358-18 HW4]$ g++ PriorityQueueMain.cpp
+]0;004470530@jb358-18:/students/csci/004470530/cse330/HW4[004470530@jb358-18 HW4]$ ./a.out
+Enter values? (y/n)
+n
+
+How many values? 5
+
+15 92 55 15 67 
+
+92
+.67
+..15
+..15
+.55
+
+
+67
+.15
+..15
+.55
+]0;004470530@jb358-18:/students/csci/004470530/cse330/HW4[004470530@jb358-18 HW4]$ ./a.out
+Enter values? (y/n)
+n
+
+How many values? 20
+
+73 32 75 40 64 22 47 21 14 51 53 69 54 60 3 84 93 14 45 68 
+
+93
+.84
+..75
+...64
+....21
+....32
+...45
+....14
+....14
+..68
+...53
+....40
+...51
+.73
+..69
+...22
+...54
+..60
+...47
+...3
+
+
+84
+.75
+..64
+...40
+....21
+....32
+...45
+....14
+....14
+..68
+...53
+...51
+.73
+..69
+...22
+...54
+..60
+...47
+...3
+]0;004470530@jb358-18:/students/csci/004470530/cse330/HW4[004470530@jb358-18 HW4]$ ./a.out
+Enter values? (y/n)
+y
+Please enter the values 
+12
+15
+100
+24
+19
+60
+112
+123
+18
+29
+78
+4
+n
+
+12 15 100 24 19 60 112 123 18 29 78 4 
+
+123
+.112
+..24
+...12
+...18
+..78
+...19
+...29
+.100
+..15
+...4
+..60
+
+
+112
+.78
+..24
+...12
+...18
+..29
+...19
+...4
+.100
+..15
+..60
+]0;004470530@jb358-18:/students/csci/004470530/cse330/HW4[004470530@jb358-18 HW4]$ exit
+exit
+
+Script done on Fri 06 Jun 2014 01:13:24 PM PDT

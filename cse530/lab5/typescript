@@ -1,0 +1,36 @@
+Script started on Sat 11 Nov 2017 06:20:56 PM PST
+]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/lab5$ gcc -o name gethostbyname.c
+]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/lab5$ ./name www.yahoo.com
+Official name: atsv2-fp.wg1.b.yahoo.com 
+Aliases 1: www.yahoo.com 
+Address type: AF_INET 
+IP addr 1: 206.190.39.42 
+IP addr 2: 98.138.252.38 
+IP addr 3: 206.190.39.43 
+IP addr 4: 98.138.252.39 
+]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/lab5$ gcc -o addr gethostbyaddr.c
+^[]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/lab5$ ./addr 20 6.190.39.42
+Official name: media-router-fp1.prod.media.vip.gq1.yahoo.com 
+Address type: AF_INET 
+IP addr 1: 206.190.39.42 
+]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/lab5$ ./addr 98 .138.252.38
+Official name: media-router-fp1.prod.media.vip.ne1.yahoo.com 
+Address type: AF_INET 
+IP addr 1: 98.138.252.38 
+]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/lab5$ ./addr 20 6.190.39.43
+Official name: media-router-fp2.prod.media.vip.gq1.yahoo.com 
+Address type: AF_INET 
+IP addr 1: 206.190.39.43 
+]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/lab5$ ./addr 98 .138.252.38
+Official name: media-router-fp1.prod.media.vip.ne1.yahoo.com 
+Address type: AF_INET 
+IP addr 1: 98.138.252.38 
+]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/lab5$ exit
+exit
+
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab5$ ./addr 98.138.252.39
+Official name: media-router-fp2.prod.media.vip.ne1.yahoo.com 
+Address type: AF_INET 
+IP addr 1: 98.138.252.39 
+
+Script done on Sat 11 Nov 2017 06:24:51 PM PST

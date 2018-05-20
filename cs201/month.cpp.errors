@@ -1,0 +1,3 @@
+month.cpp: In function ‘int main()’:
+month.cpp:24:2: error: expected ‘;’ before ‘int’
+month.cpp:25:9: error: ‘n’ was not declared in this scope

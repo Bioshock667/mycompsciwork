@@ -1,0 +1,14 @@
+13
+****************************************************
+CPU Time: 56
+Waiting Time: 0
+TurnaroundTime: 118
+I/OTime: 62
+Largest Stack Size: 0
+Page Faults: 2
+Hit Ratio: 33.3333%
+***************************************
+System Time: 84
+System CPU Utilization: 60.4839%
+User CPU Utilization: 76.6129%
+Throughput: 264266 processes per second.

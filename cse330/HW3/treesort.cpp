@@ -1,0 +1,58 @@
+//Class: CSE330
+//Term: Spring 2014
+//Instructor: George M. Georgiou
+//Name: Seth Lemanek
+//Homwwork 3
+//Title: TreeSort
+
+#include<vector>
+#include<set>
+#include<stdlib.h>
+#include<iostream>
+#include<time.h>
+
+using namespace std;
+
+template <class T>
+void treesort (vector<T> & v)
+{
+    multiset<T> s;
+    int i = 0;
+    typename vector<T>::iterator it;
+    for(it = v.begin(); it != v.end(); ++it)
+	s.insert(*it);//fill set with values from the vector
+    for(typename multiset<T>::iterator sit = s.begin(); sit != s.end(); ++sit)
+    {
+	v[i] = *sit;//return values to vector in order by the set
+	i++;
+    }
+}//treesort utilizes the set (multiset for simluar values) for its organizing structure to organize a vector of numbers
+void print (vector<int> v)//prints out data of a vector of integers
+{ 
+    for(int i = 0; i < v.size(); i++)
+	cout << v[i] << " ";
+    cout << endl;
+}
+int main()
+{
+    int size = 0;
+    cout << "Enter size of the vector. \n";
+    cin >> size;
+    vector<int> myvec (size);//create vector of size ten
+    srand(time(0));//create random seed
+
+    for(vector<int>::iterator it = myvec.begin(); it != myvec.end(); ++it)
+    {
+	*it = rand() % 21;//fill vector with random integers
+    }
+    print(myvec);
+    treesort(myvec);//use treesort to organize vector
+    print(myvec);
+    return 0;//end program with zero errors
+}
+
+
+//Problem 2: Complexity of the Set operation
+//As mentioned in the beginning of Chapter 12 of Data Structures in C++, the operations of a set can range from
+//O(log(n)) steps to in worst case O(n).  Balancing trees of the set is key to make trees tranversal take O(log(n))
+//steps.  But the act of balancing trees is more complex with O(n) steps.

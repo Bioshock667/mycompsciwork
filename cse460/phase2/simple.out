@@ -1,0 +1,10 @@
+****************************************************
+CPU Time: 14
+Waiting Time: 37
+TurnaroundTime: 51
+I/OTime: 0
+***************************************
+67 context switches and 32 ticks spent idle.
+System CPU Utilization: 97.5385%
+User CPU Utilization: 98.3846%
+Throughput: 3 processes per second.

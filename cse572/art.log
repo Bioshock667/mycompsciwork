@@ -1,0 +1,74 @@
+
+SQL*Loader: Release 11.2.0.1.0 - Production on Thu Jun 8 09:16:01 2017
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   sqlload/art.ctl
+Data File:      art.dat
+  Bad File:     sqlload/art.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table ARTWORK, loaded from every logical record.
+Insert option in effect for this table: APPEND
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+ART_ID                              FIRST     *   ,       CHARACTER            
+TITLE                                NEXT     *   ,       CHARACTER            
+DESCRIPTION                          NEXT     *   ,       CHARACTER            
+CURRENT_VALUE                        NEXT     *   ,       CHARACTER            
+MEDIUM                               NEXT     *   ,       CHARACTER            
+STORAGE_LOCATION                     NEXT     *   ,       CHARACTER            
+ARTIST                               NEXT     *   ,       CHARACTER            
+GENRE                                NEXT     *   ,       CHARACTER            
+METHOD_ACQUIRED                      NEXT     *   ,       CHARACTER            
+PERIOD                               NEXT     *   ,       CHARACTER            
+DATE_CREATED                         NEXT     *   ,       CHARACTER            
+DATE_OF_EXHIBITION                   NEXT     *   ,       CHARACTER            
+HEIGHT                               NEXT     *   ,       CHARACTER            
+WIDTH                                NEXT     *   ,       CHARACTER            
+DEPTH                                NEXT     *   ,       CHARACTER            
+DIM_UNITS                            NEXT     *   ,       CHARACTER            
+WEIGHT_VAL                           NEXT     *   ,       CHARACTER            
+WEIGHT_UNITS                         NEXT     *   ,       CHARACTER            
+COLLECTION_ID                        NEXT     *   ,       CHARACTER            
+DONOR_ID                             NEXT     *   ,       CHARACTER            
+DATE_DONATED                         NEXT     *   ,       CHARACTER            
+ACQUISITION_VALUE                    NEXT     *   ,       CHARACTER            
+SOURCE                               NEXT     *   ,       CHARACTER            
+
+value used for ROWS parameter changed from 64 to 43
+SQL*Loader-500: Unable to open file (art.dat)
+SQL*Loader-553: file not found
+SQL*Loader-509: System error: No such file or directory
+SQL*Loader-2026: the load was aborted because SQL Loader cannot continue.
+
+Table ARTWORK:
+  0 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 255162 bytes(43 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:             0
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Thu Jun 08 09:16:01 2017
+Run ended on Thu Jun 08 09:16:05 2017
+
+Elapsed time was:     00:00:04.64
+CPU time was:         00:00:00.02

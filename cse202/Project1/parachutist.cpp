@@ -1,0 +1,245 @@
+/* CS202 Project
+   Programmer: Seth Lemanek
+   Description in text
+	Project 1: Parachuting Simulation
+   Algorithm
+	1.Class Parachutist draws a stickman falling w/ mutator to move it.
+	2.Class Plane draws a plane.
+	3.main function uses while loop until parachutist reaches ground.
+	...
+*/
+#include "ccc_win.h"
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+class Parachutist
+{
+ public:
+  Parachutist();
+
+  Parachutist(Point loc);
+
+  void display(bool i) const;
+
+  void move(int dx, int dy);
+  private:
+  Point location;
+};
+
+class Plane
+{
+ public:
+  Plane();
+  
+  Plane(Point lop);
+
+  void display() const;
+
+  void move(int dx, int dy);
+
+ private:
+  Point location;
+};
+
+// default; 
+
+Parachutist::Parachutist()
+{
+  location = Point(0,0);
+}
+
+// constructor of Chutist object at Point loc;
+
+Parachutist::Parachutist(Point loc)
+{
+  location = loc;
+ 
+}
+
+void Parachutist::display(bool i) const
+{
+ Circle c = Circle(location,10);
+ Point le = location;
+ le.move(-2,0);
+ Point re = location;
+ re.move(2,0);
+ Point lm = location;
+ lm.move(-2,-7);
+ Point rm = location;
+ rm.move(2,-7);
+ Point lside = location;
+ lside.move(-10,0);
+ Point rside = location;
+ rside.move(10,0);
+ Line mouth(lm,rm);
+ Point chest = location;
+ chest.move(0,-10);
+ Point bottom = location;
+ bottom.move(0,-20);
+ Point lhand = location;
+ lhand.move(-10,-9);
+ Point rhand = location;
+ rhand.move(10,-9);
+ Point lfoot = location;
+ lfoot.move(-5,-25);
+ Point rfoot = location;
+ rfoot.move(5,-25);
+ Line larm(lhand,chest);
+ Line rarm(chest, rhand);
+ Line lleg(lfoot,bottom);
+ Line rleg(bottom,rfoot);
+ Line body(chest,bottom);
+   Point lop = location;
+   lop.move(-12,12);
+   Point rop = location;
+   rop.move(12,12);
+   Point top = location;
+   top.move(0,20);
+   Line blp(lop,rop);
+   Line llp(lop,top);
+   Line rlp(top,rop);
+   Line ls(lop,lside);
+   Line rs(rside,rop);
+  cwin << c << le << re << mouth << larm << rarm << lleg << rleg << body;
+ if (i == true)
+ {
+   cwin << blp << llp << rlp << ls << rs;
+ }
+}//displays the chutist at the Point location.If i is negative the chute is closed. If i is positive, it is open.
+
+void Parachutist::move(int dx, int dy)
+{
+ location.move(dx,dy);
+}
+Plane::Plane()
+{
+
+  location = Point(0,0);
+}
+
+Plane::Plane(Point lop)
+{
+  
+  location = lop;
+}
+
+void Plane::display() const
+{
+  Point a = location;
+  a.move(-100, 0);
+  Point b = location;
+  b.move(100, 0);
+  Point c = location;
+  c.move(100, 50);
+  Point d = location;
+  d.move(95, 50);
+  Point e = location;
+  e.move(70, 35);
+  Point f = location;
+  f.move(-60, 35);
+  Point g = location;
+  g.move(-100, 5);
+  Line ab(a,b);
+  Line bc(b,c);
+  Line cd(c,d);
+  Line de(d,e);
+  Line ef(e,f);
+  Line fg(f,g);
+  cwin << ab << bc << cd << de << ef << fg;
+}
+
+void Plane::move(int dx, int dy)
+{
+  location.move(dx,dy);
+}
+
+int ccc_win_main()
+{  
+  int a = cwin.get_int("Enter height of plane");
+   int g = 32;
+   int v = 0;
+   int stp = cwin.get_int("Enter free fall time");
+   int xv = cwin.get_int("Enter speed of plane");
+   int drag = 20;
+   int prntint = 1;
+   int sec = 0;
+   int velocity = 0;
+   const int leftcoord = -(a+50)/2;
+   const int rightcoord = (a+50)/2;
+   const int ps = xv;
+   Line ground(Point(leftcoord,0),Point(rightcoord,0));
+   /*
+   cout << "Enter the plane's speed.\n";
+   cin >> xv;*/
+   Parachutist chut(Point((a+50)/2,a));
+   Plane plane(Point((a+50)/2,a));
+   chut.display(false);
+   plane.display();
+   
+   cwin.coord(-(a+50)/2, a+50, (a+50)/2, -20);
+
+   while (a > 0)//do until reach ground
+      {
+	   if(stp == 0)
+	    {
+		cwin << Message(Point(0,a), "Parachute has opened!");
+	    }
+	    if(stp <= 0) //parachute opens
+		{
+		v = v - 100;
+		  if (v < 17)
+		  {
+		  
+		   v = 17;
+	    	  }
+		}
+	   else//when parachute is not open
+	   {
+	   v = v + g;
+	   }
+	    a = a - v;
+            if (xv > drag)
+		xv-=drag;
+	    else 
+		xv = 0;
+	    if (stp > 0 && sec == prntint)
+	    {
+		chut.display(false);
+		sec = 0;
+	    }
+	    
+	    else if (stp <=0 && sec == prntint)
+	    {
+		chut.display(true);
+		sec = 0;
+	    }
+	    else if (sec != prntint)
+	    {
+		sec++;
+	    }
+	    chut.move(-xv,-v);
+	    plane.display();
+	    plane.move(-ps, 0);
+	    stp--;
+	    string number;
+	    ostringstream convert;
+	    convert << a;
+	    number = convert.str();
+            string alt = number + " ft";
+	    Message m = Message(Point(leftcoord,a), alt);
+	    velocity = sqrt(pow(xv,2) + pow(v,2));
+	    string number2;
+	    ostringstream convert2;
+	    convert2 << velocity;
+	    number2 = convert2.str();
+	    string vel = number2 + " ft/s";
+	    Message m2 = Message(Point(rightcoord-150,a), vel);
+	    cwin << m << m2;
+      }
+	return 0; // terminate program with zero errors.
+
+}

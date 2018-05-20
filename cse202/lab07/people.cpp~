@@ -1,0 +1,30 @@
+#include <string>
+
+class Person
+{
+public:
+Person(string a, string t, string e)
+{  
+   address = a;
+   telephone = t;
+   email = e;
+}
+string get_address()
+{  
+   return address;
+}
+string get_telephone()
+{
+   return telephone;
+}
+string get_email()
+{
+   return email;
+}
+private:
+string address;
+string telephone;
+string email;
+};
+
+class 

@@ -1,0 +1,14 @@
+ Name									  Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ DNAME									  NOT NULL VARCHAR2(15)
+ DNUMBER								  NOT NULL NUMBER(38)
+ MGRSSN 								  NOT NULL CHAR(9)
+ MGRSTARTDATE									   DATE
+
+DNAME		   DNUMBER MGRSSN    MGRSTARTD
+--------------- ---------- --------- ---------
+Operations		 2 123456789 01-JAN-05
+Research		 5 333445555 22-MAY-88
+Administration		 4 987654321 01-JAN-95
+Headquarters		 1 888665555 19-JUN-81
+

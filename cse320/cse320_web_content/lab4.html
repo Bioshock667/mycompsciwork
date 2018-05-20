@@ -1,0 +1,208 @@
+<html>
+    <head>
+	<title>Lab 4: Names and Scopes in C++</title>
+	<link type='text/css' rel='stylesheet' href='general.css'>
+    </head>
+    <body>
+	<a href=index.html>&#8635; back to index</a>
+	<h1>Lab 4: Names and Scopes in C++</h1>
+	<h3>Purpose</h3>
+	<p>This lab's purpose is to show how names and scopes work in C++.  This will be demonstrated with the compiling and testing of several C++ programs. These programs were downloaded and instructions followed off <a href=http://cse.csusb.edu/dick/cs320/lab/06.html>Richard Botting's assignment website</a>.</p>
+	<h2>Testing</h2>
+	<h3>simple.cpp</h3>
+	<textarea readonly rows=20 cols=100>
+#include <iostream>
+
+using namespace std;
+int i=1;
+main()
+{
+   cout << "i=" << i << endl;
+   i=2;
+   cout << "i=" << i << endl;
+
+   {//inner block
+	i=3;
+	cout <<"  i=" << i << endl;
+	   {//inner inner block
+		i=4;
+		cout <<"    i=" << i << endl;
+	   }//inner inner block
+	cout <<"  i=" << i << endl;
+   }//inner block
+
+   cout << "i=" << i << endl;
+}//end main()
+	</textarea>
+	<p>This program will test the scope of the redefinitions of integer "i".  It has a global scope defined as 2 and two more inner scopes.
+	<div class=output>
+	    <strong>Output:</strong>
+		<pre>
+i=1
+i=2
+  i=3
+    i=4
+  i=4
+i=4
+		</pre>
+	</div>
+	<p>It appears that i has been redefined in different scopes with later scopes overwriteing the original value of "i", defined in the global scope.</p>
+	<h3>tooSimple.cpp</h3>
+	<textarea readonly rows=20 cols=100>
+#include <iostream>
+using namespace std;
+int i=1;
+main()
+{
+   cout << "i=" << i << endl;
+   int j=2;
+   cout << "i=" << i << endl;
+   cout << "j=" << j << endl;
+
+   {//inner block
+	int k=3;
+	cout <<"  i=" << i << endl;
+	cout <<"  j=" << j << endl;
+	cout <<"  k=" << k << endl;
+   }//inner block
+
+   cout << "i=" << i << endl;
+   cout << "j=" << j << endl;
+}//end main()
+	</textarea>
+	<div class=output>
+	    <strong>Output:</strong>
+	    <pre>
+i=1
+i=1
+j=2
+  i=1
+  j=2
+  k=3
+i=1
+j=2
+	    </pre>
+	</div>
+	<p>Like the last one, but this time there are locally declared variables like "k".  Only blocks that the variable was declared in are able to call the variables and they can call global variables like i.  Otherwise, these local variables cannot be referred to outside of its scope.</p>
+	<h3>simple2.cpp</h3>
+	<textarea readonly rows=20 cols=100>
+#include <iostream>
+
+using namespace std;
+int i=1;
+main()
+{
+   cout << "i=" << i << endl;
+   int i=2;
+   cout << "i=" << i << endl;
+
+   {//inner block
+	int i=3;
+	cout <<"  i=" << i << endl;
+	cout <<"  i=" << i << endl;
+   }//inner block
+   cout << "i=" << i << endl;
+   {//inner block 2
+	int i=4;
+	cout <<"  i=" << i << endl;
+   }//inner block 2
+
+   cout << "i=" << i << endl;
+}//end main()
+	</textarea>
+	<div class=output>
+	    <strong>Output:</strong>
+	    <pre>
+i=1
+i=2
+  i=3
+  i=3
+i=2
+  i=4
+i=2
+	    </pre>
+	</div>
+	<p>Here we have a globally-scoped variable "i" that is defined globally to 2.  Then there are two locally-declared variables also named "i" that equals different values.  In the end, the global variable "i" still equals 2 after the other "i"s were declared.</p>
+	<h3>simpleScopes.cpp</h3>
+	<textarea readonly rows=20 cols=100>
+#include <iostream>
+
+using namespace std;
+int i=1;
+main()
+{
+   cout << "i=" << i << endl;
+   int i=2;
+   cout << "i=" << i << endl;
+
+   {//inner block
+	int i=3;
+	cout <<"  i=" << i << endl;
+	   {//inner inner block
+		int i=4;
+		cout <<"    i=" << i << endl;
+	   }//inner inner block
+	cout <<"  i=" << i << endl;
+   }//inner block
+
+   cout << "i=" << i << endl;
+}//end main()
+	</textarea>
+	<div class=output>
+	    <strong>Output:</strong>
+	    <pre>
+i=1
+i=2
+  i=3
+    i=4
+  i=3
+i=2
+	    </pre>
+	</div>
+	<p>This program also demonstrates variables of the same name but different scopes carrying different values.</p>
+	<h3>scopes.cpp</h3>
+	<textarea readonly rows=20 cols=100>
+
+#include <iostream>
+
+using namespace std;
+int i=1;
+void staticScoped(int x);
+#define dynamicScoped(x)	{ cout <<"dynamicScoped("<<x<<") i= "<< i<<endl; }
+main()
+{
+   cout << "Global i =" << i << endl;
+   int i=2;
+   cout << "Main i =" << i << endl;
+
+   {//inner block
+	int i=3;
+	cout <<"Inner i =" << i << endl;
+	staticScoped(1);
+	dynamicScoped(1);
+   }//inner block
+
+   cout << "Outer i=" << i << endl;
+   staticScoped(2);
+   dynamicScoped(2);
+}//end main()
+void staticScoped(int x){ cout <<"staticScoped("<<x<<") i= "<< i<<endl; }
+	</textarea>
+	<div class=output>
+	    <strong>Output:</strong>
+	    <pre>
+Global i =1
+Main i =2
+Inner i =3
+staticScoped(1) i= 1
+dynamicScoped(1) i= 3
+Outer i=2
+staticScoped(2) i= 1
+dynamicScoped(2) i= 2
+	    </pre>
+	</div>
+	<p>It appears that the same test is applied but a macro and a function are used to output different instances of i.  It appears that the macro function outputs the instance of i that it occurs in.  For the function called "staticScoped" the i is the gloabally declared instance of i.</p>
+	<h2>Conclusion</h2>
+	<p>How names and scopes work in C++ is very interesting.  A C++ program can indeed have variables of the same name and different values but they have to be of different scopes.  When "cout" is called on i, the program outputs the instance of i that exists in the same scope of it or else it outputs i's of a wider scope.  For example, a "cout" function in the same text block as a declaration of i will output the value of that i.  Since all C++ programs must be declared globally, since "staticlyScoped" has no instance of i inside it, it outputs the global i instead.  "dynamicScoped" however is a macro, so it works like a normal line of code for outputting i.</p>
+    </body>
+</html>

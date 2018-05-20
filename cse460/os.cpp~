@@ -1,0 +1,40 @@
+
+#include "VirtualMachine.h"
+#include "Assembler.h"
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    Assembler as;
+    VirtualMachine vm;
+    string filename;
+    string a = argv[2];
+    filename = argv[1];
+    string infile = filename;
+    filename.erase(filename.end()-2, filename.end());
+    string outfile = filename + ".o";
+	for (int i = 0; i < argc; i++)
+	cout << argv[i] << endl;
+    if(a == "-d")
+	{
+	cout << "Infile: " << infile << endl;
+	cout << "Outfile: " << outfile << endl;
+	}
+     else if (a == "-c")
+	{
+    	     as.compile(infile, outfile);
+	}
+     else if (a == "-dr")
+	{
+	    vm.read(outfile);
+	    vm.checkMemory();
+	}
+     else if (a == "-e")
+       {
+	 vm.read(outfile);
+	 vm.execute();
+       }
+    return 0;
+}

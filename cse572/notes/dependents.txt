@@ -1,0 +1,19 @@
+ Name									  Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ ESSN									  NOT NULL CHAR(9)
+ DEPENDENT_NAME 							  NOT NULL VARCHAR2(15)
+ GENDER 									   CHAR(1)
+ BDATE										   DATE
+ RELATIONSHIP									   VARCHAR2(8)
+
+
+ESSN	  DEPENDENT_NAME  G BDATE     RELATION
+--------- --------------- - --------- --------
+999887777 Alice 	  F 05-APR-86 Daughter
+999887777 Theodore	  M 25-OCT-83 Son
+999887777 Joy		  F 03-MAY-58 Spouse
+987654321 Abner 	  M 28-FEB-48 Spouse
+123456789 Michael	  M 04-JAN-88 Son
+123456789 Alice 	  F 30-DEC-88 Daughter
+123456789 Elizabeth	  F 05-MAY-67 Spouse
+

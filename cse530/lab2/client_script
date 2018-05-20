@@ -1,0 +1,21 @@
+Script started on Mon 23 Oct 2017 04:03:52 PM PDT
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab2$ ./client 127.0.0.1 1234
+Insert message(q to quit): Hello World
+Message from server: Hello World
+Insert message(q to quit): How are you?
+Message from server: How are you?
+Insert message(q to quit): q
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab2$ quit
+No command 'quit' found, did you mean:
+ Command 'quilt' from package 'quilt' (universe)
+ Command 'quiz' from package 'bsdgames' (universe)
+ Command 'qgit' from package 'qgit' (universe)
+ Command 'quot' from package 'quota' (main)
+ Command 'luit' from package 'x11-utils' (main)
+quit: command not found
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab2$ done
+bash: syntax error near unexpected token `done'
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab2$ exit
+exit
+
+Script done on Mon 23 Oct 2017 04:04:35 PM PDT

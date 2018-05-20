@@ -1,0 +1,7 @@
+Project Info from Botting: 
+(P1): Pick a Programming Exercise from pages 29-30 and write, debug, etc. it.
+ Make sure you program has a comment at the front stating who you are, which exercise you are doing,
+ and what it should do. Start by downloading [ project.cpp ] a "fill in the blanks" program.
+ Hand in what ever you have got by the start of class -- you can resubmit it with improvements if it is less than perfect. 
+	I chose project P1.2.  Write a program that prints the message, "Hello, my name is Hal!"  Then on a new line, 
+	the program shout print "what is your name?"  Finally, the program shout print the message "Hello, [user name]. I am glad to meet you?"

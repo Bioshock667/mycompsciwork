@@ -1,0 +1,15 @@
+1225
+****************************************************
+CPU Time: 543
+Waiting Time: 2102
+TurnaroundTime: 2772
+I/OTime: 89
+Largest Stack Size: 0
+Page Faults: 2
+Hit Ratio: 96.0784%
+***************************************
+System Time: 4265
+System CPU Utilization: 63.3002%
+User CPU Utilization: 65.9216%
+Throughput: 1.24172 processes per second.
+Mode: FIFO

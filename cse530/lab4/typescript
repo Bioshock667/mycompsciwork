@@ -1,0 +1,22 @@
+Script started on Sun 05 Nov 2017 11:55:20 AM PST
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab4$ g++ -o th read1 -pthread thread1.cpp
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab4$ ./thread1 M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K1
+running thread
+running thread
+running thread
+running thread
+running thread
+end of main
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab4$ g++ -o th read2 -pthread thread2.cpp
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab4$ ./thread2 M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K2
+running thread
+running thread
+running thread
+running thread
+running thread
+Thread return message: Hello, I'am thread~ 
+ 
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab4$ exit
+exit
+
+Script done on Sun 05 Nov 2017 11:57:02 AM PST

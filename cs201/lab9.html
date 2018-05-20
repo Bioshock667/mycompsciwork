@@ -1,0 +1,358 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>Sample:
+CSci 201 Lab 9: Classes[Zemoudeh/Botting]
+</title>
+<style type="text/css">
+BODY{font-family:serif;}
+H1,H2,H3,H4{font-family:sans-serif;}
+CODE,PRE,TT{font-family:monospace;}
+HR{color: black;}
+A{ font-weight: bolder; }
+.InlineFormula{
+	font-style: italic;
+}
+.Formula{
+	padding-left:10px;
+	font-style: italic;
+}
+.Let{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+}
+.Net{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:red;
+}
+.Case{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:blue;
+}
+</style>
+</head>
+<body vlink="#8000AF" bgcolor="#FFFFFB" link="#0000FF" alink="#FF0000">
+<!-- Generated from MATHS source code by RJBotting\'s mth2html script-->
+<form method="get" action="http://www.csci.csusb.edu/dick/cs201/lookup.php">
+[<a href="#Main%20Content">Skip Navigation</a>] 
+[<a href="http://www.csusb.edu/">CSUSB</a>]
+/ [<a href="http://nsci.csusb.edu/">CNS</a>]
+/ [<a href="http://cse.csusb.edu/">CSE</a>]
+/ [<a href="http://cse.csusb.edu/dick/">R J Botting</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201">CSE201</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201/lab08">Lab08</a>]
+&gt;&gt;
+index
+<br>
+ [<a href="http://www.csci.csusb.edu/dick/cs201/">Index</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/schedule.html">Schedule</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/syllabi.html">Syllabi</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/glossary.html">Glossary</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/labs.html">Labs</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/projects.html">Projects</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/resources.html">Resources</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/grading/">Grading</a>] 
+ [Search <input name="search" size="10">
+<input name="from" value="cs201/index.mth" type="hidden">
+<input value="Go" type="submit">]
+<br>
+ Notes: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/01.html">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/02.html">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/03.html">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/04.html">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/05.html">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/06.html">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/07.html">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/08.html">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/09.html">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/10.html">10</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/11.html">11</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/12.html">12</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/13.html">13</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/14.html">14</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html">15</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/16.html">16</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/17.html">17</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/18.html">18</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/19.html">19</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/20.html">20</a>]
+<br>Labs: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab01/">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/">10</a>]
+<br>
+Mon Jun  4 14:15:57 PDT 2012
+</form>
+<h3><a name="Contents">Contents</a></h3>
+<ul class="Contents">
+<li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#CSci%20201%20Lab%209:%20Classes[Zemoudeh/Botting]">CSci 201 Lab 9: Classes[Zemoudeh/Botting]</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#Goal">: Goal</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#Set%20up">: Set up</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#The%20Triangle%20Class">: The Triangle Class</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#Drawing%20Diagrams%20with%20Dia">: Drawing Diagrams with Dia</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#The%20Triangle%20class%20in%20C++">: The Triangle class in C++</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#Make%20triangle.cpp">: Make triangle.cpp</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#Compile%20and%20test">: Compile and test</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#Expand%20the%20ccc_win_main%20function">: Expand the ccc_win_main function</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#Add%20a%20Function%20to%20the%20Triangle%20class">: Add a Function to the Triangle class</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#Add%20a%20Constructor%20to%20the%20Triangle%20class">: Add a Constructor to the Triangle class</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#Document%20the%20new%20class%20in%20the%20UML">: Document the new class in the UML</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#To%20get%20Credit">: To get Credit</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#For%20mathematicians%20only">: For mathematicians only</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#For%20Masochists%20only">: For Masochists only</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#For%20Witches%20and%20Wizards%20only">: For Witches and Wizards only</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#help">: help</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#Abreviations">Abreviations</a>
+</li></ul><a name="Main Content"><hr></a><ol>
+<h1><a name="CSci 201 Lab 9: Classes[Zemoudeh/Botting]">CSci 201 Lab 9: Classes[Zemoudeh/Botting]</a></h1><ol class="Section">
+Previous
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/"> ../lab08/ </a>]
+Next
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/"> ../lab10/ </a>]
+<h2><a name="Goal">Goal</a></h2>
+Learn about C++ classes and the UML
+via a class of simple graphic objects: Triangles
+<h2><a name="Set up">Set up</a></h2>
+Change directory to your cs201 class and make a <span class="InlineFormula">lab09</span> directory.
+Change to this directory and do all your work under
+this directory.
+<h2><a name="The Triangle Class">The Triangle Class</a></h2>
+In this laboratory we will be drawing triangles.
+<p>
+The standard and popular way to draw a picture of a class is the
+Unified Modeling Language (UML).
+</p><p>
+Here is a diagram, using the UML of a class that models a triangle
+that we are going to work on in this laboratory:
+</p><p>
+<img src="lab9_files/img1.gif" alt="UML version of Triangle">
+</p><p>
+</p><p>
+In UML a class
+is represented by a rectangle, subdivided into three parts, specifying
+the class name, its attributes (fields), and operations (methods).
+</p><p>
+In the diagram you can see the name: Triangle, the three attributes 
+(vertex1,...), and the operations: constructors, move() (which moves the
+ triangle),
+and plot (which displays the triangle in cwin).  The constructors are 
+underlined to
+show that they do not need an object to work on.  The other operators do
+ need
+an object (what moves, what is plotted?).
+</p><h2><a name="Drawing Diagrams with Dia">Drawing Diagrams with Dia</a></h2><ol class="Section">
+You can run "dia" from the menu-&gt;applications-&gt;graphics-&gt;Dia or from
+a terminal like this:
+<pre> 	dia &amp;</pre>
+<p>
+You are given a toolbox window and a blank diagram.  If necessary move
+the drawing window to one side so you can click on both as needed.
+</p><p>
+Use the menu bar in the middle of the tool box to select UML notation.
+</p><p>
+You can now select the "class" icon in the toolbox and then click
+in the diagram to add a new class.
+</p><p>
+Double click a class box to
+<br></p><ol class="List">
+<li>Add data members (attributes)
+</li><li>Add member functions (operations)
+</li><li>Elide (hide) sections of a box
+</li></ol><br>
+<p>
+You can save and print diagrams with the "File" menu in the diagram.
+</p><p>
+You can close 'dia' from "File" menu in the tool box.
+</p><p>
+Have fun.... (this is important!)
+</p></ol>
+<h2><a name="The Triangle class in C++">The Triangle class in C++</a></h2>
+<pre> // Triangle class Interface</pre>
+<pre> class Triangle {</pre>
+<pre> public:</pre>
+<pre>         Triangle();                     // constructor</pre>
+<pre>         Triangle(Point, Point, Point);  // constructor</pre>
+<pre>         void plot()const;               // accessor plot() displays it</pre>
+<pre>         void move(int x, int y);        // mutator move() moves it</pre>
+<pre> private:</pre>
+<pre>         Point vertex1, vertex2, vertex3; // private data fields</pre>
+<pre> };</pre>
+Notice that in C++ we declare
+<pre> 	Point vertex1;</pre>
+but in the UML we write the type last and the variable name first, separated
+by a colon, like this:
+<pre> 	vertex1 : Point</pre>
+<p>
+</p><h2><a name="Make triangle.cpp">Make triangle.cpp</a></h2>
+Type in the following program (that has the Triangle class
+defined in it) and save it with the name triangle.cpp
+<pre> /******************************************************************************</pre>
+<pre> kay zemoudeh 10/16/97 triangle.cpp</pre>
+<pre> RJBotting may 3rd 2005</pre>
+<pre></pre>
+<pre> this program illustrates the most fundamental concept of OOP: classes.</pre>
+<pre> it defines the user defined class Triangle, and</pre>
+<pre> declares/constructs and uses several objects of that type.</pre>
+<pre> in doing so, It demonstrates the use of methods (member functions).</pre>
+<pre> *******************************************************************************/</pre>
+<pre></pre>
+<pre> #include "ccc_win.h"</pre>
+<pre></pre>
+<pre> using namespace std;</pre>
+<pre></pre>
+<pre> // Triangle class Interface</pre>
+<pre> class Triangle {</pre>
+<pre> public:</pre>
+<pre>         Triangle();                     // constructor</pre>
+<pre>         Triangle(Point, Point, Point);  // constructor</pre>
+<pre>         void plot()const;               // accessor plot() displays it</pre>
+<pre>         void move(int x, int y);        // mutator move() moves it</pre>
+<pre> private:</pre>
+<pre>         Point vertex1, vertex2, vertex3; // private data field</pre>
+<pre> };</pre>
+<pre></pre>
+<pre> Triangle::Triangle()</pre>
+<pre> {</pre>
+<pre>         vertex1 = Point(0, 0);</pre>
+<pre>         vertex2 = Point(2, 0);</pre>
+<pre>         vertex3 = Point(0, 2);</pre>
+<pre> }</pre>
+<pre></pre>
+<pre> Triangle::Triangle(Point v1, Point v2, Point v3)</pre>
+<pre> {</pre>
+<pre>         vertex1 = v1;</pre>
+<pre>         vertex2 = v2;</pre>
+<pre>         vertex3 = v3;</pre>
+<pre> }</pre>
+<pre></pre>
+<pre> void Triangle::plot()const</pre>
+<pre> {</pre>
+<pre>         cwin &lt;&lt; Line(vertex1, vertex2);</pre>
+<pre>         cwin &lt;&lt; Line(vertex2, vertex3);</pre>
+<pre>         cwin &lt;&lt; Line(vertex3, vertex1);</pre>
+<pre> }</pre>
+<pre></pre>
+<pre> void Triangle::move(int dx, int dy)</pre>
+<pre> {</pre>
+<pre>         vertex1.move(dx, dy);</pre>
+<pre>         vertex2.move(dx, dy);</pre>
+<pre>         vertex3.move(dx, dy);</pre>
+<pre> }</pre>
+<pre></pre>
+<pre> // to test Triangle class</pre>
+<pre> int ccc_win_main()</pre>
+<pre> {</pre>
+<pre>         Triangle tri1;</pre>
+<pre>         tri1.plot();</pre>
+<pre>  /**** Move me!</pre>
+<pre>         Triangle tri2(Point(5, 0), Point(10, 0), Point(5, 5));</pre>
+<pre>         tri2.plot();</pre>
+<pre></pre>
+<pre>         tri1.move(-5, -5);</pre>
+<pre>         tri1.plot();</pre>
+<pre>  ****/</pre>
+<pre>         return 0;</pre>
+<pre> }</pre>
+<pre></pre>
+<p>
+</p><h2><a name="Compile and test">Compile and test</a></h2>
+Use my "Q" program to compile this program
+<pre> 		Q triangle.cpp</pre>
+make sure it does what you expect.  Note:  Q finds and
+supplies the CCC library(libraries)
+that you need.
+<p>
+Fix any errors!
+</p><p>
+</p><h2><a name="Expand the ccc_win_main function">Expand the ccc_win_main function</a></h2>
+In the main program (ccc_win_main ) find this line
+<pre>  /**** Move me!</pre>
+It starts a comment that runs down to this line
+<pre>  ****/</pre>
+<p>
+Move the start of the comment down one line (hint: delete line and paste
+after next line or in <span class="InlineFormula">vi</span> tap these three keys: ddp) and recompile and test.
+</p><p>
+Repeat this letting the program run more and more steps until complete.
+Take note of what each step does.
+</p><p>
+</p><h2><a name="Add a Function to the Triangle class">Add a Function to the Triangle class</a></h2>
+Modify the program by adding the accessor function
+<pre> 		void split()const;</pre>
+to the class that draws a line splitting the Triangle in
+half.  Note: it doesn't add any data. It adds some behavior
+(operation) to Triangle.  The new behavior is to draw a line from
+vertex1 to the midpoint of the line oposite vertex1.
+<p>
+Then define the function
+</p><pre> 		Triangle::split()const</pre>
+<pre> 		{</pre>
+<pre> 		   /*Your code goes here*/</pre>
+<pre> 		}</pre>
+that draws a line from
+the first vertex in the triangle (vertex1)
+to the mid point of its facing side(<a href="#help">help</a>?).
+<p>
+Test your change by calling the member function for each object
+in ccc_win_main() like this for example:
+</p><pre> 		tri1.split();</pre>
+<p>
+</p><h2><a name="Add a Constructor to the Triangle class">Add a Constructor to the Triangle class</a></h2>
+Add a constructor that has a single <span class="InlineFormula">int</span> parameter called <span class="InlineFormula">n</span>,
+It constructs a triangle that has <span class="InlineFormula">vertex1</span> at the origin,
+vertex 2 is <span class="InlineFormula">n</span> units along the <span class="InlineFormula">x</span>-access and <span class="InlineFormula">vertex3</span> is
+<span class="InlineFormula">n</span> units above <span class="InlineFormula">vertex2</span>.
+<p>
+Test your new class with n=1,2,3,4,5,6 in a
+single program.  Use a for loop!
+</p><p>
+</p><h2><a name="Document the new class in the UML">Document the new class in the UML</a></h2>
+Draw (pencil and paper) your new Triangle class using the UML.
+Note: this drawing can be done with rough lines.  What is important
+is the names of the various members.
+<h2><a name="To get Credit">To get Credit</a></h2>
+Demonstrate your final program and show UML diagram to the lab instructor.
+<p>
+</p><h2><a name="For mathematicians only">For mathematicians only</a></h2>
+Change the
+<pre> 	Triangle::Triangle(int n)</pre>
+constructor so that it constructs
+an equilateral triangle centered on the origin, with side length <span class="InlineFormula">n</span>.
+<p>
+</p><h2><a name="For Masochists only">For Masochists only</a></h2>
+Add a function that draws the inscribed circle in an equilateral triangle.
+<h2><a name="For Witches and Wizards only">For Witches and Wizards only</a></h2>
+Then a function to draw <span class="InlineFormula">The Deathly Hallows</span> symbol
+[<a href="http://misseva05.files.wordpress.com/2009/04/deathly-hallows-symbol-harry-potter-and-the-deathly-hallows-564456_1422_1545.jpg"> deathly-hallows-symbol-harry-potter-and-the-deathly-hallows-564456_1422_1545.jpg </a>]
+in the final Harry
+Potter book.  Hint -- use the previous inscribed circle function...
+<h2><a name="help">help</a></h2>
+The midpoint of vertex2 and vertex3....  this means that the <span class="InlineFormula">x</span>
+value must be half way between the <span class="InlineFormula">x</span> of vertex2 and the <span class="InlineFormula">x</span> of vertex3
+so we need something like this:
+<pre> 		double halfx = 0.5 * (vertex2.get_x() + vertex3.get_x());</pre>
+<pre> 	...</pre>
+<pre> 		Point midway(halfx, halfy);</pre>
+<pre> 	...</pre>
+<p>
+</p></ol><p>. . . . . . . . . ( end of section <a href="http://www.csci.csusb.edu/dick/cs201/lab09/index.html#CSci%20201%20Lab%208:%20Classes[Zemoudeh/Botting]">CSci 201 Lab 8: Classes[Zemoudeh/Botting]</a>)  <a href="#Contents">&lt;&lt;</a>Contents | End<a href="#__End">&gt;&gt;</a>
+</p><h1><a name="Abreviations">Abreviations</a></h1>
+<li><a name="Gnu">Gnu</a>::="Gnu's Not Unix", a long running open source project that supplies a
+very popular C++ compiler.
+</li><li><a name="TBA">TBA</a>::="To Be Announced", something I have to do.
+</li><li><a name="TBD">TBD</a>::="To Be Done", something you have to do.
+</li></ol>
+<h3><a name="__End">End</a></h3>
+
+</body></html>

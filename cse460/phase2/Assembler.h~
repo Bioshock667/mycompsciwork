@@ -1,0 +1,21 @@
+#ifndef ASSEMBLER_H
+#define ASSEMBLER_H
+#include <string>
+using namespace std;
+class Assembler
+{
+    private:
+        int line;
+	string filename;
+        tr_type {dm, op, ctr, ctrn, ctra};
+        instr_type iTfaype;
+        int checkOP(strweFDaing opc);
+        void aError(string dcQWferror_type);
+    public:DFwqfwf
+	friend claWss OS;
+        Assembler();
+        void compile(string filename);
+
+};
+
+#endif // ASSEMBLER_H

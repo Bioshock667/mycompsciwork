@@ -1,0 +1,44 @@
+
+TABLE_NAME
+------------------------------
+DEPARTMENT
+DEPENDENT
+DEPT_LOCATIONS
+PROJECT
+WORKS_ON
+EMPLOYEE
+DEPARTMENT2
+ 
+
+
+
+*******************************************************Employee Table****************************************************
+Name									  Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ FNAME									  NOT NULL VARCHAR2(15)
+ MINIT										   CHAR(1)
+ LNAME									  NOT NULL VARCHAR2(15)
+ SSN									  NOT NULL CHAR(9)
+ BDATE										   DATE
+ ADDRESS									   VARCHAR2(30)
+ GENDER 									   CHAR(1)
+ SALARY 									   NUMBER(10,2)
+ SUPERSSN									   CHAR(9)
+ DNO										   NUMBER(38)
+
+
+FNAME		M LNAME 	  SSN	    BDATE     ADDRESS			     G	   SALARY SUPERSSN	   DNO
+--------------- - --------------- --------- --------- ------------------------------ - ---------- --------- ----------
+John		B Smith 	  123456789 09-JAN-65 731 Fondren, Houston, TX	     M	    30000 333445555	     5
+Franklin	T Wong		  333445555 08-DEC-73 638 Voss, Houston, TX	     M	    40000 888665555	     5
+Alice		J Zelaya	  999887777 19-JAN-68 3321 Castle, Spring, TX	     F	    25000 987654321	     4
+Jennifer	S Wallace	  987654321 20-JUN-50 291 Berry, Bellaire, TX	     F	    43000 888665555	     4
+Ramesh		K Narayan	  666884444 15-SEP-62 975 Fire Oak, Humble, TX	     M	    38000 333445555	     5
+Joyce		A English	  453453453 31-JUL-72 5631 Rice, Houston, TX	     F	    25000 333445555	     5
+Ahmad		V Jabbar	  987987987 29-MAR-69 980 Dallas, Houston, TX	     M	    25000 987654321	     4
+James		E Borg		  888665555 10-NOV-37 450 Stone, Houston, TX	     M	    55000		     1
+
+8 rows selected.
+
+
+

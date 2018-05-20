@@ -1,0 +1,222 @@
+<html>
+    <head>
+    	<title>Lab 2: C++ vs. C</title>
+	<link type='text/css' rel='stylesheet' href='general.css'>
+    </head>
+    <body>
+	<a href=index.html>&#8635; back to index</a>
+	<h1>Lab 2: Comparing Languages</h1>
+	<p>This lab demonstration seeks to compare the performance of two programming languages: the C language and its high-level equivalent C++ language.  Often lower-level languages like C are primitive and therefore close to the machine.  This leads to the possible conclusion that C allows greater performance due to lower complexity.  Will this be proven here?</p>
+	<h3>C++ Language Test</h3>
+	<p>On of the best ways to test the performance of a computer languages is to code a sorting algorithm and test it.  In order to do this, a program called bubsort.cpp was downloaded off of <a href= cse.csusb.edu/egomez/320labs.html>Prof. Gomez's website</a>, compiled, and tested.  The code is shown down below.</p>
+
+	<textarea readonly rows=20 cols=100>
+// program bubsort
+//   timing test for C++ vector and C array comparison
+
+#include <time.h>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include <cstdlib>
+#include <vector>
+
+
+using namespace std;
+
+
+double milisecond_timer(){
+struct timespec itval;
+/* returns system time in miliseconds - 
+   this routine compiles with gcc or g++ */
+
+/* for gcc, compile with "gcc -lrt" */
+
+	clock_gettime(CLOCK_REALTIME,&itval);
+	return itval.tv_sec*1000+itval.tv_nsec/1e6;
+}
+
+
+int bubble(vector<int>& x){
+int i,swap,count=0;
+bool done=false;
+/* bubble sort - C++ vector version */
+/* done is set to true at the start of
+   the while loop - if any items in the
+   array or vector are out of order, they are
+   swapped and done is set to false.
+   when nothing is out of order, done stays
+   true in the inner loop and the while
+   loop ends.
+
+   because the array is passed by reference
+   changes to the array are visible in main.
+
+   count tracks how many loops it takes
+   to order the array.*/
+
+while( !done){
+	count++;
+	done=true;
+
+	for(i=1;i<x.size();i++){
+		if(x[i]<x[i-1]) {swap=x[i];
+				x[i]=x[i-1];
+				x[i-1]=swap;
+				done=false;}
+		}
+	}
+	return count; // return number of loops
+
+
+}
+
+int main(){
+int i,c;
+double t0,t1;
+vector<int> tarray(30000);
+
+
+srand(milisecond_timer()); // initialize random number generator
+
+// initialize array of random integers
+
+for(i = 0; i<tarray.size(); i++)
+	tarray[i]=rand();
+
+// print first item 
+cout << endl << "data size =" << tarray.size() << " first =" << tarray[1] << endl;
+
+t0=milisecond_timer(); // save start time
+c=bubble(tarray); // call bubble sort routine
+t1=milisecond_timer(); // save end time
+
+// print number of loops, time in miliseconds, first array item to verify that it has changed
+cout << "number of iterations =" << c << " miliseconds =" << t1-t0 << " first =" << tarray[1] << endl; 
+
+}
+	</textarea>
+
+	<p>This code was compilied with the g++ compiler.</p>
+	<div>g++ bobsort.cpp -o bubsort</div>
+	<p>Afterwards, the resulting program was executed 4 times with the average recorded.  Afterwards the code was compiled with the highest level of optimization.</p>
+	<div>g++ -O3 bubsort.cpp -o bubsort2</div>
+	<p>Afterwards, it was tested 4 times.</p>
+	<h3>C Language Test</h3>
+	<p>bubsort was translated to C with minor changes and compiled as a C program as cbubsort.c.  The program was also tested 4 times.  This is the resulting code:</p>
+	<textarea readonly rows=20 cols=100>
+// program bubsort
+//   timing test for C++ vector and C array comparison
+
+#include <time.h>
+#include <stdio.h>
+
+double milisecond_timer(){
+struct timespec itval;
+/* returns system time in miliseconds - 
+   this routine compiles with gcc or g++ */
+
+/* for gcc, compile with "gcc -lrt" */
+
+	clock_gettime(CLOCK_REALTIME,&itval);
+	return itval.tv_sec*1000+itval.tv_nsec/1e6;
+}
+
+
+int bubble(int x[], int size){
+int i,swap,count,done = 0;
+/* bubble sort - C vector version */
+/* done is set to 1 at the start of
+   the while loop - if any items in the
+   array or vector are out of order, they are
+   swapped and done is set to 0.
+   when nothing is out of order, done stays
+   1 in the inner loop and the while
+   loop ends.
+
+   because the array is passed by reference
+   changes to the array are visible in main.
+
+   count tracks how many loops it takes
+   to order the array.*/
+
+while( !done){
+	count++;
+	done=1;
+
+	for(i=1;i<size;i++){
+		if(x[i]<x[i-1]) {swap=x[i];
+				x[i]=x[i-1];
+				x[i-1]=swap;
+				done=0;}
+		}
+	}
+	return count; // return number of loops
+
+}
+
+int main(){
+int i,c;
+double t0,t1;
+int aSize = 30000;
+int tarray[aSize];
+
+
+srand(milisecond_timer()); // initialize random number generator
+
+// initialize array of random integers
+
+for(i = 0; i<aSize; i++)
+	tarray[i]=rand();
+
+// print first item 
+printf("data size = %d \nfirst = %d \n", aSize, tarray[1]);
+t0=milisecond_timer(); // save start time
+c=bubble(tarray, aSize); // call bubble sort routine
+t1=milisecond_timer(); // save end time
+
+// print number of loops, time in miliseconds, first array item to verify that it has changed 
+printf("number of iterations = %d \nmilliseconds = %d \nfirst = %d \n", c, (t1-t0), tarray[1]);
+}
+	</textarea>
+	<h3>Run Time Speed of Programs compiled (in seconds)</h3>
+	<table>
+	    <tr>
+		<th></th>
+		<th>1st test</th>
+		<th>2nd test</th>
+		<th>3rd test</th>
+		<th>4th test</th>
+		<th>Average</th>
+	    </tr>
+	    <tr>
+		<th>C++ (normal)</th>
+		<td>11.966</td>
+		<td>12.114</td>
+		<td>11.976</td>
+		<td>12.010</td>
+		<td>12.017</td>
+	    </tr>
+	    <tr>
+		<th>C++ (max opt.)</th>
+		<td>1.861</td>
+		<td>1.886</td>
+		<td>1.875</td>
+		<td>1.856</td>
+		<td>1.865</td>
+	    </tr>
+	    <tr>
+		<th> C </th>
+		<td>9.2804</td>
+		<td>9.2804</td>
+		<td>9.2804</td>
+		<td>9.2804</td>
+		<td>9.2804</td>
+	    </tr>
+	</table>
+	<h3>Conclusion</h3>
+	<p>When comparing nominal compilations, the C language program performed faster then C++.  This proves that C has less complexity and therefore runs faster than C++.  But when compiled with maximum optimization (-O3), the resulting program way outperformed the C program.</p>
+	<p>What can be taken away from this is yes C++ is a more complex language than C but it can still outperform C with max optimization.  Also, C++ gives programmers more tools to create algorithms than C does like vectors and strings.  Overall, C++ is the better language.</p>
+    </body>
+</html>

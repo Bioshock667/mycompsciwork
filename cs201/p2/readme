@@ -1,0 +1,7 @@
+project info:
+(P2): Any programming exercise from chapter 2 except P2.22 (done in lab). You can also resubmit P1, if you did not get an A in it.
+ Note: again the program should start explaining who you are and what it does -- copied from the book. 
+Include a Script or screen shot of the comp[ilation and run.
+	I chose P2.19.  Write a program that transforms numbers 1, 2, 3, ..., 12 into the corresponding month names January, February, March, ..., December.
+	Hint: Make a very long string "January February March ...", in which you add spaces such that each month has the same length.  Then use substr to 
+	extract the month you want.

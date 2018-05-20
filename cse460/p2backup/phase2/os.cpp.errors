@@ -1,0 +1,6 @@
+os.cpp: In member function ‘void OS::saveProcess()’:
+os.cpp:167: error: ‘vmiTime’ was not declared in this scope
+os.cpp: In member function ‘void OS::setReady()’:
+os.cpp:173: error: expected ‘)’ before ‘{’ token
+os.cpp: In member function ‘void OS::terminateRunning()’:
+os.cpp:207: error: ‘VMTime’ was not declared in this scope

@@ -1,0 +1,89 @@
+//Class: CSE 330
+// Term: Spring 2014
+// Instructor: George M. Georgiou
+// Name: Seth Lemanek
+// Lab 3
+// Title: Vector.h
+#ifndef VECTOR_H
+#define VECTOR_H
+#include <algorithm>
+#include <assert.h>
+using namespace std;
+
+template <class T> class vector {
+public:
+    typedef T * iterator;
+    typedef T value_type;
+	//constructors
+    vector  () { buffer = 0; resize(0); }
+    vector  (unsigned int size) { buffer = 0; resize(size); }
+    vector  (unsigned int size, T initial);
+    vector  (vector & v);
+    ~vector  () { delete [ ] buffer; }
+
+     //member functions
+    T		back () { return buffer [mySize -1];}
+    iterator	begin() { return buffer; }
+    int		capacity () { return myCapacity; }
+    bool	empty () {return mySize == 0; }
+    iterator	end () { return begin() + mySize; }
+    T		front () { return buffer[0]; }
+    void	pop_back () { mySize --; }
+    void	push_back (T value);
+    void	reserve (unsigned int newCapacity);
+    void	resize (unsigned int newSize) { reserve(newSize); mySize = newSize; }
+    int		size () { return mySize; }
+
+    //operator
+    T & operator [ ] (unsigned int index) { return buffer[index]; }
+
+protected:
+    unsigned int mySize;
+    unsigned int myCapacity;
+    T * buffer;
+};
+
+template <class T> vector<T>::vector (unsigned int size, T initial)
+//creates vector with given size
+//initialize all elements with given parameter
+{
+	buffer = 0;
+	resize(size);
+	fill (begin(), end(), initial);
+}
+
+template <class T> vector<T>::vector (vector & v)
+//creates vector by copying from a previous one
+{
+	buffer = 0;
+	resize(v.length());
+	copy (v.begin(), v.end(), begin());
+}
+
+template <class T> void vector<T>::reserve (unsigned int newCapacity)
+//reserves new capacity as large as the argument given
+{
+	if (buffer == 0) 
+	  {
+	   mySize = 0;
+	   myCapacity = 0;
+	   }
+	if (newCapacity <= myCapacity)
+	   return;
+	T * newBuffer = new T [newCapacity];
+	assert (newBuffer);
+	copy (buffer, buffer + mySize, newBuffer);
+	myCapacity = newCapacity;
+	delete [ ] buffer;
+	buffer = newBuffer;
+}
+
+template <class T> void vector<T>::push_back (T value)
+//pushes a value to the back of the vector
+{
+	if (mySize >= myCapacity)
+	    reserve(myCapacity + 5);
+	buffer [mySize++] = value;
+}
+
+#endif

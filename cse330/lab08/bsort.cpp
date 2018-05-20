@@ -1,0 +1,28 @@
+//Class: CSE 330
+// Term: Spring 2014
+// Instructor: George M. Georgiou
+// Name: Seth Lemanek
+// Lab 8
+// Title: selection sort test
+
+#include<vector>
+#include<iostream>
+#include<algorithm>
+#include<cstdlib>
+using namespace std;
+
+//selection sort
+int main()
+{
+cout << "Please print a number to test:\n";
+int n;
+cin >> n;
+vector<int> v (n);
+fill(v.begin(),v.begin()+n-1, rand() % 21);
+//bubble sort
+for (int i = n-1; i > 0; i--)
+    for (int j = 0; j < i; j++)
+        if (v[j] > v[j+1])
+            swap(v[j], v[j+1]);
+return 0;
+}

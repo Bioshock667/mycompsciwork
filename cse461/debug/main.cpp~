@@ -1,0 +1,17 @@
+
+#include <iostream>
+#include <string>
+#include "fsystem.h"
+
+using namespace std;
+
+int main()
+{
+    Filesys fdebug("debug", 128, 64);
+    string buffer = "Hello World";
+    fdebug.newfile("file1");
+    int block = fdebug.addblock("file1", buffer);
+    string message;
+    fdebug.readblock("file1", block, message);
+    cout << "There is a message ... " << message << endl;
+}

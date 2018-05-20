@@ -1,0 +1,22 @@
+#include "sdisk.h"
+#include <string>
+#include <iostream>
+#include <fstream>
+
+int main()
+{
+    std::string s1, s2, s3, s4;
+    Sdisk disk("testdisk.txt", 10, 4);
+    //std::fstream rdisk("testdisk.txt", std::ios::in|std::ios::out);
+    //rdisk << "Yes!";
+    //rdisk.close();
+    disk.putblock(1, "reat");
+    disk.putblock(2, "is g");
+    disk.putblock(3, "c++ ");
+    /*disk.getblock(3, s1);
+    disk.getblock(2, s2);
+    disk.getblock(1, s3);
+    disk.getblock(4, s4);
+    std::cout << "Message incoming ... " << s1 << s2 << s3 << s4 << std::endl;*/
+    return 0;
+}

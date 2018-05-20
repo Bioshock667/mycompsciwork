@@ -1,0 +1,34 @@
+#ifndef FSYSTEM_H
+#define FSTSTEM_H
+
+#include "sdisk.h"
+#include <string>
+#include <vector>
+
+//using namespace std;
+
+class Filesys: public Sdisk
+{
+    public :
+	Filesys(std::string disk, int numberofblocks, int blocksize);
+	int fsclose();
+	std::vector<std::string> ls();
+	int newfile(std::string file);
+	int rmfile(std::string file);
+	int getfirstblock(std::string file);
+	int addblock(std::string file, std::string buffer);
+	int delblock(std::string file, int blocknumber);
+	int readblock(std::string file, int blocknumber, std::string& buffer);
+	int writeblock(std::string file, int blocknumber, std::string buffer);
+	int nextblock(std::string file, int blocknumber);
+	std::vector<std::string> block(std::string buffer, int b);
+    private :
+	int rootsize;           // maximum number of entries in ROOT
+	int fatsize;            // number of blocks occupied by FAT
+	int fssynch();
+	bool checkblock(std::string file, int block);
+	std::vector<std::string> filename;   // filenames in ROOT
+	std::vector<int> firstblock; // firstblocks in ROOT
+	std::vector<int> fat;             // FAT
+};
+#endif

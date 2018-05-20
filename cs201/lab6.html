@@ -1,0 +1,157 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>Sample:
+CSCI201/lab06 functions
+</title>
+<style type="text/css">
+BODY{font-family:serif;}
+H1,H2,H3,H4{font-family:sans-serif;}
+CODE,PRE,TT{font-family:monospace;}
+HR{color: black;}
+A{ font-weight: bolder; }
+.InlineFormula{
+	font-style: italic;
+}
+.Formula{
+	padding-left:10px;
+	font-style: italic;
+}
+.Let{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+}
+.Net{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:red;
+}
+.Case{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:blue;
+}
+</style>
+</head>
+<body vlink="#8000AF" bgcolor="#FFFFFB" link="#0000FF" alink="#FF0000">
+<!-- Generated from MATHS source code by RJBotting\'s mth2html script-->
+<form method="get" action="http://www.csci.csusb.edu/dick/cs201/lookup.php">
+[<a href="#Main%20Content">Skip Navigation</a>] 
+[<a href="http://www.csusb.edu/">CSUSB</a>]
+/ [<a href="http://nsci.csusb.edu/">CNS</a>]
+/ [<a href="http://www.csci.csusb.edu/">Comp Sci &amp; Eng Dept</a>]
+/ [<a href="http://www.csci.csusb.edu/dick/">R J Botting</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201">CSci201</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201/lab01">Lab01</a>]
+&gt;&gt;
+index
+<br>
+ [<a href="http://www.csci.csusb.edu/dick/cs201/">Index</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/schedule.html">Schedule</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/syllabi.html">Syllabi</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/glossary.html">Glossary</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/labs.html">Labs</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/projects.html">Projects</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/resources.html">Resources</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/grading/">Grading</a>] 
+ [Search <input name="search" size="10">
+<input name="from" value="cs201/index.mth" type="hidden">
+<input value="Go" type="submit">]
+<br>
+ Notes: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/01.html">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/02.html">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/03.html">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/04.html">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/05.html">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/06.html">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/07.html">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/08.html">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/09.html">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/10.html">10</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/11.html">11</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/12.html">12</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/13.html">13</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/14.html">14</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html">15</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/16.html">16</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/17.html">17</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/18.html">18</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/19.html">19</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/20.html">20</a>]
+<br>Labs: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab01/">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/">10</a>]
+<br>
+Tue Feb  9 13:53:06 PST 2010
+</form>
+<a name="Contents"><h3>Contents</h3></a>
+<ul class="Contents">
+<li><a href="http://www.csci.csusb.edu/dick/cs201/lab06/index.html#CSCI201/lab06%20functions">CSCI201/lab06 functions</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab06/index.html#Goal">: Goal</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab06/index.html#Set%20up">: Set up</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab06/index.html#Program%201%20--%20Debug%20a%20bad%20function">: Program 1 -- Debug a bad function</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab06/index.html#Program%202%20--%20Complete%20the%20given%20function">: Program 2 -- Complete the given function</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab06/index.html#Credit">: Credit</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab06/index.html#If%20you%20have%20time%20--%20work%20on%20the%20next%20project">: If you have time -- work on the next project</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab06/index.html#Abreviations">Abreviations</a>
+</li></ul><a name="Main Content"><hr></a><ol>
+<a name="CSCI201/lab06 functions"><h1>CSCI201/lab06 functions</h1></a><ol class="Section">
+Previous
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/"> ../lab05/ </a>]
+Next
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/"> ../lab07/ </a>]
+<a name="Goal"><h2>Goal</h2></a>
+Complete two programming exercises with functions using unit testing.  All
+the programs in this lab have a main function that uses <span class="InlineFormula">assert</span> to test
+one or more other functions.  All the changes are made in other functions
+in the program file.
+<a name="Set up"><h2>Set up</h2></a>
+Start by creating a lab06 directory to work in.  Open a terminal window in your cs201/lab06 directory.
+<p>
+Download these two
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/bad.cpp"> bad.cpp </a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/p1.cpp"> p1.cpp </a>]
+skeleton files.
+</p><p>
+<a name="Program 1 -- Debug a bad function"></a></p><h2><a name="Program 1 -- Debug a bad function">Program 1 -- Debug a bad function</a></h2>
+Use the compiler to test "bad.cpp" --
+then use your preferred editor to fix it.
+There are several <span class="InlineFormula">Common Errors</span> in this function.
+<p>
+<a name="Program 2 -- Complete the given function"></a></p><h2><a name="Program 2 -- Complete the given function">Program 2 -- Complete the given function</a></h2>
+Here you develop a function that would be quite useful to CSUSB and
+other organizations that give a standardized email to their people.
+The program "p1.cpp" has a set of tests and a description of the function --
+it combines the initial of the first name with the second name and truncates the
+result to no more 8 characters.  For example, my email is "rbotting".
+<p>
+Update the leading documentation to show your name.
+</p><p>
+Make the program compile and run to "Success" with out changing the main program
+in any way.
+</p><p>
+Hint -- see pages 63 to 66 in our text book to see what you can do with strings.
+</p><p>
+<a name="Credit"></a></p><h2><a name="Credit">Credit</a></h2>
+Show the lab teacher how far you have got with your two programs.
+<a name="If you have time -- work on the next project"><h2>If you have time -- work on the next project</h2></a>
+</ol>
+<a name="Abreviations"><h1>Abreviations</h1></a>
+<li><a name="Gnu">Gnu</a>::="Gnu's Not Unix", a long running open source project that supplies a
+very popular C++ compiler.
+</li><li><a name="TBA">TBA</a>::="To Be Announced", something I have to do.
+</li><li><a name="TBD">TBD</a>::="To Be Done", something you have to do.
+</li></ol>
+<a name="__End"><h3>End</h3></a>
+
+</body></html>

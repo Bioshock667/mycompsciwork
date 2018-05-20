@@ -1,0 +1,7 @@
+///////////////////////////////////////////////////////////////
+//Assignment #2 
+//Written by Seth Lemanek
+//Feb. 7 2016
+///////////////////////////////////////////////////////////////
+
+I have the all the parts in order top to bottom of the submission checklist. including the pictures and table in the document.

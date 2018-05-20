@@ -1,0 +1,44 @@
+Script started on Sat 11 Nov 2017 04:17:15 PM PST
+]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/hw2[01;32mseth@seth-HP-Pavilion-g6-Notebook-PC[00m:[01;34m~/Documents/cse530/hw2[00m$ g++ RTTCalc.cpp
+]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/hw2[01;32mseth@seth-HP-Pavilion-g6-Notebook-PC[00m:[01;34m~/Documents/cse530/hw2[00m$ ./a.out
+Welcome to RTT calculator!
+Enter your alpha value: 0.125
+Enter your beta value: 0.25
+Set your first estimated RTT in milliseconds: 100
+Set your first devRTT in milliseconds: 5
+Enter '-1' to quit
+Sample RTT in milliseconds: 106
+************************************************
+Estimated RTT:		100.75
+DevRTT:			5.0625
+Timeout Interval:	121
+***********************************************
+ Enter next Sample RTT value in milliseconds: 120
+************************************************
+Estimated RTT:		103.156
+DevRTT:			8.00781
+Timeout Interval:	135.188
+***********************************************
+ Enter next Sample RTT value in milliseconds: 140
+************************************************
+Estimated RTT:		107.762
+DevRTT:			14.0654
+Timeout Interval:	164.023
+***********************************************
+ Enter next Sample RTT value in milliseconds: 90
+************************************************
+Estimated RTT:		105.542
+DevRTT:			14.4344
+Timeout Interval:	163.279
+***********************************************
+ Enter next Sample RTT value in milliseconds: 115
+************************************************
+Estimated RTT:		106.724
+DevRTT:			12.8949
+Timeout Interval:	158.303
+***********************************************
+ Enter next Sample RTT value in milliseconds: -1
+]0;seth@seth-HP-Pavilion-g6-Notebook-PC: ~/Documents/cse530/hw2[01;32mseth@seth-HP-Pavilion-g6-Notebook-PC[00m:[01;34m~/Documents/cse530/hw2[00m$ exit
+exit
+
+Script done on Sat 11 Nov 2017 04:18:34 PM PST

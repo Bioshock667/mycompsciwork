@@ -1,0 +1,42 @@
+//Class: CSE 330
+//Term: Spring 2014
+//Instructor: George M. Georgiou
+//Name: Seth Lemanek
+//Lab 3
+//Title: Sieve of Eratosthenes
+#include<iostream>
+#include"vector.h"
+
+using namespace std;
+
+void sieve(vector<int> & values)
+{
+    unsigned int max = values.size();
+    int i;
+
+    // initalize all cells in the vector
+    for (i = 0; i < max; i++)
+	values[i] = i;
+     //search for non-zero cells
+    for (i = 2; i*i < max; i++)
+    {
+	if (values[i] != 0)
+	{
+	    for (int j = i + i; j < max; j += i)
+		values[j] = 0; //multiples of i have been cleared
+	}
+    }
+
+}
+
+int main()
+{
+    vector<int> nums (100);
+    sieve(nums);//call sieve funct to make only prime numbers appear
+    for (int i = 0; i < nums.size(); i++)
+    {
+	   cout << nums[i] << " ";
+    }
+    cout << endl;
+return 0;//end program with zero errors
+}   

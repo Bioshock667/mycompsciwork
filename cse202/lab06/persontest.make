@@ -1,0 +1,8 @@
+persontest: persontest.o person.o location.o
+	g++ persontest.o person.o location.o  -o persontest
+person.o: person.cpp
+	g++ -c person.cpp
+location.o: location.cpp
+	g++ -c location.cpp
+persontest.o: persontest.cpp
+	g++ -c persontest.cpp

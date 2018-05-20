@@ -1,0 +1,12 @@
+1225
+****************************************************
+CPU Time: 347
+Waiting Time: 1242
+TurnaroundTime: 1706
+I/OTime: 54
+Largest Stack Size: 0
+***************************************
+213 context switches and 32 ticks spent idle.
+System CPU Utilization: 99.203%
+User CPU Utilization: 99.3275%
+Throughput: 1 processes per second.

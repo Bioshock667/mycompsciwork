@@ -1,0 +1,244 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>Sample:
+CS201 Laboratory 3 -- Simple Graphic Programming
+</title>
+<style type="text/css">
+BODY{font-family:serif;}
+H1,H2,H3,H4{font-family:sans-serif;}
+CODE,PRE,TT{font-family:monospace;}
+HR{color: black;}
+A{ font-weight: bolder; }
+.InlineFormula{
+	font-style: italic;
+}
+.Formula{
+	padding-left:10px;
+	font-style: italic;
+}
+.Let{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+}
+.Net{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:red;
+}
+.Case{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:blue;
+}
+</style>
+</head>
+<body vlink="#8000AF" bgcolor="#FFFFFB" link="#0000FF" alink="#FF0000">
+<!-- Generated from MATHS source code by RJBotting\'s mth2html script-->
+<form method="get" action="http://www.csci.csusb.edu/dick/cs201/lookup.php">
+[<a href="#Main%20Content">Skip Navigation</a>] 
+[<a href="http://www.csusb.edu/">CSUSB</a>]
+/ [<a href="http://nsci.csusb.edu/">CNS</a>]
+/ [<a href="http://cse.csusb.edu/">CSE</a>]
+/ [<a href="http://cse.csusb.edu/dick/">R J Botting</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201">CSE201</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201/lab01">Lab01</a>]
+&gt;&gt;
+index
+<br>
+ [<a href="http://www.csci.csusb.edu/dick/cs201/">Index</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/schedule.html">Schedule</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/syllabi.html">Syllabi</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/glossary.html">Glossary</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/labs.html">Labs</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/projects.html">Projects</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/resources.html">Resources</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/grading/">Grading</a>] 
+ [Search <input name="search" size="10">
+<input name="from" value="cs201/index.mth" type="hidden">
+<input value="Go" type="submit">]
+<br>
+ Notes: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/01.html">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/02.html">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/03.html">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/04.html">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/05.html">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/06.html">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/07.html">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/08.html">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/09.html">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/10.html">10</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/11.html">11</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/12.html">12</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/13.html">13</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/14.html">14</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html">15</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/16.html">16</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/17.html">17</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/18.html">18</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/19.html">19</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/20.html">20</a>]
+<br>Labs: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab01/">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/">10</a>]
+<br>
+Wed Apr 18 14:36:20 PDT 2012
+</form>
+<h3><a name="Contents">Contents</a></h3>
+<ul class="Contents">
+<li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#CS201%20Laboratory%203%20--%20Simple%20Graphic%20Programming">CS201 Laboratory 3 -- Simple Graphic Programming</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Introduction">: Introduction</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Setting%20up%20a%20cs201/lab03%20directory">: Setting up a cs201/lab03 directory</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Compile%20and%20run%20the%20two%20given%20programs">: Compile and run the two given programs</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Study%20the%20code%20of%20circle%20and%20corners">: Study the code of circle and corners</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Compare%20circle%20and%20circle2.cpp">: Compare circle and circle2.cpp</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Compile%20and%20run%20the%20stickman%20program">: Compile and run the stickman program</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Make%20the%20stickman%20into%20a%20stick%20women">: Make the stickman into a stick women</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Credit%20%28Grade=B%29">: Credit (Grade=B)</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Drawing%20a%20face">: Drawing a face</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#First%20Think">: : First Think</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Then%20Code">: : Then Code</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Compilation%20errors?">: : Compilation errors?</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Bugs">: : Bugs</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#You%20get%20an%20A%20for%20getting%20the%20smiley%20face%20to%20run">: You get an A for getting the smiley face to run</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Historical%20Note">Historical Note</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Abreviations">Abreviations</a>
+</li></ul><a name="Main Content"><hr></a><ol>
+<h1><a name="CS201 Laboratory 3 -- Simple Graphic Programming">CS201 Laboratory 3 -- Simple Graphic Programming</a></h1><ol class="Section">
+Previous
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/"> ../lab02/ </a>]
+Next
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/"> ../lab04/ </a>]
+<h2><a name="Introduction">Introduction</a></h2>
+In this lab you will test two programs based on the book and
+then design and code a program that draws some kind of
+smiley face.
+<p>
+This laboratory should be done on our lab computers and physically in the laboratory.
+It needs some special libraries on our machines.  They do graphics.  It is non-trivial
+to get graphics like these to work through the internet.
+</p><h2><a name="Setting up a cs201/lab03 directory">Setting up a cs201/lab03 directory</a></h2>
+This is just like the last lab. Use the "Files" application (in Activities) to find
+your "cs201" folder and
+to make a "lab03" folder.  Also start up a terminal/command window in this directory.
+<p>
+Download these files
+<br></p><ol class="List">
+<li><span class="Formula">A program like that on page 72</span>
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/circle.cpp"> circle.cpp </a>]
+</li><li><span class="Formula">A program different to that on page 72</span>
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/circle2.cpp"> circle2.cpp </a>]
+</li><li><span class="Formula">A program using strings and Messages</span>
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/corners.cpp"> corners.cpp </a>]
+</li><li><span class="Formula">A program that draws a stickman</span>
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/stickman.cpp"> stickman.cpp </a>]
+</li><li><span class="Formula">A blank program to get you started on P2.22 (draw a face)</span>
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/face.cpp"> face.cpp </a>]
+</li></ol><br>
+<p>
+</p><h2><a name="Compile and run the two given programs">Compile and run the two given programs</a></h2>
+Open a terminal window and change directory/folder to the lab
+<pre> 		cd cs201/lab03</pre>
+then enter this command to test the "circle" and "corners" programs
+<pre> 		Q circle.cpp</pre>
+<pre> 		Q corners.cpp</pre>
+<p>
+These will compile and run the two programs for you.  Notice the complex
+commands needed to include the graphics libraries.
+</p><p>
+The <span class="InlineFormula">corners</span> program will ask for 4 characters to be type in the graphic
+window.
+</p><p>
+You have to close the pop-up graphic window to get the
+next program to run.
+</p><p>
+</p><h2><a name="Study the code of circle and corners">Study the code of circle and corners</a></h2>
+You can click <span class="InlineFormula">circle.cpp</span> and <span class="InlineFormula">corners.cpp</span> to see how they work.
+Take a little time, and perhaps using the book, see what you can guess/figure
+out about the code.
+<p>
+</p><h2><a name="Compare circle and circle2.cpp">Compare circle and circle2.cpp</a></h2>
+Compare the code in circle.cpp and circle2.cpp.  What has changed?
+How does this change the picture they draw?
+What does this teach you about Point and Circle?
+<p>
+</p><h2><a name="Compile and run the stickman program">Compile and run the stickman program</a></h2>
+You can use
+<pre> 		Q stickman.cpp</pre>
+to compile and run this program.
+<p>
+</p><h2><a name="Make the stickman into a stick women">Make the stickman into a stick women</a></h2>
+Study the stickman.cpp file and use
+<pre> 		gedit stickman.cpp &amp;</pre>
+(or by right clicking the image of the file in Files)
+to give the figure a skirt instead of legs.  You can use
+<pre> 		Q stickman.cpp</pre>
+to compile it and run it.
+<p>
+</p><h2><a name="Credit (Grade=B)">Credit (Grade=B)</a></h2>
+If you get this far before the end of the lab session you have earned an
+B.
+<h2><a name="Drawing a face">Drawing a face</a></h2><ol class="Section">
+<h3><a name="First Think">First Think</a></h3>
+First <span class="InlineFormula">think</span> about how a "smiley" face is made out of parts that
+you know how to program: lines and circles.
+Look at the example in P2.22 in the text.
+The real problem is the set of steps "// 1.", "// 2. " and so on
+that you need to draw a face.  So start by writing them as
+comments in English.  This is your algorithm.
+<p>
+The next problem is getting the parts of the face in the right place.
+It helps if you have a piece of paper with the coordinates on it
+and a pencil to do a rough sketch of what you want.
+</p><p>
+</p><h3><a name="Then Code">Then Code</a></h3>
+You need to fill
+in the blanks in the "face.cpp" file (downloaded above).
+<pre> 		gedit face.cpp &amp;</pre>
+Your first step should be to
+put your name as the author.
+<p>
+You may look at "circle2.cpp" by opening it in "gedit"
+and copy/paste code from it to "face.cpp"
+</p><p>
+When you are ready fill in the blanks in the face.cpp program
+and test the result:
+</p><pre>		Q face.cpp</pre>
+<p>
+</p><h3><a name="Compilation errors?">Compilation errors?</a></h3>
+Does the compiler object to your code?  If you can't guess why
+call us over...
+<p>
+Fix the error and try again until the program runs...
+</p><h3><a name="Bugs">Bugs</a></h3>
+If you don't like the look of your graphic.... think
+about what has gone wrong and fix it.
+</ol><p>. . . . . . . . . ( end of section <a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#Drawing%20a%20face">Drawing a face</a>)  <a href="#Contents">&lt;&lt;</a>Contents | End<a href="#__End">&gt;&gt;</a>
+</p><h2><a name="You get an A for getting the smiley face to run">You get an A for getting the smiley face to run</a></h2>
+<p>
+</p></ol><p>. . . . . . . . . ( end of section <a href="http://www.csci.csusb.edu/dick/cs201/lab03/index.html#CS201%20Laboratory%203%20--%20Simple%20Graphic%20Programming">CS201 Laboratory 3 -- Simple Graphic Programming</a>)  <a href="#Contents">&lt;&lt;</a>Contents | End<a href="#__End">&gt;&gt;</a>
+</p><h1><a name="Historical Note">Historical Note</a></h1>
+This laboratory originally used a "Makefile"
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/Makefile"> Makefile </a>]
+and the Unix (Linux)
+<span class="InlineFormula">make</span> command.  A file system failure Jan 21st 2011 resulted in inconsistent
+clock settings and that stops <span class="InlineFormula">make</span> working.
+<h1><a name="Abreviations">Abreviations</a></h1>
+<li><a name="Gnu">Gnu</a>::="Gnu's Not Unix", a long running open source project that supplies a
+very popular C++ compiler.
+</li><li><a name="TBA">TBA</a>::="To Be Announced", something I have to do.
+</li><li><a name="TBD">TBD</a>::="To Be Done", something you have to do.
+</li></ol>
+<h3><a name="__End">End</a></h3>
+
+</body></html>

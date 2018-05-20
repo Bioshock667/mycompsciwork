@@ -1,0 +1,534 @@
+/* Programmed by Seth Lemanek
+   Prof: Key Zemoudeh
+   Class: CSE 460 Operationg Systems
+   First Build Finished: 5/20/15
+   Description: This is a program to simulate the function of an operating system.  Its purpose is to organize and schedule with
+   programs get processed in the Virtual Machine.  It has a queue of programs ready to go called the ready queue then is takes one 
+   and runs it.  Once the process is interrupted the progress of the process is saved to its PCB.  If its timeslice was finished, it
+   is sent to the back of the ready queue.  If it is using an I/O device it is sent to the Wait Queue.  Once it is ready it is sent 
+   to the back of the ready queue. It will continue to run until all processes are completed.*/
+#include "PCB.h"
+#include "os.h"
+#include <iostream>
+#include <stdlib.h>
+#include <queue>
+#include <list>
+#include <fstream>
+#include <stdlib.h>
+using namespace std;
+void OS::loadProg(string nfile)
+{
+
+    string name;
+    if(nfile != "")
+    {
+    	cout << "Compiling" << nfile << endl;
+    	as.compile(nfile);
+    	PCB * p = (new PCB);
+    	cout << "New PCB" << endl;
+    	p->pname = nfile;
+    	nfile.erase(nfile.end()-2, nfile.end());
+   	name = nfile;
+    	nfile = name + ".o";
+    	p->obfile.open(nfile.c_str(), ios::in|ios::out|ios::binary);
+	reqPage = 0;
+	vm.jumpto = true;
+    	pageFault(p);
+    	cout << "block loaded" << endl;
+    	p->pc = p->base;
+	p->limit = 8;
+    	p->sp = vm.sp;
+    	p->LSS = 0;
+    	nfile = name + ".in";
+    	p->infile.open(nfile.c_str(), ios::in|ios::out);
+    	nfile = name + ".out";
+    	p->outfile.open(nfile.c_str(), ios::out);
+    	nfile = name + ".st";
+    	p->stk.open(nfile.c_str(), ios::out);
+    	p->stk.close();
+    	p->stk.open(nfile.c_str(), ios::in|ios::out|ios::binary|ios::trunc);
+    	p->stk << flush << endl;
+    	if(!p->stk.is_open())
+	    cout << "Stack open failed" << endl;
+    	readyQ.push(p);
+    	jobs.push_back(p);
+    	cout << "loadprog stops here" << endl;
+    }
+}
+    
+void OS::run(char mode[])
+{
+    for(int i = 0; i < 32; i++)
+    {
+	fifoReg[i] = 0;
+	memMap[i] = NULL;
+    }
+    int RD;
+    int IOnum;
+    terminate = false;
+    cSwitch = 0;
+    system("ls *.s > progs");
+    progs.open("progs");
+    processes = 0;
+    //first the OS must take all the .s files and compile them and initialize a PCB for each program.
+    if(mode == "-fifo")
+	myMode = FIFO;
+    else if (mode == "-lru")
+	myMode = LRU;
+    else 
+	myMode = FIFO;
+    string nfile;
+    getline(progs, nfile);
+    while(processes < degProg && progs.good())
+    	{
+	   loadProg(nfile);
+	   processes++;
+	   getline(progs, nfile);
+	}
+    setRunning();
+    cout << "Starting OS!" << endl;
+    while (!terminate) {
+	if(processes < degProg && !progs.eof())
+	{
+	    getline(progs, nfile);
+	    loadProg(nfile);
+	    processes++;
+	}
+	vm.timer = timeSlice;
+	vm.interrupt = false;
+	vm.jumpto = false;
+	vm.stackLimit = (highestFrameUsed + 1) * 8;
+    	vm.execute();
+	VMRStat = vm.sr >> 5;
+   	VMRStat &= 7;
+	switch (VMRStat) {
+	    case 0:	//time slice over
+		if(vm.sr >> 9)//page fault
+		{
+		    cout << "Page fault for " <<running->pname << endl;
+		    saveProcess();
+		    reqPage = vm.page;
+		    pageFault(waitQ.back());
+		    waitQ.back()->sr &=31; //clear signals
+		    setRunning();
+		    setReady();
+		    cSwitch++;
+		    vm.clk += 5;
+		}
+		else
+		{
+		     cout << "Time out for " << running->pname << endl;
+		     contextSwitch();
+		}
+		break;
+	    case 1:	 //halt operation
+		cout << "Program " << running->pname << " halted!" << endl;
+		terminateRunning();
+		break;
+	   case 2: //out of bounds exception
+		cout << "Out of Bounds: Process " << running->pname << " terminated!" << endl;
+		terminateRunning();
+		    break;
+ 	   case 3: //stack overflow exception
+		cout << "Stack Overflow: Process " << running->pname << " needs room for its stack" << endl;
+		removeBlock(highestFrameUsed);
+		highestFrameUsed--;
+		contextSwitch();
+		waitQ.back()->sr &= 31;//clear return status
+		break;
+	   case 4:  //stack underflow exception
+		cout << "Stack Uderflow: Process " << running->pname << " terminated!" << endl;
+		terminateRunning();
+		break;
+	case 5: //invalid opcode exception 
+		cout << "Invalid Opcode: Process " << running->pname << " terminated!" << endl;
+		terminateRunning();
+		break;
+		//the i/o operations have their own context switch operations
+	   case 6: //read operation
+	        cout << "i/o interrupt " << running->pname << " reading into ";
+	 	saveProcess();
+	    	RD = waitQ.back()->sr>>8;
+		RD &= 3;
+		cout << RD << endl;
+	    	waitQ.back()->infile >> IOnum;
+		//cout << "reading " << IOnum << " into register " << RD << endl;
+	   	waitQ.back()->reg[RD] = IOnum;
+		waitQ.back()->sr &= 31;//clear i/o signals
+		setRunning();
+		setReady();
+		vm.clk += 5;
+		cSwitch++;
+	    	break;
+	  case 7: //write operation
+	    cout << "i/o interrupt " << running->pname << " writing from";
+	    	saveProcess();
+		RD = waitQ.back()->sr>>8;
+		RD &= 3;
+		cout << RD << endl;
+	    	IOnum = waitQ.back()->reg[RD];
+		waitQ.back()->sr &= 31;//clear i/o signals
+		if((IOnum & 32768) == 32768)
+		     IOnum |= -65536; //sign extend
+		//cout << "Writing " << IOnum <<" from register " << RD << endl;
+	    	waitQ.back()->outfile << IOnum << endl;
+		setRunning();
+		setReady();
+		vm.clk += 5;
+		cSwitch++;
+	    	break;
+	default:
+		cout << "Error invalid VM condition!" << endl;
+		break;
+    	    }//end switch
+    	if(readyQ.empty() && !waitQ.empty())
+    	{
+	    vm.clk += 5;
+	    idTime += 5;
+ 	}
+	if(processes <= 0) {
+		cout << "OS terminated!" << endl;
+	    	powerOff();//stop os
+        }
+    }//end while terminate loop
+}
+
+void OS::loadBlock(PCB* r, int frame) {
+    cout << "start loadblock" << endl;
+    int base = frame*8;
+    if(vm.clk)
+    	fifoReg[frame] = vm.clk;
+    cout << "Loading" << reqPage << endl;
+    r->obfile.clear();
+    r->obfile.seekg(reqPage*32);//locate starting point of obfile at last
+    char c;
+    int a, b, e, d;
+    d = r->obfile.peek(); 
+    for(int l = 0; l < 8; l++)
+    {
+	if(d == EOF)
+	{
+	    cout << "Error: invalid starting point!" << endl;
+	    break;
+	}
+	if(e == EOF)
+	    break;
+	else {
+	    b = 0;
+	    e = 0;
+	    for(int j = 0; j < 4; j++)
+	    {
+	    	r->obfile.get(c);
+		a = (int)c;
+		a -= 48;
+		b += a << (12-4*j);
+	    } 
+	vm.mem[base + l] = b;
+	cout <<"At " << base + l  <<" Value is " << b << endl;
+	e = r->obfile.peek();
+	}
+    }
+    r->pT[reqPage].frame = frame;
+    r->pT[reqPage].valid = true;
+    memMap[frame] = r;
+    cout << "loadblock finished" << endl;
+}
+void OS::removeBlock(int frame) {
+    cout << "Replace frame #" << frame << endl;
+    PCB* r = memMap[frame];
+    if(r != NULL)
+       	cout << "Owned by: " << r->pname << endl;
+    else
+	cout << "Owned by: noone" << endl;
+    if(r != NULL)
+    {
+    	char c;
+    	int a, b;
+    	int addr = 0;
+    	for(int i = 0; i < 32; i++)
+    	{
+	if (r->pT[i].frame == frame)
+	{	
+	    addr = i;
+	    break;
+	}
+    	}
+    	if(r->pT[addr].modify == true)
+    	{
+	    r->obfile.clear();
+    	    r->obfile.seekp(addr*32);
+    	    for(int j = 0; j < r->limit; j++) 
+    	    {
+	   	 b = vm.mem[frame*8+j];
+	   	 for(int l = 0; l < 4; l++)
+	   	 {
+		    a = b >> (12- 4*l);
+		    a &= 15;
+		    a += 48;
+		    c = (char)a;
+		    r->obfile.put(c);
+	    	}
+    	    }
+	    r->pT[addr].modify = false;
+    	}
+    	r->pT[addr].valid = false;
+    	memMap[frame] = NULL;
+    }
+}
+//this is a context switch called when running proc. will be sent to the ready queue  
+void OS::contextSwitch() {
+    saveProcess(); 
+    setRunning();
+    setReady();
+   vm.clk += 5;
+   cSwitch++;
+   }
+//get the saved state from the PCB into the virtual machine
+void OS::setRunning() {
+    int idle = 0;
+    if(!readyQ.empty()) {
+        running = readyQ.front();
+	readyQ.pop();
+	vm.base = running->base;
+	vm.limit = running->limit;
+	vm.pc = running->pc;
+	vm.sr = running->sr;
+	vm.sp = running->sp;
+	vm.hit = running->Hit;
+	for(int i = 0; i < 4; ++i)
+	    vm.r[i] = running->reg[i];
+	for(int j = 0; j < 32; j++)
+	{
+	    vm.TLB[j].frame = running->pT[j].frame;
+	    vm.TLB[j].valid = running->pT[j].valid;
+	    vm.TLB[j].modify = running->pT[j].modify;
+	}
+	running->stk.clear();
+	running->stk.seekg(0, ios::beg);
+	int SP = 256;
+	char c;
+	int number ;
+	while(SP > running->sp) {
+	    SP--;
+	    for(int k = 0; k < 4; k++)
+	    	{
+		running->stk.get(c);
+		number = (int)c;
+		number -= 48;
+		number &= 15;
+		vm.mem[SP] += number << (12-4*k);
+	    } 
+	}
+	int wTime = vm.clk - running->TurnaroundTime;
+	running->WaitingTime += wTime;
+	running->TurnaroundTime = vm.clk;
+    }
+    else {
+      if(!waitQ.empty()){//if there are processes but none in ready queue
+	//then increment clock and redo so we have a running process pulled from wait queue
+	    idle = waitQ.front()->TurnaroundTime - vm.clk;
+	    vm.clk = waitQ.front()->TurnaroundTime;
+	    idTime += idle;
+	    setReady();
+	    setRunning();
+	    }
+	}
+}
+//this process is where the state of the interrupted running process is saved into its PCB
+//then it would move that PCB to the ready or wait queue
+void OS::saveProcess() {
+    running->base = vm.base;
+    running->limit = vm.limit;
+    running->pc = vm.pc;
+    running->sr = vm.sr;
+    running->sp = vm.sp;
+    running->Hit = vm.hit;
+    for(int i = 0; i < 4; ++i)
+	running->reg[i] = vm.r[i];
+    int SP = 256;
+    int data, lss;
+    lss = 0;
+    data = 0;
+    running->stk.clear();
+    running->stk.seekp(0, ios::beg);
+    for (int j = 0; j < 32; j++)
+    {
+	running->pT[j].frame = vm.TLB[j].frame;
+	running->pT[j].valid = vm.TLB[j].valid;
+	running->pT[j].modify = vm.TLB[j].modify;
+    }
+    char c;
+    int num;
+    while(SP > vm.sp)
+  {
+	--SP;
+	for(int i = 0; i < 4; i++)
+	{
+	    num = vm.mem[SP] >> (12-4*i);
+	    num &= 15;
+	    num += 48;
+	    c = (char)num;
+	    running->stk.put(c);
+	}
+        lss++;
+    }
+    if(lss > running->LSS)
+	running->LSS = lss;
+    int vmiTime = vm.clk - running->TurnaroundTime;
+    running->VMTime += vmiTime;
+    int VMStat = running->sr;
+    VMStat >>= 5;
+    VMStat &= 7;
+    if(VMStat >=6){// its an i/o interrupt
+    	running->IOTime += 27;
+    	running->TurnaroundTime = vm.clk + 27;
+    	waitQ.push(running);
+    }
+    else if(VMStat == 0 || VMStat == 3) {//it's a timeslice or a page fault
+	if(running->sr >> 9)
+	{
+	    running->IOTime += 35;
+	    running->TurnaroundTime = vm.clk + 35;
+	    waitQ.push(running);
+	}
+	else
+	{
+	    running->TurnaroundTime = vm.clk;
+	    readyQ.push(running);
+	}
+    }
+}
+//move a PCB from wait queue to ready queue
+void OS::setReady() {
+if(!waitQ.empty()){
+    if( vm.clk >= waitQ.front()->TurnaroundTime){
+    	readyQ.push(waitQ.front());
+    	waitQ.pop();
+    	readyQ.back()->TurnaroundTime = vm.clk;
+   	 }
+    }
+}
+ void OS::pageFault(PCB* r) {
+    r->pF++;
+    PCB* nextProcess;
+    int num = 0;
+    if(!readyQ.empty())
+	nextProcess = readyQ.front();
+    else if (!waitQ.empty())
+	nextProcess = waitQ.front();
+    else
+	nextProcess = NULL;
+//based on mode the next step find which frame can be used
+    if(myMode == FIFO) {
+	int highest = 0;
+	if(nextProcess != NULL)
+	    highest = nextProcess->sp/8;
+	else
+	   highest = 32;// there is no process to check for a stack
+	for (int i = 0; i < highest; i++)
+	{
+	    if(fifoReg[i] ==0)
+	    {
+		num = i;
+		highestFrameUsed = i;
+		break;
+	    }
+	    else if(fifoReg[i] <= fifoReg[num])
+		num = i;
+	}
+	if(vm.clk == 0 && num == 0) //update fifo registers with new values
+	    fifoReg[num]++;
+	else if (vm.clk == 0 && num > 0)
+	    fifoReg[num] = fifoReg[num-1] + 1;
+	else
+	    fifoReg[num] = vm.clk;
+    }
+    else if(myMode == LRU) {
+	int highest = 0;
+	if(nextProcess != NULL)
+	    highest = nextProcess->sp/8;
+	for (int i = 0; i < highest; i++)
+	{
+	    if(vm.lruReg[i] == 0)
+	    {
+		num = i; //automatically chose first empty frame
+		break;
+	    }
+	    else if(vm.lruReg[i] < vm.lruReg[num])
+		num = i;
+	}
+	if(vm.clk == 0) //update lru registers with new values
+	    vm.lruReg[num]++;
+	else
+	    vm.lruReg[num] = vm.clk;
+    }
+    cout << r->pname << " gets frame # " << num << endl;
+    if (memMap[num] != NULL)
+	removeBlock(num);
+    memMap[num] = r;
+    loadBlock(r, num);
+    if(vm.jumpto)
+    {
+	r->base = num*8;
+	r->pc = num*8;
+    }
+    int g = 0;
+    for(int k = 0; k <32; k++)
+    {	if(memMap[k] != NULL)
+	    g = k;
+    }
+    highestFrameUsed = g;
+}
+	
+//once all processes have finished the OS will call this function to go through each process and
+//output the performance specs to all output files then terminate the OS loop
+void OS::powerOff() {
+   double VMclk, percentBusy,VMUtil, time;
+   VMclk = (double)vm.clk;
+   for(list<PCB*>::iterator it = jobs.begin(); it != jobs.end(); ++it){
+	tPut++;
+	totalVMTime += (*it)->VMTime;
+	(*it)->infile.close();
+	(*it)->stk.close();}
+   VMUtil = totalVMTime/VMclk;
+   VMUtil *= 100.0;
+   percentBusy = 100.0*(vm.clk - idTime)/vm.clk;
+   time = vm.clk/1000.0;
+	tPut = (time == 0)?9999:tPut/time;
+   int sysTime = cSwitch*5 + idTime;
+   for(list<PCB*>::iterator it2 = jobs.begin(); it2 != jobs.end(); ++it2)
+   {
+	(*it2)->outfile << "***************************************" << endl;
+	(*it2)->outfile << "System Time: " << sysTime << endl;
+	(*it2)->outfile << "System CPU Utilization: " << percentBusy << "%" << endl;
+ 	(*it2)->outfile << "User CPU Utilization: " << VMUtil << "%" <<endl;
+	(*it2)->outfile << "Throughput: " << tPut << " processes per second." << endl;
+	(*it2)->outfile.close();
+   }
+   terminate = true;
+}
+//this is a context switch where running proc. is terminated
+void OS::terminateRunning() {
+    int vmiTime = vm.clk - running->TurnaroundTime;
+    double memRef = running->pF + running->Hit;
+    double hitRatio = running->Hit/memRef * 100;
+    running->VMTime += vmiTime;
+    running->TurnaroundTime = vm.clk;
+    running->outfile << "****************************************************" << endl;
+    running->outfile << "CPU Time: " << running->VMTime << endl;
+    running->outfile << "Waiting Time: " << running->WaitingTime << endl;
+    running->outfile << "TurnaroundTime: " << running->TurnaroundTime << endl;
+    running->outfile << "I/OTime: " << running->IOTime << endl;
+    running->outfile << "Largest Stack Size: " << running->LSS << endl;
+    running->outfile << "Page Faults: " << running->pF << endl;
+    running->outfile << "Hit Ratio: " << hitRatio << "%" << endl;
+    running->outfile << "Mode: "
+    if(myMode == FIFO)
+	running->outfile << "FIFO" << endl;
+    else if(myMode == LRU)
+
+    processes--;
+    setReady();
+    setRunning();
+    cSwitch++;
+    }

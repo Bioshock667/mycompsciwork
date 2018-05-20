@@ -1,0 +1,9 @@
+Script started on Mon 23 Oct 2017 04:03:17 PM PDT
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab2$ ./server 1234
+Message from client: Hello World
+Message from client: How are you?
+^C
+seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab2$ do[K[Kexit
+exit
+
+Script done on Mon 23 Oct 2017 04:04:51 PM PDT

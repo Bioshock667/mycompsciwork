@@ -1,0 +1,61 @@
+#include <iostream>
+#include <vector>
+#include "PriorityQueue.h"
+#include <cstdlib>
+#include <time.h>
+
+using namespace std;
+
+template <class T>
+void random_vector(int size, int max, vector<T>& v)
+{
+  srand(time(0));
+  for(int i = 0; i< size; i++)
+  {
+    v.push_back(rand() % max+1); 
+   }
+}
+
+int main()
+{
+  PriorityQueue<int> myq;
+  vector<int> myinputs;
+  char response;
+  int value;
+  cout << "Enter values? (y/n)\n";
+  cin >> response;
+  if (response == 'y')
+  {// enter several values into myq;
+    cout << "Please enter the values \n";
+    cin >> value;
+    while (cin.good())
+    {
+	myinputs.push_back(value);
+	cin >> value;
+    }
+  }
+  else
+  {
+  cout << endl;
+  cout << "How many values? ";
+  int k;
+  cin >> k;
+  random_vector(k,100,myinputs);
+  }
+  print_vector(myinputs);
+
+
+  for (int i = 0; i < myinputs.size(); i++)
+	  myq.push(myinputs[i]);
+
+  // print out the contents of myq;
+  // PriortyQueue has a function for this ...
+  myq.print_tree();
+
+  myq.pop();
+
+  cout << endl << endl;
+  myq.print_tree();
+
+  return 0;
+}

@@ -1,0 +1,10 @@
+Hello Prof. Mendoza.  I have done a little research on whether a foreign key 
+constraint can work so it references one of two primary keys (ie. donor_id
+refering to either member_id or patron_id) but all lead to people recommending
+a superclass be made instead.  So I made a Person superclass so that he MUST be
+ a member, patron or both.  A person who donates money or art is automatically
+a patron regardless of whether he is a member or not.  I made modifications
+to the relational model to accomedate for this.  I hope this works out to be
+a better model. The patron class is still necessary for the patron_id which
+links to the cash donations table.
+Sincerely, Seth Lemanek

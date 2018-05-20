@@ -1,0 +1,25 @@
+% An experiment - Prolog is good at searching, how about a binary search?
+:-style_check(-singleton).
+
+% Binary search.... 
+%   Given: a monotonic increasing function f on a
+%          finite set of integers lo..hi, 
+%          and a value y in f(lo)..f(hi)
+%   Goal: Find an x in lo..hi such that f(x)<=y<f(x+1).
+%
+%   Operations: Arithmetic on lo..hi
+
+%   Note. in Prolog we think of f as a relation f(x,y) defined like
+% the following example.
+f(X,Y):- Y is X*X.
+
+bsearch(X,Lo,Hi,Y):-Hi=:=Lo+1, X is Lo.
+bsearch(X,Lo,Hi,Y):-Hi < Lo+1, fail.
+bsearch(X,Lo,Hi,Y):-Hi>= Lo+1, Mid is (Lo+Hi)//2, 
+		f(Mid, Val),
+		( Val=<Y, bsearch(X,Mid,Hi,Y)
+		; Val>Y,  bsearch(X,Lo,Mid,Y)
+		).
+
+go:-bsearch(X,1,100,49), nl,nl,print(X),nl.
+

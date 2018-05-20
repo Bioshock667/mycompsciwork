@@ -1,0 +1,12 @@
+#ifndef PTABLE_H
+#define PTABLE_H
+
+using namespace std;
+
+struct entry {
+    public:
+	int frame;
+	bool valid;
+	bool modify;
+};
+#endif

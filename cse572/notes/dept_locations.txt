@@ -1,0 +1,15 @@
+ Name									  Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ DNUMBER								  NOT NULL NUMBER(38)
+ DLOCATION								  NOT NULL VARCHAR2(15)
+
+
+   DNUMBER DLOCATION
+---------- ---------------
+	 1 Houston
+	 4 Stafford
+	 5 Bellaire
+	 5 Dallas
+	 5 Houston
+
+

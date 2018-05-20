@@ -1,0 +1,96 @@
+/* CS201 Project
+   Programmer: Seth Lemanek
+   Number in text: P3.6
+   Description in text
+	Roman numbers. Write a program that converts a positive integer into the Roman number system. The Roman number system has digits I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000. 
+   Algorithm
+	1.Ask user to enter a positive integer between 1-9999
+	2.The user puts in a number.
+	3.The program breaks the number into individual strings containing one number.
+	4.The each number will be converted into its respective roman numeral.
+*/
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{ 
+	cout << "Please enter a positive integer between 1 - 3999.\n";
+	string n;
+	cin >> n;
+	int sl = n.length()
+	string 1n;
+	string 2n;
+	string 3n;
+	string 4n;
+	if (sl == 4)
+	{
+	1n = n.substr(0,1)
+	2n = n.substr(1,1)
+	3n = n.substr(2,1)
+	4n = n.substr(3,1)
+	}
+	if (sl == 3)
+	{
+	  1n = ""
+	  2n = n.substr(0,1)
+	  3n = n.substr(1,1)
+	  4n = n.substr(2,1)
+	}
+	if (sl == 2)
+	{
+	  1n = ""
+	  2n = ""
+	  3n = n.substr(0,1)
+	  4n = n.substr(1,1)
+	}
+	if (sl == 1)
+	{
+	  1n = ""
+	  2n = ""
+	  3n = ""
+	  4n = n.substr(0,1)
+	}
+	string 1rn;
+	string 2rn;
+	string 3rn;
+	string 4rn;
+	if (1n = "") 1rn = "";
+	if (1n = "1") 1rn = "M";
+	if (1n = "2") 1rn = "MM";
+	if (1n = "3") 1rn = "MMM";
+	if (2n = "") 2rn = "";
+	if (2n = "1") 2rn = "C";
+	if (2n = "2") 2rn = "CC";
+	if (2n = "3") 2rn = "CCC";
+	if (2n = "4") 2rn = "CD";
+	if (2n = "5") 2rn = "D";
+	if (2n = "6") 2rn = "DC";
+	if (2n = "7") 2rn = "DCC";
+	if (2n = "8") 2rn = "DCCC";
+	if (2n = "9") 2rn = "CM";
+	if (3n = "") 3rm = "";
+	if (3n = "1") 3rn = "X";
+	if (3n = "2") 3rn = "XX";
+	if (3n = "3") 3rn = "XXX";
+	if (3n = "4") 3rn = "XL";
+	if (3n = "5") 3rn = "L";
+	if (3n = "6") 3rn = "LX";
+	if (3n = "7") 3rn = "LXX";
+	if (3n = "8") 3rn = "LXXX";
+	if (3n = "9") 3rn = "XC";
+	if (4n = "") 4rn = "";
+	if (4n = "1") 4rn = "I";
+	if (4n = "2") 4rn = "II";
+	if (4n = "3") 4rn = "III";
+	if (4n = "4") 4rn = "IV";
+	if (4n = "5") 4rn = "V";
+	if (4n = "6") 4rn = "VI";
+	if (4n = "7") 4rn = "VII";
+	if (4n = "8") 4rn = "VIII";
+	if (4n = "9") 4rn = "IX";
+	cout << "The Roman numeral is: " << 1rn << 2rn << 3rn << 4rn << ".\n"
+	return 0; // terminate program with zero errors.
+
+}

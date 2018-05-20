@@ -1,0 +1,13 @@
+#include "pTable.h"
+
+using namespace std;
+
+pTable::pTable()
+{
+    for (int i = 0; i < TABLE_SIZE; i++)
+    {
+      values[i] = 0;
+      valid[i] = false;
+      modify[i] = false;
+    }
+}

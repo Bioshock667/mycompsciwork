@@ -1,0 +1,503 @@
+<html>
+    <head>
+	<title>Lab5: Language Paradigms</title>
+	<link type='text/css' rel='stylesheet' href='general.css'>
+    </head>
+    <body>
+	<a href=index.html>&#8635; back to index</a>
+	<h1>Lab5: Language Paradigms</h1>
+	<p>The purpose of this lab is to explore language paradigms through the implimentation of a common algorithm across those different paradigms.  This lab will demonstrate the implementation of matrix multiplication in three porgramming languages, each of a different language paradigm:</p>
+	<div>
+	<ul>
+	    <li>C++: Object-Oriented</li>
+	    <li>C: Imperative</li>
+	    <li>Scheme: Functional</li>
+	</ul>
+	</div>
+	<p>More about the lab purpose and how matrix multiplication is shown in the <a href=http://www.cse.csusb.edu/egomez/cs320/lab5.txt>lab assignment page</a>.</p>
+	<p>All my programs will be made to read two matrices from each text file. Then. they would interpret the first two numbers as the number of rows and number of columns respectively.  All must be able to read floating-point numbers as well as real numbers.</p>
+	<h2>Building Programs in Different Paradigms</h2>
+	<h3>Object-Oriented</h3>
+	<p>C++ was created in 1979 by Bjarne Stroustrup.  This program will use the object-oriented design as well as the many libraries provided by its libraries.</p>
+	<textarea readonly rows=20 cols=100>
+/*  Name: cmatmul.cpp
+	Description: Two matrices A and B with dimensions (m*n) and (n*m) respectively.
+	Resulting matrix C has dimension (m*m) 
+	C(i, j) = SUM(A(i, k), (B(k, j)))
+	This C++ program is an object-oriented way of matrix multiplication 
+*/
+#include<iostream>
+#include<sstream>
+#include<vector>
+#include<fstream>
+
+using namespace std;
+
+class row {
+    friend class Matrix;
+    public:
+    	row(vector<double> d) { r = d; }
+ 	int size() {return r.size();}
+    private:
+    	vector<double> r;
+};
+
+class Matrix {
+    public:
+	Matrix(int rows, int columns);
+	Matrix multiply(Matrix B);
+	void addRow(vector<double> num);
+	void printMatrix();
+    private:
+	vector<row> M;
+	int rows;
+	int cols;
+};
+
+Matrix::Matrix(int rows, int columns) {
+	this->rows=rows;
+	this->cols=columns;
+}
+
+void Matrix::addRow(vector<double> num) {
+    M.push_back(row(num));
+}
+
+void Matrix::printMatrix() {
+    string line, num;
+    for(int i = 0; i < rows; i++) {
+   	for(int j = 0; j < cols; j++) {
+	     cout << M[i].r[j] << " ";
+	}
+	cout << endl;
+    }
+    cout << "rows: " << rows << "\ncolumns: " << cols << "\n";
+}
+
+//This function multiplies the matrix it belongs to with the matrix in the parameter and returns the resulting matrix.  
+Matrix Matrix::multiply(Matrix B) { 
+    //C(i, j) = Sum(A(i,k)*B,j)) for all k in (0 .. m-1)
+    Matrix C(this->rows, B.cols);
+
+    if(this->cols != B.rows)
+    {
+	cout << "Incompatible dimensions for matrices!\n";
+	cout << "Matrix one has " << this->cols << " columns and matrix two has "
+	<< B.rows << " rows.\n";
+	return B;
+    }
+   
+    for(int i = 0; i < this->rows; i++)  //i = row of matrix a
+    {
+	vector<double> cRow;
+	for(int j = 0; j < B.cols; j++) //j = column of matrix b
+	{
+	    double n = 0;
+	    for(int k = 0; k < B.rows; k++) //k = row of matrix b
+	    	n += this->M[i].r[k] * B.M[k].r[j];
+	    cRow.push_back(n);
+	}
+    	C.addRow(cRow);
+    }
+    return C;
+}
+
+int main() {
+    string sRow, RC;
+    ifstream afile, bfile;
+    istringstream is;
+    afile.open("A.txt");
+    int rows, columns;
+    getline(afile, RC);
+    istringstream rc(RC);
+    rc >> rows >> columns; //for first line read in as rows then columns
+    Matrix A(rows, columns);
+    getline(afile, sRow);
+    while(afile.good()) //read each line as string until end of file
+    {
+	istringstream is(sRow); //reinterpret string as a row of numbers
+	vector<double> row;
+ 	double n;
+	is >> n;
+	while(is)
+	{
+	    row.push_back(n);
+	    is >> n;
+	}
+	A.addRow(row); //then insert new row
+	getline(afile, sRow);
+    }
+    afile.close();
+    cout << "Values of A:\n";
+    A.printMatrix();
+    bfile.open("B.txt");
+    getline(bfile, RC);
+    istringstream rc2(RC);
+    rc2 >> rows >> columns;
+    Matrix B(rows, columns);
+    getline(bfile, sRow);
+    while(bfile.good()) //repeat for matrix b
+    {
+	istringstream is(sRow);
+	vector<double> row;
+	double n;
+	is >> n;
+	while(is)
+	{
+	    row.push_back(n);
+	    is >> n;
+	}
+	B.addRow(row);
+	getline(bfile, sRow);
+    }
+    bfile.close();
+    cout << "Values of B:\n";
+    B.printMatrix(); 
+    cout << "Multiplying ... \n";
+    Matrix C = A.multiply(B);
+    cout << "Values of C:\n";
+    C.printMatrix();
+}
+	</textarea>
+	<h3>Imperative</h3>
+	<p>The language chosen for the imperative language paradigms is the C language.  Working in an imperative style means treating data and instructions as you would in assembly, line-by-line storing and reading variables.  Because of this, to store a matrix memory must be allocated before reading in the values and that is why all matrix text files have a number for rows and columns.  C can read in those values before allocating memory for matrix values.</p>
+	<textarea readonly rows=20 cols=100>
+#define DOUBLE_FORMAT "%.2lf "
+#include <stdio.h>
+/* "This old function was needed to read doubles until I found out you can use "fscanf" instead :P
+int readNum(FILE* file, double *num)
+{ //reads a number delimited by whitespace, newline, or EOF
+    returns 1 //for newline and space, 0 for EOF
+    int ch, decimal = 0;
+    double number, pos = 10, neg = 0.1;
+    ch = fgetc(file);
+    number = ch - '0';
+    while (1)
+    {
+ 	ch=fgetc(file);
+        if(ch == ' ' || ch == '\n' || ch == EOF)
+        	break;
+        else if (ch == '.')
+	    decimal = 1;
+	else
+	{
+  	    ch -= '0';
+            if(decimal)
+  	    {
+		number += (ch * neg);
+		neg *= neg;	
+	    }   
+            else
+	    {
+            	number *= pos; //shift by an order of 10 everytime a new number is read
+     	    	number += ch;
+		pos *= pos;
+	    }
+        }
+    }
+    *num = number;
+    if(ch == ' ' || ch == '\n')
+	return 1;
+    else
+	return 0;
+}
+*/
+void printMatrix(int rows, int columns, double matrix[rows][columns]) {
+    int i, j;
+    for(i = 0; i < rows; i++)
+    {
+ 	for(j = 0; j < columns; j++)
+	     printf("%d ", matrix[i][j]);
+	printf("\n");
+    }
+}
+
+int ind(int i, int j, int c)
+{/* r is row, j is column, c is number of items per row */
+ /* returns position of index i,j in a linear array */
+    return i*c+j;
+}
+ 
+int main() {
+    FILE *A, *B;
+    A = fopen("A.txt", "r");
+    B = fopen("B.txt", "r");
+    int aRows = 0, bRows = 0, aColumns = 0, bColumns = 0;
+    int c;
+    double num;
+    fscanf(A, "%d %d\n", &aRows, &aColumns);
+    printf("Matrix A has %d rows and %d columns.\n", aRows, aColumns);
+    fscanf(B, "%d %d\n", &bRows, &bColumns);
+    printf("Matrix B has %d rows and %d columns.\n", bRows, bColumns);
+    if(aColumns != bRows)
+    {
+	printf("Error: Incompatible Dimensions for Matrices");
+	return 0;
+    }
+    //allocate memory for upcoming matrices
+    double *M1, *M2, *M3;
+    M1 = (double *)malloc(aRows*aColumns*sizeof(double));
+    M2 = (double *)malloc(bRows*bColumns*sizeof(double));
+    M3 = (double *)malloc(aRows*bColumns*sizeof(double));
+    int i = 0,j = 0;
+    while(!feof(A)) //read in 1st matrix
+    {
+	fscanf(A, "%lf", &num);
+	M1[ind(i, j, aColumns)] = num;
+	j++;
+	if(j == aColumns)
+	{
+	    j = 0;
+	    i++;
+	}
+    }
+    printf("Value of Matrix A:\n");
+    for(i = 0; i < aRows; i++)
+    {
+	for(j = 0; j < aColumns; j++)
+	    printf(DOUBLE_FORMAT, M1[ind(i, j, aColumns)]);
+	printf("\n");
+    }
+    i = 0, j = 0;
+    while(!feof(B)) //read in 2nd matrix
+    {
+	fscanf(B, "%lf", &num);
+       	M2[ind(i, j, bColumns)] = num;
+       	j++;
+	if(j == bColumns)
+	{
+	    j = 0;
+	    i++;
+	}
+    }
+    printf("Value of Matrix B:\n");
+    for(i = 0; i < bRows; i++)
+    {
+	for(j = 0; j < bColumns; j++)
+	    printf(DOUBLE_FORMAT, M2[ind(i, j, bColumns)]);
+	printf("\n");
+    }
+    fclose(A);
+    fclose(B);
+    int k;
+    double n;
+    printf("Multiplying ..\n");
+    for(i = 0; i < aRows; i++)
+    {
+	for(j = 0; j < bColumns; j++)
+	{
+	    n = 0;
+	    for(k = 0; k < bRows; k++)
+		n += M1[ind(i, k, aColumns)] * M2[ind(k, j, bColumns)];
+	    M3[ind(i, j, bColumns)] = n;
+	}
+    }
+    printf("Value of Matrix C:\n");
+    for(i = 0; i < aRows; i++)
+    {
+	for(j = 0; j < bColumns; j++)
+	    printf(DOUBLE_FORMAT, M3[ind(i, j, bColumns)]);
+	printf("\n");
+    }
+	</textarea>
+	<h3>Functional</h3>
+	<p>As implied in the name, languages of the functional paradigm are built around functions.  Functions in a computer and mathematical sense are a group of actions that modify input values and output modified values. for example F(x) = 2*x+7.  Enter a number in place of "x" and you get a value.  Functions also can be passed into other functions in place of variables to do more with values. For example if G(i) = log(i) then F(G(i)) = 2*log(i)+7.  In Lisp, there are lists, functions, and atoms. Functions in Lisp look like lists but the first element is the function while the rest are parameters.  Scheme more or less is a dialect of the Lisp language and will be used here.</p>
+	
+	<textarea readonly rows=20 cols=100>
+
+;;description: This scheme program is a functional approach to matrix multiplication
+;;		for cse320. 
+
+;;This borrowed function reads the entire text file into a single list
+(define input (lambda (name) (let ((p (open-input-file name)))
+     (let f ((x (read p)))
+      (if (eof-object? x)
+        (begin
+          (close-input-port p)
+          '())
+        (cons x (f (read p))))))))
+
+;; borrowed function returns nth member of a list		
+(define (nth list n)
+  (let iter ((n n) (result list))
+    (if (= n 0)
+        (car result)
+        (iter (- n 1)
+              (cdr result)))))
+
+;; borrowed function returns the nth column of a matrix
+(define (matrix-col M n)
+  (let iter ((i (length M)) (result '()))
+    (if (= i 0)
+        result
+        (iter (- i 1)
+              (cons (nth (nth M (- i 1)) n) result)))))
+
+;;converts a single list to a matrix where inner lists are rows
+;;parameters:	lis := list to be converted
+;;		sublist := temporary list to be added when done
+;;		nrows := # of rows
+;;		ncolumns : # of columns
+;;		cs := iterator goes from ncolumns to 0
+(define make-matrix (lambda (lis sublist nrows ncolumns cs)  
+    (if (= nrows 0)
+	'() ;;if no more columns return nothing
+	(if (> cs 0)
+ 	     (make-matrix (cdr lis) (cons (car lis) sublist) nrows ncolumns (- cs 1))
+	     (cons (reverse sublist) (make-matrix lis '() (- nrows 1) ncolumns ncolumns))))))
+
+
+;;cross products row of A and column of B and returns a single number
+(define X-Prod (lambda (aRow bCol) 
+			(apply + 0 (map * aRow bCol) )))
+
+;;executes cross product for each column of matrix b to chosen row then concatenate to list
+;;parameters: 	a := chosen row of Matrix A
+;;		bMatrix := Matrix B
+;;		cols := # of columns in Matrix B
+;;		c := iterator goes from 0 -> cols
+(define makeRow (lambda (a bMatrix cols c)
+	;;i must start at zero
+	 (if (= c cols)
+		'()
+	 	(cons (X-Prod a (matrix-col bMatrix c)) (makeRow a bMatrix cols (+ c 1))))))
+
+
+;;execute makeRow for each row of A then concatenates resulting rows
+(define mat-mul (lambda (A B bCols) 
+    (if (null? A)
+	'()	
+	(cons   (makeRow (car A) B bCols 0)
+		(mat-mul (cdr A) B bCols)))))
+(define A (input "A.txt"))
+(define B (input "B.txt"))
+
+;;first 2 numbers are row and column indicators
+(display "Contents of A: ")
+(display A)
+(newline)
+(newline)
+(display "Contents of B:")
+(display B)
+(newline)
+(newline)
+(display "Contents of A*B:")
+    (let ([aRows (car A)]
+	  [aCols (car (cdr A))]
+	  [bRows (car B)]
+	  [bCols (car (cdr B))]
+	  [L1 (cdr (cdr A))]
+	  [L2 (cdr (cdr B))])
+	  (let ([makeMatrixA (lambda () (make-matrix L1 '() aRows aCols aCols))]
+		[makeMatrixB (lambda () (make-matrix L2 '() bRows bCols bCols))])
+		(display (mat-mul (makeMatrixA) (makeMatrixB) bCols))))
+(newline)
+	</textarea>
+	<h2>Testing</h2>
+	<h3>Matrix Files</h3>
+	<div class="input">
+	<strong>A.txt</strong>
+	<pre>
+8 4
+5 78 3 5
+6 3 24.9 5
+3 1 3.7 66
+22.2 5 3 8
+44 2 3 1
+33 99 3 2
+1 2 3 4.0
+5 4 2.5 15
+	</pre>
+	</div>
+	<div class="input">
+	<strong>B.txt</strong>
+	<pre>
+
+4 8
+1 2 3 4 5 6 7 8
+9.5 4 3 5 3 1.3 6 5
+5 5 2 5 7.5 2 4 5
+3 5 1.32 9 5 1 3.9 8
+	</pre>
+	</div>
+	<h3>Results of matmul.cpp</h3>
+	<div class="output">
+	<pre>
+Values of A:
+5 78 3 5 
+6 3 24.9 5 
+3 1 3.7 66 
+22.2 5 3 8 
+44 2 3 1 
+33 99 3 2 
+1 2 3 4 
+5 4 2.5 15 
+rows: 8
+columns: 4
+Values of B:
+1 2 3 4 5 6 7 8 
+9.5 4 3 5 3 1.3 6 5 
+5 5 2 5 7.5 2 4 5 
+3 5 1.32 9 5 1 3.9 8 
+rows: 4
+columns: 8
+Multiplying ... 
+Values of C:
+776 362 261.6 470 306.5 142.4 534.5 485 
+174 173.5 83.4 208.5 250.75 94.7 179.1 227.5 
+229 358.5 106.52 629.5 375.75 92.7 299.2 575.5 
+108.7 119.4 98.16 200.8 188.5 153.7 228.6 281.6 
+81 116 145.32 210 253.5 273.6 335.9 385 
+994.5 487 404.64 660 494.5 334.7 844.8 790 
+47 45 20.28 65 53.5 18.6 46.6 65 
+100.5 113.5 51.8 187.5 130.75 55.2 127.5 192.5 
+rows: 8
+columns: 8
+	</pre>
+	</div>
+	<h3>Results of cmatmul.c</h3>
+	<div class="output">
+	<pre>
+Matrix A has 8 rows and 4 columns.
+Matrix B has 4 rows and 8 columns.
+Value of Matrix A:
+5.00 78.00 3.00 5.00 
+6.00 3.00 24.90 5.00 
+3.00 1.00 3.70 66.00 
+22.20 5.00 3.00 8.00 
+44.00 2.00 3.00 1.00 
+33.00 99.00 3.00 2.00 
+1.00 2.00 3.00 4.00 
+5.00 4.00 2.50 15.00 
+Value of Matrix B:
+1.00 2.00 3.00 4.00 5.00 6.00 7.00 8.00 
+9.50 4.00 3.00 5.00 3.00 1.30 6.00 5.00 
+5.00 5.00 2.00 5.00 7.50 2.00 4.00 5.00 
+3.00 5.00 1.32 9.00 5.00 1.00 3.90 8.00 
+Multiplying ..
+Value of Matrix C:
+776.00 362.00 261.60 470.00 306.50 142.40 534.50 485.00 
+174.00 173.50 83.40 208.50 250.75 94.70 179.10 227.50 
+229.00 358.50 106.52 629.50 375.75 92.70 299.20 575.50 
+108.70 119.40 98.16 200.80 188.50 153.70 228.60 281.60 
+81.00 116.00 145.32 210.00 253.50 273.60 335.90 385.00 
+994.50 487.00 404.64 660.00 494.50 334.70 844.80 790.00 
+47.00 45.00 20.28 65.00 53.50 18.60 46.60 65.00 
+100.50 113.50 51.80 187.50 130.75 55.20 127.50 192.50 
+	</pre>
+	</div>
+	<h3>Results of matrix-mul.scm</h3>
+	<div class="output">
+	<pre>
+Contents of A: (8 4 5 78 3 5 6 3 24.9 5 3 1 3.7 66 22.2 5 3 8 44 2 3 1 33 99 3 2 1 2 3 4.0 5 4 2.5 15)
+
+Contents of B:(4 8 1 2 3 4 5 6 7 8 9.5 4 3 5 3 1.3 6 5 5 5 2 5 7.5 2 4 5 3 5 1.32 9 5 1 3.9 8)
+
+Contents of A*B:((776.0 362 261.6 470 306.5 142.4 534.5 485) (174.0 173.5 83.39999999999999 208.5 250.75 94.69999999999999 179.1 227.5) (229.0 358.5 106.52000000000001 629.5 375.75 92.7 299.2 575.5) (108.7 119.4 98.16 200.8 188.5 153.7 228.6 281.6) (81.0 116 145.32 210 253.5 273.6 335.9 385) (994.5 487 404.64 660 494.5 334.70000000000005 844.8 790) (47.0 45.0 20.28 65.0 53.5 18.6 46.6 65.0) (100.5 113.5 51.8 187.5 130.75 55.2 127.5 192.5))
+	</pre>
+	</div>
+	<h2>Conclusion</h2>
+	<p>Given that C++ was the first language I learned, I worked on the C++ version first.  This program is built with an object-oriented design that makes it easy to understand and given my familiarity with C++ it was that fastest program to make.  With classes like vectors, dynamic allocation is easy.  Originally, my matrix files didn't have rows and columns specified because memory was dynamically allocated as I read in the matrix values.</p>
+	<p>With the C version however must have memory allocated ahead of time so I included number of rows and columns in the first line of each matrix file.  C took a while to learn but its was easy to complete given how simular C++ is to C.</p>
+	<p>Scheme was in an entirely different ballpark.  Learning Scheme came along with learning the whole functional language paradigm from the beginning.  Therefore, the Scheme program took the longest to complete. But, I did learn a lot from it.  I have learned to think in terms of functions but that took a lot research, trial, and error.</p>
+	<p>All program paradigms have their advantages and disadvantages.  C as an imperative language is built with the Neumann Computer Architecture in mind, <em>a very common computer architecture style</em>.  It is safe to say that C proforms well because it is made for our computers.  C++ is like C but its supports the use of objects.  Building code in object-oriented fashion makes it easy for programmers to put code in modules makes the code easy to read and debug but it suffers a small decrease in performance compared to C.  Scheme, because it is a functional language, will appear unfamiliar to many programmers, making debugging difficult.  But, the <code>define</code> keyword allows programmers like me to break down the code into nice readable functions and global variables for easy debugging.  Loops however were proven difficult as the main way to repeat instruction in Scheme is recursion which had me add parameters to save and modify variables.  Should have I programmed this way?  Probably not.  But, as someone new to the language I needed to in order to get it to work.</p>

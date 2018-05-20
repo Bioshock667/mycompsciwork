@@ -1,0 +1,8 @@
+class Staff : public Employee
+{
+public:
+Staff(string p);
+string get_position() const;
+private:
+string position;
+};

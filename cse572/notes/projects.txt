@@ -1,0 +1,17 @@
+ Name									  Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ PNAME									  NOT NULL VARCHAR2(15)
+ PNUMBER								  NOT NULL NUMBER(38)
+ PLOCATION									   VARCHAR2(15)
+ DNUM									  NOT NULL NUMBER(38)
+
+
+PNAME		   PNUMBER PLOCATION		 DNUM
+--------------- ---------- --------------- ----------
+ProductX		 1 Bellaire		    5
+ProductY		 2 Sugarland		    5
+ProductZ		 3 Houston		    5
+Computerization 	10 Stafford		    4
+Reorganization		20 Houston		    1
+Newbenefits		30 Stafford		    4
+

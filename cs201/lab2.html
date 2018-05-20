@@ -1,0 +1,310 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>Sample:
+CS201 Laboratory 2 -- Compiling, Running, and Writing simple C++ programs
+</title>
+<style type="text/css">
+BODY{font-family:serif;}
+H1,H2,H3,H4{font-family:sans-serif;}
+CODE,PRE,TT{font-family:monospace;}
+HR{color: black;}
+A{ font-weight: bolder; }
+.InlineFormula{
+	font-style: italic;
+}
+.Formula{
+	padding-left:10px;
+	font-style: italic;
+}
+.Let{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+}
+.Net{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:red;
+}
+.Case{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:blue;
+}
+</style>
+</head>
+<body vlink="#8000AF" bgcolor="#FFFFFB" link="#0000FF" alink="#FF0000">
+<!-- Generated from MATHS source code by RJBotting\'s mth2html script-->
+<form method="get" action="http://www.csci.csusb.edu/dick/cs201/lookup.php">
+[<a href="#Main%20Content">Skip Navigation</a>] 
+[<a href="http://www.csusb.edu/">CSUSB</a>]
+/ [<a href="http://nsci.csusb.edu/">CNS</a>]
+/ [<a href="http://cse.csusb.edu/">CSE</a>]
+/ [<a href="http://cse.csusb.edu/dick/">R J Botting</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201">CSE201</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201/lab01">Lab01</a>]
+&gt;&gt;
+index
+<br>
+ [<a href="http://www.csci.csusb.edu/dick/cs201/">Index</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/schedule.html">Schedule</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/syllabi.html">Syllabi</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/glossary.html">Glossary</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/labs.html">Labs</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/projects.html">Projects</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/resources.html">Resources</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/grading/">Grading</a>] 
+ [Search <input name="search" size="10">
+<input name="from" value="cs201/index.mth" type="hidden">
+<input value="Go" type="submit">]
+<br>
+ Notes: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/01.html">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/02.html">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/03.html">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/04.html">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/05.html">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/06.html">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/07.html">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/08.html">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/09.html">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/10.html">10</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/11.html">11</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/12.html">12</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/13.html">13</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/14.html">14</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html">15</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/16.html">16</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/17.html">17</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/18.html">18</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/19.html">19</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/20.html">20</a>]
+<br>Labs: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab01/">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/">10</a>]
+<br>
+Thu Jan 12 12:09:39 PST 2012
+</form>
+<h3><a name="Contents">Contents</a></h3>
+<ul class="Contents">
+<li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#CS201%20Laboratory%202%20--%20Compiling,%20Running,%20and%20Writing%20simple%20C++%20programs">CS201 Laboratory 2 -- Compiling, Running, and Writing simple C++ programs</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Introduction">: Introduction</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Logging%20in%20and%20out">: Logging in and out</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Setting%20up%20a%20cs201/lab02%20directory">: Setting up a cs201/lab02 directory</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#The%20Hello%20World%20Program">: The Hello World Program</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Testing%20with%20g++">: Testing with g++</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Testing%20with%20Q">: Testing with Q</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Editting%20a%20program">: Editting a program</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#You%20can%20always%20get%20the%20old%20copy%20back">: You can always get the old copy back</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Make%20the%20program%20say%20Happy%20New%20Year">: Make the program say Happy New Year</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Credit%20%28Grade=B%29">: Credit (Grade=B)</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Integer%20Division">: Integer Division</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Credit%20%28Grade=A%29">: Credit (Grade=A)</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Spare%20time">: Spare time</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#UNIX%20Commands%20for%20fun%20and%20productivity">: UNIX Commands for fun and productivity</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Abreviations">Abreviations</a>
+</li></ul><a name="Main Content"><hr></a><ol>
+<h1><a name="CS201 Laboratory 2 -- Compiling, Running, and Writing simple C++ programs">CS201 Laboratory 2 -- Compiling, Running, and Writing simple C++ programs</a></h1><ol class="Section">
+Previous
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab01/"> ../lab01/ </a>]
+Next
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/"> ../lab03/ </a>]
+<h2><a name="Introduction">Introduction</a></h2>
+In this lab we will use our lab machines to test and develop
+C++ programs.  We will use the operating file browser
+to make directories for your work
+In the lab we will use a simple editor called "gedit" to change C++ files.
+We will use a command line terminal window to do most of the compilation in
+a "Terminal" window.
+Command line methods will not change if the operating system is updated.
+They can be used in our laboratories and remotely to compile and run programs.
+<p>
+Wait for the teacher to demonstrate the procedures at the start of the class.
+</p><h2><a name="Logging in and out">Logging in and out</a></h2>
+This is the same as in the first laboratory.
+Please see
+[<a href="http://www.csci.csusb.edu/dick/cs201/labs.html"> ../labs.html </a>]
+<p>
+You can open a Web Browser and point it at this page
+</p><pre> 		http://cse.csusb.edu/dick/cs201/lab02/</pre>
+<p>
+</p><h2><a name="Setting up a cs201/lab02 directory">Setting up a cs201/lab02 directory</a></h2>
+You must first create a "cs201" directory for your work in this class, and
+within that a "lab02" directory for the work today.
+<p>
+First, click on activities and then on the image of a file cabinet
+in the favorites.
+This opens a window and you can use a Right Click to in it to open
+a menu and select "Create New Folder" to add a folder.  You can change its name to
+"cs201" and keep you CSCI201 work in.
+</p><p>
+Then Double click the new folder icon so that it opens -- it should be empty.  Use the same menus
+to create a directory called "lab02".
+Double Click it.  It will open -- it should empty.  We will put files into it from the
+cs201/lab02 web page.
+</p><p>
+</p><h2><a name="The Hello World Program">The Hello World Program</a></h2>
+We start with a version of the "Hello World" program on page 15 in Chapter 1.
+<p>
+Right click this link
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/hello.cpp"> hello.cpp </a>]
+and select the "Download..." option. Ask the browser to put
+the file your cs201/lab02
+directory (demo in class).
+</p><p>
+</p><h2><a name="Testing with g++">Testing with g++</a></h2>
+Start by opening a terminal window (Applications-&gt;System Tools-&gt;Terminal --
+demo in class)
+and changing directory to the cs201/lab02 directory
+Type into the terminal window:
+<pre> 		cd cs201/lab02</pre>
+and tap the Return/Enter key.  You can list the files with this command
+<pre> 		ls</pre>
+(and tap Return).
+<p>
+We will use the Gnu compiler.  Try  the commands as shown below
+in your terminal window.  The prompts will be different since they depend on your "Working directory".
+</p><p>
+</p><h2><a name="Testing with Q">Testing with Q</a></h2>
+I have created a command <span class="InlineFormula">Q</span> that
+compiles, checks, and runs most programs -- in most languages.  Try this:
+<pre> 	~dick/bin/Q hello.cpp</pre>
+<p>
+</p><h2><a name="Editting a program">Editting a program</a></h2>
+Start by making
+<a name="a backup copy" class="Key"> a backup copy </a>
+of "hello.cpp"
+<pre> 		cp hello.cpp hello.cpp.bak</pre>
+before you start to play with the code.
+<p>
+Your task is to try out the errors shown on page 19-21 of our text.
+</p><p>
+Your tool is the "gedit" editor.  Double clicking the
+"hello.cpp" file should start it up.  Or
+</p><pre> 		gedit hello.cpp &amp;</pre>
+<p>
+The "&amp;" above lets you pop up the gedit window <span class="InlineFormula">and</span> then
+input terminal commands.
+</p><p>
+Use the editor to make a change suggested in the book and save it.
+</p><p>
+Click in the terminal window and repeat the test.... use the up-arrow key to
+go back to a previous command and then tap the "Enter" key to repeat it.
+</p><p>
+Does the compiler object to your code?  It gives a line number in front of
+the error look on that line, and the lines above it.  Look for broken syntax rules.
+Fix the error and try again until the program runs...
+</p><p>
+</p><h2><a name="You can always get the old copy back">You can always get the old copy back</a></h2>
+<pre> 		cp hello.cpp.bak hello.cpp</pre>
+typed in your terminal!
+<p>
+</p><h2><a name="Make the program say Happy New Year">Make the program say Happy New Year</a></h2>
+Copy the original into "greeting.cpp"
+<pre> 		cp hello.cpp.bak greeting.cpp</pre>
+<pre> 		gedit greeting.cpp</pre>
+<p>
+Make the "greeting" program display "Happy New Year" when compiled
+and run.
+</p><p>
+Change the comments to match -- your name and what you have done.
+</p><p>
+</p><h2><a name="Credit (Grade=B)">Credit (Grade=B)</a></h2>
+If you get this far before the end of the lab session you have earned an
+B ( 9 points out of 10).
+<p>
+</p><h2><a name="Integer Division">Integer Division</a></h2>
+Download and test the following straight forward program
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/div.cpp"> div.cpp </a>]
+which will input two numbers like 6 and 3 and output the result
+of dividing 6 by 3.
+<pre> 		~dick/bin/Q div.cpp</pre>
+But if you try dividing 3 by 6 you get the answer 0.
+This is because the numbers are defined as "int"s -- whole numbers or
+integers.  You should also find out what happens when you input numbers like 2.1 and 0.7.
+<p>
+This is clearly not a good program.
+</p><p>
+You task is to make the program work with real numbers -- "double"s rather
+than integers.  Hint: look at pages 58-59 and guess the one word
+you need to change in "div.cpp".
+Process: Guess, edit, save, test, and repeat if not
+right.
+</p><p>
+</p><h2><a name="Credit (Grade=A)">Credit (Grade=A)</a></h2>
+If you get this far before the end of the lab session you have earned an
+A.
+<p>
+</p><h2><a name="Spare time">Spare time</a></h2>
+Now would be a good time to create a new folder for your first project
+and download
+[<a href="http://www.csci.csusb.edu/dick/cs201/project.cpp"> ../project.cpp </a>]
+into it as a "fill in the blank" starter file.
+<p>
+</p><h2><a name="UNIX Commands for fun and productivity">UNIX Commands for fun and productivity</a></h2>
+By the way, you can easily create, list, and change directories in a terminal
+window.  These commands can be done remotely or in a Terminal window in the lab.
+Computer majors are Wise to master these commands.   The Club runs special
+training sessions (highly praised by students in the past) on UNIX commands.
+<p>
+You can create a new
+directory by typing in the "mkdir" command:
+</p><pre> 		mkdir example</pre>
+"mkdir" means
+<a name="Make Directory" class="Key"> Make Directory </a>
+under the current "Working directory".
+<p>
+You can change a terminal/command window to another
+directory very easily by typing in the "cd" command:
+</p><pre> 		cd example</pre>
+"cd" means
+<a name="Change Directory" class="Key"> Change Directory </a>
+to the "example" in this directory!
+<p>
+The command
+</p><pre> 		cd</pre>
+always takes you back to your home directory.
+<p>
+</p><p>
+These commands show you where you are and what files and directories you have.
+</p><pre> 		pwd</pre>
+stands for
+<a name="Print Working Directory" class="Key"> Print Working Directory </a>
+and
+<pre> 		ls</pre>
+mean
+<a name="LiSt the files." class="Key"> LiSt the files. </a>
+These are good when you
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#Change%20Directory"> Change Directory </a>]
+and are not sure where you got to and what files are there.
+<p>
+Here is another useful command to use before playing with a file:
+</p><pre> 		cp example.cpp old.example.cpp</pre>
+which
+<a name="CoPies" class="Key"> CoPies </a>
+the file <span class="InlineFormula">example.cpp</span> and creates a new <span class="InlineFormula">old.example.cpp</span>
+with the same data in it.
+<p>
+To change the name of a file you can use the "MoVe" command:
+</p><pre> 		mv mistook.cpp mistake.cpp</pre>
+<p>
+</p><p>
+</p></ol><p>. . . . . . . . . ( end of section <a href="http://www.csci.csusb.edu/dick/cs201/lab02/index.html#CS201%20Laboratory%202%20--%20Compiling,%20Running,%20and%20Writing%20simple%20C++%20programs">CS201 Laboratory 2 -- Compiling, Running, and Writing simple C++ programs</a>)  <a href="#Contents">&lt;&lt;</a>Contents | End<a href="#__End">&gt;&gt;</a>
+</p><h1><a name="Abreviations">Abreviations</a></h1>
+<li><a name="Gnu">Gnu</a>::="Gnu's Not Unix", a long running open source project that supplies a
+very popular C++ compiler.
+</li><li><a name="TBA">TBA</a>::="To Be Announced", something I have to do.
+</li><li><a name="TBD">TBD</a>::="To Be Done", something you have to do.
+</li></ol>
+<h3><a name="__End">End</a></h3>
+
+</body></html>

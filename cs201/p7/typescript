@@ -1,0 +1,29 @@
+Script started on Tue 28 May 2013 02:51:05 PM PDT
+]0;004470530@jb358-1:/students/csci/004470530/cs201/p7[?1034h[004470530@jb358-1 p7]$ lpr typescript[8PscriptQ project5.cpplpr typescript[8PscriptQ pafinder.cppmake[K
+cc   pafinder.o   -o pafinder
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../lib64/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+pafinder.o: In function `perimeter(Circle)':
+pafinder.cpp:(.text+0x1b): undefined reference to `Circle::get_radius() const'
+pafinder.o: In function `area(Circle)':
+pafinder.cpp:(.text+0x6c): undefined reference to `Circle::get_radius() const'
+pafinder.cpp:(.text+0x9c): undefined reference to `Circle::get_radius() const'
+pafinder.o: In function `range(Circle, Point)':
+pafinder.cpp:(.text+0xf5): undefined reference to `Point::get_x() const'
+pafinder.cpp:(.text+0x10e): undefined reference to `Point::get_y() const'
+pafinder.cpp:(.text+0x124): undefined reference to `Circle::get_center() const'
+pafinder.cpp:(.text+0x15a): undefined reference to `Point::get_y() const'
+pafinder.cpp:(.text+0x170): undefined reference to `Circle::get_center() const'
+pafinder.cpp:(.text+0x1a6): undefined reference to `Point::get_x() const'
+pafinder.cpp:(.text+0x1bc): undefined reference to `Circle::get_radius() const'
+pafinder.cpp:(.text+0x1fd): undefined reference to `sqrt'
+pafinder.cpp:(.text+0x233): undefined reference to `sqrt'
+pafinder.o: In function `__static_initialization_and_destruction_0(int, int)':
+pafinder.cpp:(.text+0x2a6): undefined reference to `std::ios_base::Init::Init()'
+pafinder.cpp:(.text+0x2b5): undefined reference to `std::ios_base::Init::~Init()'
+pafinder.o:(.eh_frame+0x6b): undefined reference to `__gxx_personality_v0'
+collect2: error: ld returned 1 exit status
+make: *** [pafinder] Error 1
+]0;004470530@jb358-1:/students/csci/004470530/cs201/p7[004470530@jb358-1 p7]$ exit
+
+Script done on Tue 28 May 2013 02:51:14 PM PDT

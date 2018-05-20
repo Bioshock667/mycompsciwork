@@ -1,0 +1,26 @@
+/* Exercise:  Output a multiplication table:
+A multiplication table has 10 rows and each row has 10 items.
+	1   2   3   4   5   6   7   8   9  10
+	2   4   6   8 ...             ...  20
+	3   6   9  ...                ...  30
+	...
+	10 ...                         90 100
+Each item in the table is a product of the row and column number
+*/
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{	const int ROWS = 10;
+
+	for( int row=1; row <= ROWS; row++ )
+	{	
+		for( int col=1; col <= rows; col++ )
+			cout << setw(4) << row*col;
+
+		cout <<"\n";
+	}//end row
+	return 0;
+}//end main
+		
