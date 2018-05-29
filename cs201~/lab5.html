@@ -1,0 +1,225 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>Sample:
+CSci201 Laboratory 05 -- decisions and loops
+</title>
+<style type="text/css">
+BODY{font-family:serif;}
+H1,H2,H3,H4{font-family:sans-serif;}
+CODE,PRE,TT{font-family:monospace;}
+HR{color: black;}
+A{ font-weight: bolder; }
+.InlineFormula{
+	font-style: italic;
+}
+.Formula{
+	padding-left:10px;
+	font-style: italic;
+}
+.Let{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+}
+.Net{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:red;
+}
+.Case{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:blue;
+}
+</style>
+</head>
+<body vlink="#8000AF" bgcolor="#FFFFFB" link="#0000FF" alink="#FF0000">
+<!-- Generated from MATHS source code by RJBotting\'s mth2html script-->
+<form method="get" action="http://www.csci.csusb.edu/dick/cs201/lookup.php">
+[<a href="#Main%20Content">Skip Navigation</a>] 
+[<a href="http://www.csusb.edu/">CSUSB</a>]
+/ [<a href="http://nsci.csusb.edu/">CNS</a>]
+/ [<a href="http://cse.csusb.edu/">CSE</a>]
+/ [<a href="http://cse.csusb.edu/dick/">R J Botting</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201">CSE201</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201/lab01">Lab01</a>]
+&gt;&gt;
+index
+<br>
+ [<a href="http://www.csci.csusb.edu/dick/cs201/">Index</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/schedule.html">Schedule</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/syllabi.html">Syllabi</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/glossary.html">Glossary</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/labs.html">Labs</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/projects.html">Projects</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/resources.html">Resources</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/grading/">Grading</a>] 
+ [Search <input name="search" size="10">
+<input name="from" value="cs201/index.mth" type="hidden">
+<input value="Go" type="submit">]
+<br>
+ Notes: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/01.html">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/02.html">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/03.html">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/04.html">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/05.html">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/06.html">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/07.html">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/08.html">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/09.html">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/10.html">10</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/11.html">11</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/12.html">12</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/13.html">13</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/14.html">14</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html">15</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/16.html">16</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/17.html">17</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/18.html">18</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/19.html">19</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/20.html">20</a>]
+<br>Labs: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab01/">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/">10</a>]
+<br>
+Tue Jan 31 11:31:43 PST 2012
+</form>
+<h3><a name="Contents">Contents</a></h3>
+<ul class="Contents">
+<li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#CSci201%20Laboratory%2005%20--%20decisions%20and%20loops">CSci201 Laboratory 05 -- decisions and loops</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#Note">: Note</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#Set%20up">: Set up</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#A%20Nested%20loop">: A Nested loop</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#A%20Simulation%20that%20miscalculates%20Pi">: A Simulation that miscalculates Pi</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#Fixing%20ifs,%20whiles%20and%20conditions">: Fixing ifs, whiles and conditions</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#Modifying%20the%20program">: Modifying the program</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#Calculate%20the%20mean%20of%20some%20numbers">: Calculate the mean of some numbers</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#To%20earn%20credit">: To earn credit</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#You%20can%20work%20on%20your%20project%20when%20you%20get%20this%20far">: You can work on your project when you get this far</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#Authors">: Authors</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#Abreviations">Abreviations</a>
+</li></ul><a name="Main Content"><hr></a><ol>
+<h1><a name="CSci201 Laboratory 05 -- decisions and loops">CSci201 Laboratory 05 -- decisions and loops</a></h1><ol class="Section">
+Previous
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/"> ../lab04/ </a>]
+Next
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/"> ../lab06/ </a>]
+<h2><a name="Note">Note</a></h2>
+You can do this lab using the graphic environment
+or in a terminal using <span class="InlineFormula">vi</span> as you wish.
+<p>
+One experiment needs the CCC graphic library and can not be run
+remotely.
+</p><p>
+</p><h2><a name="Set up">Set up</a></h2>
+Login. Change directory to cs201.
+Make a new directory lab05 and
+change directory to it.
+Perform all the downloading and exercises for this lab in this directory.
+<p>
+</p><h2><a name="A Nested loop">A Nested loop</a></h2>
+Here
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/mtable.cpp"> mtable.cpp </a>]
+is a completed multiplication table program.  Download it,
+compile it (use "g++"), and test it.
+<p>
+Can you change it so that instead of a square table it outputs
+a triangle:
+</p><pre> 	   1</pre>
+<pre> 	   2   4</pre>
+<pre> 	   3   6   9</pre>
+<pre> ...</pre>
+<pre> 	  10  20  30 ... 100</pre>
+Hint: change just one const identifier to a variable...
+<p>
+</p><h2><a name="A Simulation that miscalculates Pi">A Simulation that miscalculates Pi</a></h2>
+Download
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/piman.cpp"> piman.cpp </a>]
+and compile and test it.  Use "~dick/bin/Q" becasue it uses graphics.
+<p>
+Your task is to make it try out 10 times as many point to see if the
+circle is filled in.
+</p><p>
+</p><h2><a name="Fixing ifs, whiles and conditions">Fixing ifs, whiles and conditions</a></h2>
+Download this program
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/largest.cpp"> largest.cpp </a>]
+, Compile it
+The following should find a mistake I planted in the code:
+<pre> 		g++ -o largest largest.cpp</pre>
+Try to figure out what I have deleted from it.
+<p>
+Fix it, compile, and test it by running this command
+</p><pre> 		./largest</pre>
+inputting some numbers,
+and (on a blank line) after the data
+send a End-Of_Transmission signal: hold down the Control key and tap the
+letter D.
+<p>
+Make sure it handles missing data and a series of numbers.
+</p><p>
+Otherwise fix it!
+</p><p>
+</p><h2><a name="Modifying the program">Modifying the program</a></h2>
+Make a copy of largest.cpp called smallest.cpp
+<pre> 		cp largest.cpp smallest.cpp</pre>
+(or use the GUI desktop)
+<p>
+Change <span class="InlineFormula">smallest.cpp</span> so that it outputs the smallest of the input
+numbers rather than the largest.
+</p><p>
+</p><h2><a name="Calculate the mean of some numbers">Calculate the mean of some numbers</a></h2>
+Copy "smallest.cpp" to "mean.cpp".  Edit "mean.cpp" so that it reads in all the numbers
+and calculates their mean.
+<p>
+The mean of a list of numbers is found by adding them up and dividing by the number of numbers:
+</p><li><span class="Formula">mean = sum(input) / size(input)</span>
+<p>
+So you need to both count the size of the sample -- the number of numbers
+and also add them up.
+</p><p>
+(Hint: Start by writing some examples of what you want by hand.
+Then it often helps to draw a picture of how a program behaves or
+to describe the inputs and what happens to them.
+Then work on the source code.
+)
+</p><p>
+First fix the syntax errors.
+</p><p>
+Then test with as many test inputs that you can think of.
+Make sure your program is error free.
+</p><p>
+Getting this far by the end of the lab gets you an A for the lab.
+</p><p>
+</p><h2><a name="To earn credit">To earn credit</a></h2>
+Either show the lab instructor the programs
+or print them and hand the printouts in.
+<p>
+</p><h2><a name="You can work on your project when you get this far">You can work on your project when you get this far</a></h2>
+<p>
+</p><h2><a name="Authors">Authors</a></h2>
+<br><strong>Table</strong><table border="1"><tbody><tr><th scope="col">Who</th><th scope="col">When
+</th></tr><tr><td>Kay Zemoudeh
+</td><td>12/9/1997
+</td></tr><tr><td>Dick Botting
+</td><td>02/02/2010
+</td></tr></tbody></table><br>(Close Table)<br>
+</li></ol><p>. . . . . . . . . ( end of section <a href="http://www.csci.csusb.edu/dick/cs201/lab05/index.html#CSci201%20Laboratory%2005%20--%20decisions%20and%20loops">CSci201 Laboratory 05 -- decisions and loops</a>)  <a href="#Contents">&lt;&lt;</a>Contents | End<a href="#__End">&gt;&gt;</a>
+</p><h1><a name="Abreviations">Abreviations</a></h1>
+<li><a name="Gnu">Gnu</a>::="Gnu's Not Unix", a long running open source project that supplies a
+very popular C++ compiler.
+</li><li><a name="TBA">TBA</a>::="To Be Announced", something I have to do.
+</li><li><a name="TBD">TBD</a>::="To Be Done", something you have to do.
+</li></ol>
+<h3><a name="__End">End</a></h3>
+
+</body></html>

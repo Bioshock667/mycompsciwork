@@ -1,0 +1,182 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>Sample:
+Multifile programming
+</title>
+<style type="text/css">
+BODY{font-family:serif;}
+H1,H2,H3,H4{font-family:sans-serif;}
+CODE,PRE,TT{font-family:monospace;}
+HR{color: black;}
+A{ font-weight: bolder; }
+.InlineFormula{
+	font-style: italic;
+}
+.Formula{
+	padding-left:10px;
+	font-style: italic;
+}
+.Let{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+}
+.Net{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:red;
+}
+.Case{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:blue;
+}
+</style>
+</head>
+<body vlink="#8000AF" bgcolor="#FFFFFB" link="#0000FF" alink="#FF0000">
+<!-- Generated from MATHS source code by RJBotting\'s mth2html script-->
+<form method="get" action="http://www.csci.csusb.edu/dick/cs201/lookup.php">
+[<a href="#Main%20Content">Skip Navigation</a>] 
+[<a href="http://www.csusb.edu/">CSUSB</a>]
+/ [<a href="http://nsci.csusb.edu/">CNS</a>]
+/ [<a href="http://cse.csusb.edu/">CSE</a>]
+/ [<a href="http://cse.csusb.edu/dick/">R J Botting</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201">CSE201</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201/lab01">Lab01</a>]
+&gt;&gt;
+index
+<br>
+ [<a href="http://www.csci.csusb.edu/dick/cs201/">Index</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/schedule.html">Schedule</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/syllabi.html">Syllabi</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/glossary.html">Glossary</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/labs.html">Labs</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/projects.html">Projects</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/resources.html">Resources</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/grading/">Grading</a>] 
+ [Search <input name="search" size="10">
+<input name="from" value="cs201/index.mth" type="hidden">
+<input value="Go" type="submit">]
+<br>
+ Notes: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/01.html">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/02.html">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/03.html">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/04.html">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/05.html">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/06.html">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/07.html">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/08.html">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/09.html">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/10.html">10</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/11.html">11</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/12.html">12</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/13.html">13</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/14.html">14</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html">15</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/16.html">16</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/17.html">17</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/18.html">18</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/19.html">19</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/20.html">20</a>]
+<br>Labs: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab01/">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/">10</a>]
+<br>
+Wed May 16 14:24:06 PDT 2012
+</form>
+<h3><a name="Contents">Contents</a></h3>
+<ul class="Contents">
+<li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Multifile%20programming">Multifile programming</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Goal">: Goal</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Reference">: Reference</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Process">: Process</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Create%20and%20change%20to%20directory%20to%20cs201/lab08">: : Create and change to directory to cs201/lab08</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Use%20make%20to%20compile%20and%20run%20the%20project">: : Use make to compile and run the project</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Change%20the%20main%20program%20to%20plot%20a%20different%20function%20using%20vi">: : Change the main program to plot a different function using vi</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Experiment%202%20--%20download%20and%20test%20the%20books%20prodtest%20code">: : Experiment 2 -- download and test the books prodtest code</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Get%20credit">: : Get credit</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Work%20on%20project%20--%20if%20time">: : Work on project -- if time</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Take%20note%20of%20something%20you%20have%20learned">: : Take note of something you have learned</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Logout%20from%20the%20lab%20machine">: : Logout from the lab machine</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Abreviations">Abreviations</a>
+</li></ul><a name="Main Content"><hr></a><ol>
+<h1><a name="Multifile programming">Multifile programming</a></h1><ol class="Section">
+Previous
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/"> ../lab07/ </a>]
+Next
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/"> ../lab09/ </a>]
+<h2><a name="Goal">Goal</a></h2><ol class="Section">
+<li>To experiment with multifile programming -- Chapter 5, section 5.9
+</li><li>To experiment with the Unix command line interfaces.
+Prepares for working remotely...
+</li></ol>
+Note -- if you don't use "gedit" or a graphic browser like "Firefox" you can do
+this lab remotely...
+<h2><a name="Reference">Reference</a></h2><ol class="Section">
+<li>Makefiles
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html#Makefiles%20and%20make"> ../15.html#Makefiles and make </a>]
+</li><li>Multifile Programs
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html"> ../15.html </a>]
+and Chapter 5, section 5.9.
+</li></ol><p>. . . . . . . . . ( end of section <a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Reference">Reference</a>)  <a href="#Contents">&lt;&lt;</a>Contents | End<a href="#__End">&gt;&gt;</a>
+</p><h2><a name="Process">Process</a></h2><ol class="Section">
+<h3><a name="Create and change to directory to cs201/lab08">Create and change to directory to cs201/lab08</a></h3>
+<pre> 		cd cs201</pre>
+<pre> 		mkdir lab08</pre>
+<pre> 		cd lab08</pre>
+<p>
+Download each of the following.
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/plot.h"> plot.h </a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/plot.cpp"> plot.cpp </a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/graph.cpp"> graph.cpp </a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/makefile"> makefile </a>]
+into your cs201/lab08
+</p><p>
+</p><h3><a name="Use make to compile and run the project">Use make to compile and run the project</a></h3>
+<pre> 	make</pre>
+<h3><a name="Change the main program to plot a different function using vi">Change the main program to plot a different function using vi</a></h3>
+In the lab you can use
+<pre> 	gedit graph.cpp &amp;</pre>
+or remotely (or if you are doing a CSE major) you should try out the 'vi'
+editor I use in class.  First run this command
+<pre> 	Q novice</pre>
+and then you can edit files like this
+<pre> 	vi graph.cpp</pre>
+and tapping the letter 'q' will compile and run the program...
+<p>
+</p><h3><a name="Experiment 2 -- download and test the books prodtest code">Experiment 2 -- download and test the books prodtest code</a></h3>
+Download
+[<a href="http://www.csci.csusb.edu/dick/cs201/prodtest/"> ../prodtest/ </a>]
+<p>
+You can edit a makefile just like any other file.
+</p><p>
+Add some recipes to this lab's makefile.  Hint -- copy
+the examples already there and change the names of the files.
+</p><p>
+Test the program and makefile.
+</p><h3><a name="Get credit">Get credit</a></h3>
+<h3><a name="Work on project -- if time">Work on project -- if time</a></h3>
+<h3><a name="Take note of something you have learned">Take note of something you have learned</a></h3>
+<h3><a name="Logout from the lab machine">Logout from the lab machine</a></h3>
+</ol><p>. . . . . . . . . ( end of section <a href="http://www.csci.csusb.edu/dick/cs201/lab08/index.html#Process">Process</a>)  <a href="#Contents">&lt;&lt;</a>Contents | End<a href="#__End">&gt;&gt;</a>
+</p><p>
+</p></ol>
+<h1><a name="Abreviations">Abreviations</a></h1>
+<li><a name="Gnu">Gnu</a>::="Gnu's Not Unix", a long running open source project that supplies a
+very popular C++ compiler.
+</li><li><a name="TBA">TBA</a>::="To Be Announced", something I have to do.
+</li><li><a name="TBD">TBD</a>::="To Be Done", something you have to do.
+</li></ol>
+<h3><a name="__End">End</a></h3>
+
+</body></html>

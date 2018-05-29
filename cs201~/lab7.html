@@ -1,0 +1,166 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>Sample:
+CSci201 Laboratory 07 -- Classes
+</title>
+<style type="text/css">
+BODY{font-family:serif;}
+H1,H2,H3,H4{font-family:sans-serif;}
+CODE,PRE,TT{font-family:monospace;}
+HR{color: black;}
+A{ font-weight: bolder; }
+.InlineFormula{
+	font-style: italic;
+}
+.Formula{
+	padding-left:10px;
+	font-style: italic;
+}
+.Let{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+}
+.Net{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:red;
+}
+.Case{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:blue;
+}
+</style>
+</head>
+<body vlink="#8000AF" bgcolor="#FFFFFB" link="#0000FF" alink="#FF0000">
+<!-- Generated from MATHS source code by RJBotting\'s mth2html script-->
+<form method="get" action="http://www.csci.csusb.edu/dick/cs201/lookup.php">
+[<a href="#Main%20Content">Skip Navigation</a>] 
+[<a href="http://www.csusb.edu/">CSUSB</a>]
+/ [<a href="http://nsci.csusb.edu/">CNS</a>]
+/ [<a href="http://cse.csusb.edu/">CSE</a>]
+/ [<a href="http://cse.csusb.edu/dick/">R J Botting</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201">CSE201</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201/lab01">Lab01</a>]
+&gt;&gt;
+index
+<br>
+ [<a href="http://www.csci.csusb.edu/dick/cs201/">Index</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/schedule.html">Schedule</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/syllabi.html">Syllabi</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/glossary.html">Glossary</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/labs.html">Labs</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/projects.html">Projects</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/resources.html">Resources</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/grading/">Grading</a>] 
+ [Search <input name="search" size="10">
+<input name="from" value="cs201/index.mth" type="hidden">
+<input value="Go" type="submit">]
+<br>
+ Notes: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/01.html">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/02.html">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/03.html">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/04.html">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/05.html">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/06.html">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/07.html">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/08.html">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/09.html">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/10.html">10</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/11.html">11</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/12.html">12</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/13.html">13</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/14.html">14</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html">15</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/16.html">16</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/17.html">17</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/18.html">18</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/19.html">19</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/20.html">20</a>]
+<br>Labs: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab01/">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/">10</a>]
+<br>
+Tue Feb  7 12:49:05 PST 2012
+</form>
+<h3><a name="Contents">Contents</a></h3>
+<ul class="Contents">
+<li><a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#CSci201%20Laboratory%2007%20--%20Classes">CSci201 Laboratory 07 -- Classes</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#Note">: Note</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#Set%20up">: Set up</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#Download%20these%20programs">: Download these programs</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#Experiment%201">: Experiment 1</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#Experiment%202">: Experiment 2</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#Experiment%203">: Experiment 3</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#Get%20credit">: Get credit</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#Work%20on%20your%20project">: Work on your project</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#Abreviations">Abreviations</a>
+</li></ul><a name="Main Content"><hr></a><ol>
+<h1><a name="CSci201 Laboratory 07 -- Classes">CSci201 Laboratory 07 -- Classes</a></h1><ol class="Section">
+Previous
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/"> ../lab06/ </a>]
+Next
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/"> ../lab08/ </a>]
+<h2><a name="Note">Note</a></h2>
+You can do this lab using a graphic editor
+or in a terminal using <span class="InlineFormula">vi</span> as you wish.
+<p>
+</p><h2><a name="Set up">Set up</a></h2>
+Login. Change directory to cs201.
+<p>
+Make a new directory lab07 and
+change directory to it.
+</p><p>
+Perform all the exercises in this lab under this directory.
+</p><h2><a name="Download these programs">Download these programs</a></h2>
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/test.Counter.cpp"> test.Counter.cpp </a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/test.Circle.cpp"> test.Circle.cpp </a>]
+<h2><a name="Experiment 1">Experiment 1</a></h2>
+Try to compile and run "test.Counter.cpp".  Does it work?
+Does it fail?  If so, fix it!
+<h2><a name="Experiment 2">Experiment 2</a></h2>
+Add a new function to the Count class and add statements that test it.
+<p>
+The header for the function is
+</p><pre> 		void setValue(int v); // sets value to v</pre>
+and a suitable test is
+<pre> 		c.setValue(5);</pre>
+<pre> 		assert(c.getValue() == 5 );</pre>
+<p>
+Add any other test you like...  then add the function definition
+</p><pre> 		void Counter::setValue(.....){....}</pre>
+(fill in the blanks) and make it work.
+<h2><a name="Experiment 3">Experiment 3</a></h2>
+Try to compile and run "test.Circle.cpp".  Does it work?
+You will need a calculator -- our machines have one: Activities -&gt; 
+Applications -&gt; Accessories -&gt; Calculator,  or you can use Google 
+in your browser!
+<p>
+How does it fail?  Fix it (the error is subtle, be thoughtful)!
+</p><p>
+</p><h2><a name="Get credit">Get credit</a></h2>
+Finish all the experiments and get an a A.
+<p>
+</p><h2><a name="Work on your project">Work on your project</a></h2>
+<p>
+</p></ol><p>. . . . . . . . . ( end of section <a href="http://www.csci.csusb.edu/dick/cs201/lab07/index.html#CSci201%20Laboratory%2007%20--%20Classes">CSci201 Laboratory 07 -- Classes</a>)  <a href="#Contents">&lt;&lt;</a>Contents | End<a href="#__End">&gt;&gt;</a>
+</p><h1><a name="Abreviations">Abreviations</a></h1>
+<li><a name="Gnu">Gnu</a>::="Gnu's Not Unix", a long running open source project that supplies a
+very popular C++ compiler.
+</li><li><a name="TBA">TBA</a>::="To Be Announced", something I have to do.
+</li><li><a name="TBD">TBD</a>::="To Be Done", something you have to do.
+</li></ol>
+<h3><a name="__End">End</a></h3>
+
+</body></html>

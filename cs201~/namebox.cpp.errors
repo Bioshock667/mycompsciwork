@@ -1,0 +1,241 @@
+namebox.cpp: In function ‘int main()’:
+namebox.cpp:15:9: error: no match for ‘operator>>’ in ‘std::cin >> "     +--------+\012"’
+namebox.cpp:15:9: note: candidates are:
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:118:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__istream_type& (*)(std::basic_istream<_CharT, _Traits>::__istream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:118:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::basic_istream<char>::__istream_type& (*)(std::basic_istream<char>::__istream_type&) {aka std::basic_istream<char>& (*)(std::basic_istream<char>&)}’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:122:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__ios_type& (*)(std::basic_istream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>; std::basic_istream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:122:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::basic_istream<char>::__ios_type& (*)(std::basic_istream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:129:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:129:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::ios_base& (*)(std::ios_base&)’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:166:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(bool&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:166:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘bool&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:170:7: note: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(short int&) [with _CharT = char; _Traits = std::char_traits<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:170:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘short int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:173:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(short unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:173:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘short unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:177:7: note: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(int&) [with _CharT = char; _Traits = std::char_traits<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:177:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:180:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:180:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:184:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:184:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:188:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:188:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:193:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long long int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:193:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long long int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:197:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long long unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:197:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long long unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:212:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(float&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:212:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘float&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:216:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(double&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:216:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘double&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:220:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long double&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:220:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long double&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:233:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(void*&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:233:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘void*&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:257:7: note: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:257:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::basic_istream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/string:55:0,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/locale_classes.h:42,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/ios_base.h:43,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/ios:43,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/ostream:40,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:40,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/basic_string.tcc:998:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/basic_string.tcc:998:5: note:   template argument deduction/substitution failed:
+namebox.cpp:15:9: note:   mismatched types ‘std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const char [17]’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:873:0,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:957:5: note: template<class _CharT2, class _Traits2> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, _CharT2*)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:957:5: note:   template argument deduction/substitution failed:
+namebox.cpp:15:9: note:   deduced conflicting types for parameter ‘_CharT2’ (‘char’ and ‘const char’)
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:873:0,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:925:5: note: template<class _CharT, class _Traits> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, _CharT&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:925:5: note:   template argument deduction/substitution failed:
+namebox.cpp:15:9: note:   deduced conflicting types for parameter ‘_CharT’ (‘char’ and ‘const char [17]’)
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:725:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, unsigned char&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:725:5: note:   template argument deduction/substitution failed:
+namebox.cpp:15:9: note:   cannot convert ‘"     +--------+\012"’ (type ‘const char [17]’) to type ‘unsigned char&’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:730:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, signed char&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:730:5: note:   template argument deduction/substitution failed:
+namebox.cpp:15:9: note:   cannot convert ‘"     +--------+\012"’ (type ‘const char [17]’) to type ‘signed char&’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:772:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, unsigned char*)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:772:5: note:   template argument deduction/substitution failed:
+namebox.cpp:15:9: note:   cannot convert ‘"     +--------+\012"’ (type ‘const char [17]’) to type ‘unsigned char*’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:777:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, signed char*)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:777:5: note:   template argument deduction/substitution failed:
+namebox.cpp:15:9: note:   cannot convert ‘"     +--------+\012"’ (type ‘const char [17]’) to type ‘signed char*’
+namebox.cpp:17:9: error: no match for ‘operator>>’ in ‘std::cin >> "     |  Seth  |\012"’
+namebox.cpp:17:9: note: candidates are:
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:118:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__istream_type& (*)(std::basic_istream<_CharT, _Traits>::__istream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:118:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::basic_istream<char>::__istream_type& (*)(std::basic_istream<char>::__istream_type&) {aka std::basic_istream<char>& (*)(std::basic_istream<char>&)}’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:122:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__ios_type& (*)(std::basic_istream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>; std::basic_istream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:122:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::basic_istream<char>::__ios_type& (*)(std::basic_istream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:129:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:129:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::ios_base& (*)(std::ios_base&)’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:166:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(bool&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:166:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘bool&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:170:7: note: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(short int&) [with _CharT = char; _Traits = std::char_traits<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:170:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘short int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:173:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(short unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:173:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘short unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:177:7: note: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(int&) [with _CharT = char; _Traits = std::char_traits<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:177:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:180:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:180:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:184:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:184:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:188:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:188:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:193:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long long int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:193:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long long int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:197:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long long unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:197:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long long unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:212:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(float&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:212:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘float&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:216:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(double&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:216:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘double&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:220:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long double&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:220:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long double&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:233:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(void*&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:233:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘void*&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:257:7: note: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:257:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::basic_istream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/string:55:0,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/locale_classes.h:42,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/ios_base.h:43,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/ios:43,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/ostream:40,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:40,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/basic_string.tcc:998:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/basic_string.tcc:998:5: note:   template argument deduction/substitution failed:
+namebox.cpp:17:9: note:   mismatched types ‘std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const char [17]’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:873:0,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:957:5: note: template<class _CharT2, class _Traits2> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, _CharT2*)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:957:5: note:   template argument deduction/substitution failed:
+namebox.cpp:17:9: note:   deduced conflicting types for parameter ‘_CharT2’ (‘char’ and ‘const char’)
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:873:0,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:925:5: note: template<class _CharT, class _Traits> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, _CharT&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:925:5: note:   template argument deduction/substitution failed:
+namebox.cpp:17:9: note:   deduced conflicting types for parameter ‘_CharT’ (‘char’ and ‘const char [17]’)
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:725:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, unsigned char&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:725:5: note:   template argument deduction/substitution failed:
+namebox.cpp:17:9: note:   cannot convert ‘"     |  Seth  |\012"’ (type ‘const char [17]’) to type ‘unsigned char&’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:730:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, signed char&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:730:5: note:   template argument deduction/substitution failed:
+namebox.cpp:17:9: note:   cannot convert ‘"     |  Seth  |\012"’ (type ‘const char [17]’) to type ‘signed char&’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:772:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, unsigned char*)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:772:5: note:   template argument deduction/substitution failed:
+namebox.cpp:17:9: note:   cannot convert ‘"     |  Seth  |\012"’ (type ‘const char [17]’) to type ‘unsigned char*’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:777:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, signed char*)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:777:5: note:   template argument deduction/substitution failed:
+namebox.cpp:17:9: note:   cannot convert ‘"     |  Seth  |\012"’ (type ‘const char [17]’) to type ‘signed char*’
+namebox.cpp:19:9: error: no match for ‘operator>>’ in ‘std::cin >> "     +--------+\012"’
+namebox.cpp:19:9: note: candidates are:
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:118:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__istream_type& (*)(std::basic_istream<_CharT, _Traits>::__istream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:118:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::basic_istream<char>::__istream_type& (*)(std::basic_istream<char>::__istream_type&) {aka std::basic_istream<char>& (*)(std::basic_istream<char>&)}’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:122:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__ios_type& (*)(std::basic_istream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>; std::basic_istream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:122:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::basic_istream<char>::__ios_type& (*)(std::basic_istream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:129:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:129:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::ios_base& (*)(std::ios_base&)’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:166:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(bool&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:166:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘bool&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:170:7: note: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(short int&) [with _CharT = char; _Traits = std::char_traits<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:170:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘short int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:173:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(short unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:173:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘short unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:177:7: note: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(int&) [with _CharT = char; _Traits = std::char_traits<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:177:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:180:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:180:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:184:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:184:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:188:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:188:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:193:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long long int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:193:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long long int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:197:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long long unsigned int&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:197:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long long unsigned int&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:212:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(float&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:212:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘float&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:216:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(double&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:216:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘double&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:220:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(long double&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:220:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘long double&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:233:7: note: std::basic_istream<_CharT, _Traits>::__istream_type& std::basic_istream<_CharT, _Traits>::operator>>(void*&) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__istream_type = std::basic_istream<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:233:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘void*&’
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:257:7: note: std::basic_istream<_CharT, _Traits>& std::basic_istream<_CharT, _Traits>::operator>>(std::basic_istream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_istream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:257:7: note:   no known conversion for argument 1 from ‘const char [17]’ to ‘std::basic_istream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/string:55:0,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/locale_classes.h:42,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/ios_base.h:43,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/ios:43,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/ostream:40,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:40,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/basic_string.tcc:998:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/basic_string.tcc:998:5: note:   template argument deduction/substitution failed:
+namebox.cpp:19:9: note:   mismatched types ‘std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const char [17]’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:873:0,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:957:5: note: template<class _CharT2, class _Traits2> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, _CharT2*)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:957:5: note:   template argument deduction/substitution failed:
+namebox.cpp:19:9: note:   deduced conflicting types for parameter ‘_CharT2’ (‘char’ and ‘const char’)
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:873:0,
+                 from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:925:5: note: template<class _CharT, class _Traits> std::basic_istream<_CharT, _Traits>& std::operator>>(std::basic_istream<_CharT, _Traits>&, _CharT&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc:925:5: note:   template argument deduction/substitution failed:
+namebox.cpp:19:9: note:   deduced conflicting types for parameter ‘_CharT’ (‘char’ and ‘const char [17]’)
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:725:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, unsigned char&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:725:5: note:   template argument deduction/substitution failed:
+namebox.cpp:19:9: note:   cannot convert ‘"     +--------+\012"’ (type ‘const char [17]’) to type ‘unsigned char&’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:730:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, signed char&)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:730:5: note:   template argument deduction/substitution failed:
+namebox.cpp:19:9: note:   cannot convert ‘"     +--------+\012"’ (type ‘const char [17]’) to type ‘signed char&’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:772:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, unsigned char*)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:772:5: note:   template argument deduction/substitution failed:
+namebox.cpp:19:9: note:   cannot convert ‘"     +--------+\012"’ (type ‘const char [17]’) to type ‘unsigned char*’
+In file included from /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:41:0,
+                 from namebox.cpp:9:
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:777:5: note: template<class _Traits> std::basic_istream<char, _Traits>& std::operator>>(std::basic_istream<char, _Traits>&, signed char*)
+/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream:777:5: note:   template argument deduction/substitution failed:
+namebox.cpp:19:9: note:   cannot convert ‘"     +--------+\012"’ (type ‘const char [17]’) to type ‘signed char*’

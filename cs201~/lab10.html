@@ -1,0 +1,177 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>Sample:
+cs201/lab10 -- Vectors
+</title>
+<style type="text/css">
+BODY{font-family:serif;}
+H1,H2,H3,H4{font-family:sans-serif;}
+CODE,PRE,TT{font-family:monospace;}
+HR{color: black;}
+A{ font-weight: bolder; }
+.InlineFormula{
+	font-style: italic;
+}
+.Formula{
+	padding-left:10px;
+	font-style: italic;
+}
+.Let{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+}
+.Net{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:red;
+}
+.Case{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:blue;
+}
+</style>
+</head>
+<body vlink="#8000AF" bgcolor="#FFFFFB" link="#0000FF" alink="#FF0000">
+<!-- Generated from MATHS source code by RJBotting\'s mth2html script-->
+<form method="get" action="http://www.csci.csusb.edu/dick/cs201/lookup.php">
+[<a href="#Main%20Content">Skip Navigation</a>] 
+[<a href="http://www.csusb.edu/">CSUSB</a>]
+/ [<a href="http://nsci.csusb.edu/">CNS</a>]
+/ [<a href="http://cse.csusb.edu/">CSE</a>]
+/ [<a href="http://cse.csusb.edu/dick/">R J Botting</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201">CSE201</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201/lab01">Lab01</a>]
+&gt;&gt;
+index
+<br>
+ [<a href="http://www.csci.csusb.edu/dick/cs201/">Index</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/schedule.html">Schedule</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/syllabi.html">Syllabi</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/glossary.html">Glossary</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/labs.html">Labs</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/projects.html">Projects</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/resources.html">Resources</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/grading/">Grading</a>] 
+ [Search <input name="search" size="10">
+<input name="from" value="cs201/index.mth" type="hidden">
+<input value="Go" type="submit">]
+<br>
+ Notes: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/01.html">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/02.html">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/03.html">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/04.html">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/05.html">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/06.html">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/07.html">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/08.html">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/09.html">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/10.html">10</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/11.html">11</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/12.html">12</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/13.html">13</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/14.html">14</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html">15</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/16.html">16</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/17.html">17</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/18.html">18</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/19.html">19</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/20.html">20</a>]
+<br>Labs: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab01/">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/">10</a>]
+<br>
+Tue Mar 15 15:12:14 PDT 2011
+</form>
+<h3><a name="Contents">Contents</a></h3>
+<ul class="Contents">
+<li><a href="http://www.csci.csusb.edu/dick/cs201/lab10/index.html#cs201/lab10%20--%20Vectors">cs201/lab10 -- Vectors</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab10/index.html#Deliverables">: Deliverables</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab10/index.html#Process">: Process</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab10/index.html#Grading">: Grading</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab10/index.html#Work%20on%20projects%20or%20something%20else">: Work on projects or something else</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab10/index.html#Abreviations">Abreviations</a>
+</li></ul><a name="Main Content"><hr></a><ol>
+<h1><a name="cs201/lab10 -- Vectors">cs201/lab10 -- Vectors</a></h1><ol class="Section">
+Previous
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/"> ../lab09/ </a>]
+<p>
+</p><h2><a name="Deliverables">Deliverables</a></h2>
+By the end of the lab you should have worked with several programs that use vectors.
+<h2><a name="Process">Process</a></h2><ol class="Section">
+<li>Set up a cs201/lab09 directory to work in.
+</li><li>Download
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/vectors.cpp"> vectors.cpp </a>]
+the example program for the handout.  Verify that it works as described in the comment.
+</li><li>Add a function to <span class="InlineFormula">vectors.cpp</span> that adds up all the numbers in a given
+vector and returns the sum:
+</li><li><span class="Formula">sum(v) = &#931;[i](v[i]).</span>
+<pre> 	int sum( const vector &lt;int&gt; &amp; v ) { /*your code here */ }</pre>
+Note -- this function outputs nothing.  It silently returns the sum to the
+main program that does this
+<pre> 		cout &lt;&lt; sum(v) &lt;&lt; "\n";</pre>
+</li><li>Add instructions to the main program <span class="InlineFormula">vectors.cpp</span> that test your <span class="InlineFormula">int sum(vector &lt;int&gt;&amp;)</span> function.
+Test it...
+</li><li>Now add and test a function
+<pre> 	double mean(const vector &lt;int&gt; &amp; v) { /*Your code here*/ }</pre>
+Hint:  mean(...) should call <span class="InlineFormula">sum(...)</span> and use code like this:
+<pre> 	return sum(v)/static_cast&lt;double&gt;(v.size());</pre>
+Note:   the algorithm is similar but simpler than the one you used in lab07
+because you know the size of the vector.
+Again -- the "cout" should be outside the function and the <span class="InlineFormula">mean</span> is returned.
+</li><li>Now add and test a function that returns the maximum or biggest item:
+<pre> 	int max(const vector &lt;int&gt; &amp; v) { /*Your code here*/ }</pre>
+</li><li>Next return the smallest or minimum value.
+<pre> 	int min(const vector &lt;int&gt; &amp; v) { /*Your code here*/ }</pre>
+</li><li>Next -- range should be easy, reusing max(v) and min(v).
+<pre> 	int range(const vector &lt;int&gt; &amp; v) { /*Your code here*/ }</pre>
+Return <span class="InlineFormula">max(v)-min(v)</span>.
+</li><li>Next -- the sum of the squares of the values:
+</li><li><span class="Formula">sum_of_squares(v) = &#931;[i](v[i]*v[i]),</span>
+</li><li>Next -- the population variance can be found as
+</li><li><span class="Formula">variance(v) = (sum_of_squares(v) - mean(v)*sum(v))/(v.size()-1),</span>
+<pre> 	double variance( const vector &lt;int&gt; &amp; v ) { /*your code here */ }</pre>
+</li><li>Next -- standard deviation -- using sqrt in cmath:
+</li><li><span class="Formula">sd(v) = &#8730;(variance(v)),</span>
+<pre> 	double sd( const vector &lt;int&gt; &amp; v ) { /*your code here */ }</pre>
+Note -- Formulas for standard deviation
+are on page 154 of Horstmann &amp; Budd.
+</li></ol><p>. . . . . . . . . ( end of section <a href="http://www.csci.csusb.edu/dick/cs201/lab10/index.html#Process">Process</a>)  <a href="#Contents">&lt;&lt;</a>Contents | End<a href="#__End">&gt;&gt;</a>
+</p><p>
+</p><h2><a name="Grading">Grading</a></h2>
+The more functions you complete the better the grade.  Getting as far as standard deviation
+should be worth an A.
+<p>
+</p><h2><a name="Work on projects or something else">Work on projects or something else</a></h2>
+This is just for grins and giggles....   you can declare a vector of strings
+<pre> 	vector &lt;string&gt; grid;</pre>
+and use it to plot functions.  It should be like the experiments you did in
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/"> ../lab08/ </a>]
+but you can display the graphs the right way up:  <span class="InlineFormula">x</span> horizontally and <span class="InlineFormula">y = f(x)</span> vertically.
+Note:  you can borrow some code from
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/lab08/"> lab08/ </a>]
+.... but I figure you've got about 60 minutes
+work to do for this project.
+<p>
+</p><p>
+</p></ol>
+<h1><a name="Abreviations">Abreviations</a></h1>
+<li><a name="Gnu">Gnu</a>::="Gnu's Not Unix", a long running open source project that supplies a
+very popular C++ compiler.
+</li><li><a name="TBA">TBA</a>::="To Be Announced", something I have to do.
+</li><li><a name="TBD">TBD</a>::="To Be Done", something you have to do.
+</li></ol>
+<h3><a name="__End">End</a></h3>
+
+</body></html>

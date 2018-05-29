@@ -1,0 +1,168 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>
+CSci201 Laboratory 04 -- Logic
+</title>
+<style type="text/css">
+BODY{font-family:serif;}
+H1,H2,H3,H4{font-family:sans-serif;}
+CODE,PRE,TT{font-family:monospace;}
+HR{color: black;}
+A{ font-weight: bolder; }
+.InlineFormula{
+	font-style: italic;
+}
+.Formula{
+	padding-left:10px;
+	font-style: italic;
+}
+.Let{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+}
+.Net{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:red;
+}
+.Case{
+	border-style: solid;
+	padding:10px;
+	border-width:thin;
+	border-color:blue;
+}
+</style>
+</head>
+<body vlink="#8000AF" bgcolor="#FFFFFB" link="#0000FF" alink="#FF0000">
+<!-- Generated from MATHS source code by RJBotting\'s mth2html script-->
+<form method="get" action="http://www.csci.csusb.edu/dick/cs201/lookup.php">
+[<a href="#Main%20Content">Skip Navigation</a>] 
+[<a href="http://www.csusb.edu/">CSUSB</a>]
+/ [<a href="http://nsci.csusb.edu/">CNS</a>]
+/ [<a href="http://cse.csusb.edu/">CSE</a>]
+/ [<a href="http://cse.csusb.edu/dick/">R J Botting</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201">CSE201</a>]
+&gt;&gt; [<a href="http://www.csci.csusb.edu/dick/cs201/lab01">Lab01</a>]
+&gt;&gt;
+index
+<br>
+ [<a href="http://www.csci.csusb.edu/dick/cs201/">Index</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/schedule.html">Schedule</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/syllabi.html">Syllabi</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/glossary.html">Glossary</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/labs.html">Labs</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/projects.html">Projects</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/resources.html">Resources</a>] 
+ [<a href="http://www.csci.csusb.edu/dick/cs201/grading/">Grading</a>] 
+ [Search <input name="search" size="10">
+<input name="from" value="cs201/index.mth" type="hidden">
+<input value="Go" type="submit">]
+<br>
+ Notes: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/01.html">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/02.html">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/03.html">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/04.html">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/05.html">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/06.html">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/07.html">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/08.html">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/09.html">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/10.html">10</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/11.html">11</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/12.html">12</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/13.html">13</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/14.html">14</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/15.html">15</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/16.html">16</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/17.html">17</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/18.html">18</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/19.html">19</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/20.html">20</a>]
+<br>Labs: 
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab01/">01</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab02/">02</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/">03</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/">04</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/">05</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab06/">06</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab07/">07</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab08/">08</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab09/">09</a>]
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab10/">10</a>]
+<br>
+Tue Jan 24 11:39:10 PST 2012
+</form>
+<h3><a name="Contents">Contents</a></h3>
+<ul class="Contents">
+<li><a href="http://www.csci.csusb.edu/dick/cs201/lab04/index.html#CSci201%20Laboratory%2004%20--%20Logic">CSci201 Laboratory 04 -- Logic</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab04/index.html#Set%20up">: Set up</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab04/index.html#Example%20of%20ifs%20and%20elses%20used%20in%20class">: Example of ifs and elses used in class</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab04/index.html#Example%20from%20text%20book%20of%20a%20while%20loop">: Example from text book of a while loop</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab04/index.html#Printing%20a%20truth%20table">: Printing a truth table</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab04/index.html#Printing%20a%20truth%20table%20with%203%20varaibles">: Printing a truth table with 3 varaibles</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab04/index.html#To%20earn%20credit">: To earn credit</a>
+</li><li><a href="http://www.csci.csusb.edu/dick/cs201/lab04/index.html#Abreviations">Abreviations</a>
+</li></ul><a name="Main Content"><hr></a><ol>
+<h1><a name="CSci201 Laboratory 04 -- Logic">CSci201 Laboratory 04 -- Logic</a></h1><ol class="Section">
+Previous
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab03/"> ../lab03/ </a>]
+Next
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab05/"> ../lab05/ </a>]
+<h2><a name="Set up">Set up</a></h2>
+Login. You need to create a "lab04" directory under your "cs201"
+directory.
+Perform all the exercises in this lab under this directory.
+<p>
+</p><h2><a name="Example of ifs and elses used in class">Example of ifs and elses used in class</a></h2>
+Download, compile, and test
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/ifelses.cpp"> ifelses.cpp </a>]
+which is like an example you saw in class 05.  Try several values.  What
+does it do with multiples of 7?
+<p>
+Change the program so that it correctly
+describes any number from 2 thru to 49.
+</p><p>
+</p><h2><a name="Example from text book of a while loop">Example from text book of a while loop</a></h2>
+Section 3.6 (pages 121-123) presents a problem (when will my investment be worth
+twice what it is now) and its solution. Here
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/doublinv.cpp"> doublinv.cpp </a>]
+is the code.  Download and run this.
+<p>
+The problem is that these days the interest rate is not 5% but 1%.  Change the program
+to find out how long it takes to double the investment today.
+</p><p>
+</p><h2><a name="Printing a truth table">Printing a truth table</a></h2>
+Download
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/george.cpp"> george.cpp </a>]
+and compile and run it.  Confirm that it outputs a simple truth table.
+Look at the tricks in the code -- how to use tab characters, how to do bool
+for loops, how to output Booleans.
+<p>
+This program tests a special case of De Morgan's law (advanced Topic 3.3).  Can you change it
+to test another case?
+</p><p>
+</p><h2><a name="Printing a truth table with 3 varaibles">Printing a truth table with 3 varaibles</a></h2>
+This
+[<a href="http://www.csci.csusb.edu/dick/cs201/lab04/george3.cpp"> george3.cpp </a>]
+is a partial solution to Exercise R3.11 on page 147 of
+Horstmann and Budd.
+<p>
+What column is missing?   Can you change the program to output
+the missing column?
+</p><p>
+</p><h2><a name="To earn credit">To earn credit</a></h2>
+Either show the lab instructor the programs
+or print them and hand the printouts in.
+<p>
+</p></ol><p>. . . . . . . . . ( end of section <a href="http://www.csci.csusb.edu/dick/cs201/lab04/index.html#CSci201%20Laboratory%2004%20--%20Logic">CSci201 Laboratory 04 -- Logic</a>)  <a href="#Contents">&lt;&lt;</a>Contents | End<a href="#__End">&gt;&gt;</a>
+</p><h1><a name="Abreviations">Abreviations</a></h1>
+<li><a name="Gnu">Gnu</a>::="Gnu's Not Unix", a long running open source project that supplies a
+very popular C++ compiler.
+</li><li><a name="TBA">TBA</a>::="To Be Announced", something I have to do.
+</li><li><a name="TBD">TBD</a>::="To Be Done", something you have to do.
+</li></ol>
+<h3><a name="__End">End</a></h3>
+
+</body></html>
