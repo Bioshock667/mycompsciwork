@@ -1,12 +1,0 @@
-Script started on Mon 30 Oct 2017 04:19:47 PM PDT
-seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab3$ ./client  127.0.0.1 1234
-Connected...........
-Input message(Q to quit): hello server
-Message from server: hello server
-Input message(Q to quit): h goodble  ye
-Message from server: goodbye
-Input message(Q to quit): q
-seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab3$ exit
-exit
-
-Script done on Mon 30 Oct 2017 04:21:44 PM PDT

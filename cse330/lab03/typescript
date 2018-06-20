@@ -1,11 +1,0 @@
-Script started on Wed 23 Apr 2014 01:42:49 PM PDT
-]0;004470530@jb358-26:/students/csci/004470530[?1034h[004470530@jb358-26 004470530]$ cd cse330/lab0g++ vector.h sieve.cpp[8Pcd cse330/lab0
-bash: cd: cse330/lab0: No such file or directory
-]0;004470530@jb358-26:/students/csci/004470530[004470530@jb358-26 004470530]$ cd cse330/lab0g++ vector.h sieve.cpp[8Pcd cse330/lab03
-]0;004470530@jb358-26:/students/csci/004470530/cse330/lab03[004470530@jb358-26 lab03]$ cd cse330/lab03[Kg++ vector.h sieve.cpp
-]0;004470530@jb358-26:/students/csci/004470530/cse330/lab03[004470530@jb358-26 lab03]$ g++ vector.h sieve.cpp[7Pcd cse330/lab03[Kg++ vector.h sieve.cppscript -a "CSE330_Lab3_Lemanek.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pcd cse330/lab03[8P./a.out
-0 1 2 3 0 5 0 7 0 0 0 11 0 13 0 0 0 17 0 19 0 0 0 23 0 0 0 0 0 29 0 31 0 0 0 0 0 37 0 0 0 41 0 43 0 0 0 47 0 0 0 0 0 53 0 0 0 0 0 59 0 61 0 0 0 0 0 67 0 0 0 71 0 73 0 0 0 0 0 79 0 0 0 83 0 0 0 0 0 89 0 0 0 0 0 0 0 97 0 0 
-]0;004470530@jb358-26:/students/csci/004470530/cse330/lab03[004470530@jb358-26 lab03]$ exit
-exit
-
-Script done on Wed 23 Apr 2014 01:44:04 PM PDT

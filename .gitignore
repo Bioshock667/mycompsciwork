@@ -37,8 +37,16 @@ cse455_work/"cse455 PSP blank docs"
 # archive files
 *.tar
 *.zip
-1
+
+# error files
+*.errors
+
 # CSE 460 project files
 *.in
 *.out
 *.st
+# Typescripts
+*typescript*
+
+# DIA Diagram Editor Files
+*.dia

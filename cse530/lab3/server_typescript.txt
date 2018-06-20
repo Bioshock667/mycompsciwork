@@ -1,9 +1,0 @@
-Script started on Mon 30 Oct 2017 04:19:17 PM PDT
-seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab3$ ./server 1234
-Connected client 1 
-Connected client 2 
-^C
-seth@seth-HP-Pavilion-g6-Notebook-PC:~/Documents/cse530/lab3$ exit
-exit
-
-Script done on Mon 30 Oct 2017 04:21:56 PM PDT
