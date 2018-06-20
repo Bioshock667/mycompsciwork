@@ -21,3 +21,24 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
+
+# object files
+*.o
+
+#compiled programs
+a.out
+
+# old CSE 201 folder
+cs201~
+
+# CSE 455 blank PSP PDFs
+cse455_work/"cse455 PSP blank docs"
+
+# archive files
+*.tar
+*.zip
+1
+# CSE 460 project files
+*.in
+*.out
+*.st

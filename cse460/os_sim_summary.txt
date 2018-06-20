@@ -1,0 +1,14 @@
+What is your role in the project?
+I am the sole programmer of this project.
+
+How did you implement this project?
+It was an iterative process that was divided into three phases:
+Phase1: writing and testing an assembler and Virtual machine.
+	The assembler reads assembly code files and translate them into "machine code" files.
+	The virtual machine is an abstract class that can load machine code files into its memory and runs it.
+Phase2: Writing and testing the operating system.
+	The Os is also a c++ class that manages the entire process of compiling, scheduling and terminating processes.
+Phase3: Adding memory page management to the OS class
+
+Describe this project in detail.
+
