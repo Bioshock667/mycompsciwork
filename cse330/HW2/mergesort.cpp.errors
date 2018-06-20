@@ -1,7 +1,0 @@
-mergesort.cpp: In function ‘void m_sort(Itr, unsigned int, unsigned int)’:
-mergesort.cpp:7: error: ‘high’ was not declared in this scope
-mergesort.cpp: At global scope:
-mergesort.cpp:16: error: variable or field ‘mergeSort’ declared void
-mergesort.cpp:16: error: ‘vector’ was not declared in this scope
-mergesort.cpp:16: error: expected primary-expression before ‘>’ token
-mergesort.cpp:16: error: ‘s’ was not declared in this scope

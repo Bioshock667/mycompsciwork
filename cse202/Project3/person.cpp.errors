@@ -1,1 +1,0 @@
-person.cpp:31: error: non-member function ‘std::string whatami()’ cannot have cv-qualifier
